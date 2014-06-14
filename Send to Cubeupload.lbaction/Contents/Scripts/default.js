@@ -18,6 +18,13 @@ function runWithPaths(paths) {
 }
 
 function upload(image_path) {
+    // Only allow images + pdfs
+    var ext = image_path.split('.').pop();
+    if (['jpg', 'png', 'png', 'jpeg', 'gif', 'bmp', 'pdf'].indexOf(ext) !== -1) {
+        LaunchBar.alert("Gfycat only accept gifs");
+        return;
+    }
+
     var resp = LaunchBar.execute('/usr/bin/curl', 
             '-X', 'POST',
             '-F', 'name=' + basename(image_path),

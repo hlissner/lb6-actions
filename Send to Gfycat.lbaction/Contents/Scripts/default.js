@@ -1,9 +1,3 @@
-
-/*
- * TODO: Cleaner error checking
- * TODO: Make sure the provide image(s) are actually gifs
- */
-
 var URL_PREFIX = 'http://gfycat.com/';
 
 function runWithPaths(paths) {
@@ -23,6 +17,14 @@ function runWithPaths(paths) {
 }
 
 function upload(image_path) {
+    // Only allow gifs
+    var ext = image_path.split('.').pop();
+    if (ext !== 'gif') {
+        LaunchBar.alert("Gfycat only accept gifs");
+        return;
+    }
+
+    // Upload the file
     var key = makeKey();
     var resp = LaunchBar.execute(
         '/usr/bin/curl', '-i',
@@ -37,16 +39,15 @@ function upload(image_path) {
         '-F', 'file=@'+image_path,
         'https://gifaffe.s3.amazonaws.com/'
     );
-
     if (resp.indexOf("HTTP/1.1 200 OK") == -1) {
         LaunchBar.alert("Error "+resp.error_reason+": "+resp.error_text);
         return false;
     }
     
+    // Tell gfycat to transcode the gif, then return the gfyname
     resp = HTTP.getJSON("http://upload.gfycat.com/transcode/"+key);
-    if (resp instanceof Object && resp.data.task !== undefined && resp.data.task == "complete") {
+    if (resp instanceof Object && resp.data.task == "complete")
         return resp.data.gfyname;
-    }
 
     LaunchBar.alert("Error: Something went wrong!");
     return false;

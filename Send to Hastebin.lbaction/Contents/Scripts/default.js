@@ -1,15 +1,12 @@
 
 function runWithString(string) {
-    var key = post2hastebin(string);
-    // LaunchBar.openCommandURL("select?string=http://hastebin.com/"+key);
-
+    var key = post(string);
     var url = "http://hastebin.com/" + key;
-    return [
-        {
-            'title': url,
-            'url': url
-        }
-    ];
+    return [{
+        'title': url,
+        'subtitle': basename(string),
+        'url': url
+    }];
 }
 
 function runWithPaths(paths) {
@@ -17,15 +14,12 @@ function runWithPaths(paths) {
     var ret = [];
     var key;
     for (var i = paths.length - 1; i >= 0; i--){
-        if (key = post2hastebin(File.readText(paths[i]))) {
+        key = post(File.readText(paths[i]));
+        if (key !== false) {
             ret.push({
                 'title': url + key,
+                'subtitle': basename(paths[i]),
                 'url': url + key
-            });
-        } else {
-            ret.push({
-                'title': "Could not be uploaded!",
-                'subtitle': paths[i]
             });
         }
     }
@@ -33,11 +27,19 @@ function runWithPaths(paths) {
     return ret;
 }
 
-function post2hastebin(string) {
-    var resp = JSON.parse(LaunchBar.execute('/usr/bin/curl', '-XPOST', 'http://hastebin.com/documents', '-d', string));
-    if (resp.key === undefined) {
+function post(string) {
+    var resp = JSON.parse(LaunchBar.execute(
+        '/usr/bin/curl', 
+        '-X', 'POST', 
+        'http://hastebin.com/documents', 
+        '-d', string)
+    );
+    if (resp.key === undefined)
         return false;
-    }
 
     return resp.key;
+}
+
+function basename(path) {
+    return path.replace(/^.*[\\\/]/, '');
 }
