@@ -19,7 +19,7 @@
     <string>com.apple.iTunes</string>
 
     <key>LBDebugLogEnabled</key>
-    <true />
+    <false />
 
     <!-- LB stuff -->
     <!-- <key>LSMinimumSystemVersion</key> -->
