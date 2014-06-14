@@ -7,7 +7,10 @@ function run() {
 
     var result = resp.match(/\b(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\b/);
     if (result.length > 0) {
-        LaunchBar.openCommandURL("select?string="+result[0]);
+        return [{
+            title: result[0],
+            subtitle: 'External IP Address'
+        }];
     } else {
         LaunchBar.alert("Checkip.dyndns.org responded with deformed output. Is this script out of date?");
         return;

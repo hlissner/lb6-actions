@@ -52,7 +52,10 @@
             <!-- <array></array> -->
 
             <key>LBReturnsResult</key>
-            <false />
+            <true />
+
+            <key>LBReturnType</key>
+            <string>string</string>
         </dict>
     </dict>
 
