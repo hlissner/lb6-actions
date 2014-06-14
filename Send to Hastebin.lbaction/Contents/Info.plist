@@ -90,8 +90,8 @@
         <!-- Describe any further requirements for your action to work, e.g. if it
              requires an active internet connection, iTunes to be playing a song, or
              a certain version of an app to be installed. -->
-        <key>LBRequirements</key>
-        <string>You must have the haste gem installed</string>
+        <!-- <key>LBRequirements</key> -->
+        <!-- <string></string> -->
     </dict>
 
 </dict>
