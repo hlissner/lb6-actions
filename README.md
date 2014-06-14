@@ -5,7 +5,7 @@ My launchbar scripts! Brewed myself or juryrigged from older applescripts.
 To install:
 
 * Use "download ZIP" link on the sidebar
-* Double-click the lb.action file to install it
+* Run the *.lbaction file to install it
 * Voila!
 
 Requirements:
