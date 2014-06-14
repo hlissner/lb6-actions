@@ -1,6 +1,6 @@
 # Launchbar 6 actions
 
-My launchbar scripts! Brewed myself or juryrigged from older applescripts.
+Scripts to make [launchbar 6](http://obdev.at/products/launchbar) do my bidding. Brewed myself or juryrigged from old applescripts.
 
 To install:
 
@@ -12,3 +12,11 @@ Requirements:
 
 * Launchbar 6
 * Sufficient nerdiness
+
+
+# Scripts to come:
+
+* Send to imgur
+* Send to gfycat
+* Gist toolkit (for browsing or uploading gists)
+* Vagrant toolkit (for browsing/managing vagrant VMs)
