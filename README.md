@@ -18,5 +18,8 @@ Requirements:
 
 * Send to imgur
 * Send to gfycat
-* Gist toolkit (for browsing or uploading gists)
-* Vagrant toolkit (for browsing/managing vagrant VMs)
+* Gist (for browsing or uploading gists)
+* Vagrant/vm management
+* rbenv
+* Share on dropbox
+* Set status on skype (?)
