@@ -16,7 +16,6 @@ Requirements:
 
 # Scripts to come:
 
-* Send to gfycat
 * Gist (for browsing or uploading gists)
 * Vagrant/vm management
 * rbenv
