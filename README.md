@@ -25,10 +25,11 @@ Requirements:
 
 # Current Actions
 
+* [Capture Screen Selection](https://github.com/hlissner/launchbar6-scripts/tree/master/Capture%20Screen%20Selection.lbaction)
 * Get External IP Address
 * HTML Encode/Decode (Requires PHP)
-* URL Encode/Decode
 * Make/Reveal Bit.ly URL (Requires a ~/.bitly file with your API key in it)
 * Mute Skype (mutes your microphone)
 * Rate Current Song (iTunes must be running and a song playing)
 * Send to Cubeupload/Gfycat/Hastebin
+* URL Encode/Decode
