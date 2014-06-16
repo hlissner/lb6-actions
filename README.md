@@ -14,10 +14,21 @@ Requirements:
 * Sufficient nerdiness
 
 
-# Scripts to come:
+## Actions to come:
 
 * Gist (for browsing or uploading gists)
 * Vagrant/vm management
 * rbenv
 * Share on dropbox
 * Set status on skype (?)
+
+
+# Current Actions
+
+* Get External IP Address
+* HTML Encode/Decode (Requires PHP)
+* URL Encode/Decode
+* Make/Reveal Bit.ly URL (Requires a ~/.bitly file with your API key in it)
+* Mute Skype (mutes your microphone)
+* Rate Current Song (iTunes must be running and a song playing)
+* Send to Cubeupload/Gfycat/Hastebin
