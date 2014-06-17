@@ -2,6 +2,8 @@
 
 Scripts to make [launchbar 6](http://obdev.at/products/launchbar) do my bidding. Brewed myself or juryrigged from old applescripts.
 
+I made these for my own purposes. If you use them and have problems, let me know.
+
 To install:
 
 * Use "download ZIP" link on the sidebar
