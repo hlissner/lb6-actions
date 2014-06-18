@@ -1,8 +1,6 @@
 # Launchbar 6 actions
 
-Scripts to make [launchbar 6](http://obdev.at/products/launchbar) do my bidding. Brewed myself or juryrigged from old applescripts.
-
-I made these for my own purposes. If you use them and have problems, let me know.
+Made for [launchbar 6](http://obdev.at/products/launchbar). Brewed myself or juryrigged from old applescripts.
 
 To install:
 
@@ -18,10 +16,6 @@ Requirements:
 
 ## Actions to come:
 
-* Gist (for browsing or uploading gists)
-* Vagrant/vm management
-* rbenv
-* Share on dropbox
 * Set status on skype (?)
 
 
