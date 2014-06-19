@@ -19,3 +19,7 @@ Requirements:
 ## Actions to come:
 
 * Set status on skype (?)
+
+# Credits
+
+* Get local|public IP: by [heikowitte](https://github.com/heikowitte/LaunchBarActions)
