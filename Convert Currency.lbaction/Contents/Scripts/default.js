@@ -25,10 +25,17 @@ function runWithString(string) {
     }
 
     // Assemble a readable string
-    var res_str = amt + " " + from + " → " + result[1] + " " + result[2];
+    var res_from = amt + " " + from;
+    var res_to = result[1] + " " + result[2];
+
+    // LaunchBar.displayInLargeType({
+    //     title: res_from,
+    //     string: res_to
+    // });
 
     return [{ 
-        title: res_str,
-        actionArgument: res_str
+        title: res_to,
+        subtitle: res_from,
+        actionArgument: res_to
     }];
 }
