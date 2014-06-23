@@ -12,6 +12,8 @@ function run() {
         return;
     }
 
+    // Rely on this instead of the return-value so that LB can hide while 
+    // you're taking your screenshot.
     LaunchBar.openCommandURL('select?file='+encodeURIComponent(path));
 
     return [
