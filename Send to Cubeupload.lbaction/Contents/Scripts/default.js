@@ -1,6 +1,14 @@
 
 var URL_PREFIX = 'http://i.cubeupload.com/';
 
+function runWithString(string) {
+    return runWithPaths([string]);
+}
+
+function runWithItem(item) {
+    return runWithPaths([item.path]);
+}
+
 function runWithPaths(paths) {
     var items = [];
     for (var i in paths) {
@@ -14,15 +22,18 @@ function runWithPaths(paths) {
         }
     }
 
+    if (items.length === 0)
+        return [{title: "Upload failed!"}];
     return items;
 }
 
+////////////////////////
 function upload(image_path) {
     // Only allow images + pdfs
     var ext = image_path.split('.').pop();
-    if (['jpg', 'png', 'png', 'jpeg', 'gif', 'bmp', 'pdf'].indexOf(ext) !== -1) {
-        LaunchBar.alert("Gfycat only accept gifs");
-        return;
+    if (['jpg', 'png', 'jpeg', 'gif', 'bmp', 'pdf'].indexOf(ext) == -1) {
+        LaunchBar.alert("Cubeupload only accept images. Received "+ext);
+        return false;
     }
 
     var resp = LaunchBar.execute('/usr/bin/curl', 
