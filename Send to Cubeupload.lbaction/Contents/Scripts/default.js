@@ -22,8 +22,14 @@ function runWithPaths(paths) {
         }
     }
 
-    if (items.length === 0)
-        return [{title: "Upload failed!"}];
+    if (items.length === 0) {
+        LaunchBar.displayNotification({
+            title: "LaunchBar Error",
+            string: "Received " + paths.length + " items, but none of the items could be uploaded.",
+        });
+        return [];
+    }
+
     return items;
 }
 
@@ -32,7 +38,10 @@ function upload(image_path) {
     // Only allow images + pdfs
     var ext = image_path.split('.').pop();
     if (['jpg', 'png', 'jpeg', 'gif', 'bmp', 'pdf'].indexOf(ext) == -1) {
-        LaunchBar.alert("Cubeupload only accept images. Received "+ext);
+        LaunchBar.displayNotification({
+            title: "LaunchBar Error",
+            string: "Cubeupload expected an image, but got a " + ext + " file."
+        });
         return false;
     }
 
@@ -45,14 +54,20 @@ function upload(image_path) {
     if (resp !== "") {
         resp = JSON.parse(resp);
         if (resp.error === true) {
-            LaunchBar.alert("Error "+resp.error_reason+": "+resp.error_text);
+            LaunchBar.displayNotification({
+                title: "LaunchBar Error",
+                string: resp.error_reason + ": " + resp.error_text
+            });
             return false;
         }
 
         return resp;
     }
 
-    LaunchBar.alert("Error: Something went wrong!");
+    LaunchBar.displayNotification({
+        title: "LaunchBar Error",
+        string: "Something went wrong!"
+    });
     return false;
 }
 
