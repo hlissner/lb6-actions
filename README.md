@@ -2,8 +2,6 @@
 
 Made for [launchbar 6](http://obdev.at/products/launchbar). Brewed myself or juryrigged from old applescripts.
 
-Click 'em for details.
-
 To install:
 
 * Use "download ZIP" link on the sidebar
@@ -19,7 +17,3 @@ Requirements:
 ## Actions to come:
 
 * Set status on skype (?)
-
-# Credits
-
-* Get local|public IP: by [heikowitte](https://github.com/heikowitte/LaunchBarActions)
