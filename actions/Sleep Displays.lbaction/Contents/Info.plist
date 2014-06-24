@@ -16,7 +16,7 @@
     <string>1.0</string>
 
     <key>CFBundleIconFile</key>
-    <string>com.apple.preference.displays</string>
+    <string>Displays.icns</string>
 
     <key>LBDebugLogEnabled</key>
     <false />
