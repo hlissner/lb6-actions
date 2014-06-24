@@ -13,14 +13,23 @@ function runWithString(string) {
 
     var resp = HTTP.get("http://www.google.com/finance/converter?a=" + amt + "&from=" + from + "&to=" + to);
     if (resp === undefined || resp.error !== undefined) {
-        LaunchBar.alert("Error connecting to google finance");
+        var msg = "Something went wrong!";
+        switch (resp.response.status) {
+            case 500:
+                msg = "There was an error on Google Finance's end. Try again later.";
+                break;
+            case 200:
+                msg = "Something else went wrong. Maybe Google Finance is returning a malformed response? Please report this to henrik@lissner.net";
+                break;
+        }
+        LaunchBar.displayNotification({title: "LaunchBar Error", string: msg});
         return [];
     }
 
     // Parse the html
     var result = resp.data.match(/<div id=currency_converter_result>.+<span class=bld>([\d\.]+) ([\w]{3})<\/span>/);
-    if (result.length != 3) {
-        LaunchBar.alert("Error parsing data from google finance");
+    if (result === null || result === undefined || result.length != 3) {
+        LaunchBar.displayNotification({title: "LaunchBar Error", string: "Your input wasn't formatted correctly!\nProper example: 100 USD to JPY"});
         return [];
     }
 
@@ -28,14 +37,10 @@ function runWithString(string) {
     var res_from = amt + " " + from;
     var res_to = result[1] + " " + result[2];
 
-    // LaunchBar.displayInLargeType({
-    //     title: res_from,
-    //     string: res_to
-    // });
-
     return [{ 
         title: res_to,
         subtitle: res_from,
-        actionArgument: res_to
+        actionArgument: res_to,
+        icon: "money_gold.png"
     }];
 }
