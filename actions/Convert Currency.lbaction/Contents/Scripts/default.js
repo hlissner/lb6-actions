@@ -3,7 +3,8 @@ function runWithString(string) {
     string = string.trim();
 
     var match = string.match(/([\d\.]+)\s*([\w]+)\s*to\s*([\w]+)/);
-    if (match.length != 4) {
+    if (match === null || match.length != 4) {
+        LaunchBar.displayNotification({title: "LaunchBar Error", string: "Your input wasn't formatted correctly!\nProper example: 100 USD to JPY"});
         return [];
     }
 
@@ -40,7 +41,7 @@ function runWithString(string) {
     return [{ 
         title: res_to,
         subtitle: res_from,
-        actionArgument: res_to,
+        actionArgument: string,
         icon: "money_gold.png"
     }];
 }
