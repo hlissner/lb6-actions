@@ -26,7 +26,11 @@ function runWithItem(item) {
 ///////////////////////////////
 function switch_tab(tab) {
     LaunchBar.executeAppleScript(
-        'tell application "Google Chrome" to set (active tab index of (window '+tab.win_id+')) to '+tab.id
+            'tell application "Google Chrome"',
+                'set (active tab index of (window '+tab.win_id+')) to '+tab.id,
+                'activate',
+                'set index of (window '+tab.win_id+') to 1',
+            'end tell'
     );
 }
 
