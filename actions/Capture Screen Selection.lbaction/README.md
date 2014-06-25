@@ -1,9 +1,16 @@
-# Capture Screen Selection
+## Capture Screen Selection
 
-Why this when LaunchBar has screenshot actions included? None of the included actions
-pass the saved image back to LaunchBar when they're done.
+![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-csc-01.jpg)
+![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-csc-02.jpg)
 
-With this, you can chain this action's result (the image file) with another action, like
-Send to Cubeupload|Gfycat|Imgur.
+Use's OSX's screencapture to capture an area of the screen, save it to a temporary file,
+and pass it to LaunchBar for further SendTo processing. The bundled actions don't do
+the second part.
 
-![Chaining Actions](https://dl.dropboxusercontent.com/u/2908279/public/lb.gif)
+A few actions that may go hand-in-hand with this one:
+
+* [Send to Cubeupload](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Send%20to%20Cubeupload.lbaction)
+* [Send to Gfycat](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Send%20to%20Gfycat.lbaction)
+
+Note: press space while selecting the screenshot area and you can select a whole window
+to capture!
