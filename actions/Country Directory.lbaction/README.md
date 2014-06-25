@@ -14,4 +14,4 @@ them, including those very aforementioned things.
 * Get rid of the "Get Current Time" action that sends you to google, and bake in GMT
   offsets to calculate the time on the fly.
 * The action iterates through a baked JSON database to make it an LB6 result. I'd like
-  to just change the conform the baked JSON into LB6 result format instead.
+  to just conform the baked JSON into an LB6 result format from the get go.
