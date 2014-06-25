@@ -39,8 +39,9 @@ function get_tabs() {
     if (result === undefined)
         return false;
 
+    var data = [];
+
     try {
-        var data = [];
         result = result.split("\r");
         result.forEach(function(row) {
             var items = row.split("\t");

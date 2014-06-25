@@ -16,7 +16,7 @@
     <string>1.0</string>
 
     <key>CFBundleIconFile</key>
-    <string>com.google.Chrome</string>
+    <string>chrome</string>
 
     <key>LBDebugLogEnabled</key>
     <false />
