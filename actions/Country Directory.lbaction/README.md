@@ -7,6 +7,7 @@ This gives you a directory of all the world's countries, and a few basic details
 them, including those very aforementioned things.
 
 ![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-cd.png)
+![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-cd-2.png)
 
 ## TODO
 
