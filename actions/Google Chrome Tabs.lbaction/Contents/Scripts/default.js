@@ -39,27 +39,43 @@ function get_tabs() {
     if (result === undefined)
         return false;
 
-    var data = JSON.parse('[' + result + ']');
-    if (data === undefined)
+    try {
+        var data = [];
+        result = result.split("\r");
+        result.forEach(function(row) {
+            var items = row.split("\t");
+            if (row.trim().length === 0 || items.length != 4)
+                return;
+
+            LaunchBar.log(items);
+            // items[0] => tab_id
+            // items[1] => win_id
+            // items[2] => tab title
+            // items[3] => tab URL
+
+            var hostname = get_hostname(items[3]);
+            
+            var item = {};
+            if (items[2] === undefined || items[2].length === 0 || items[2] === items[3])
+                item.title = hostname;
+            else
+                item.title = items[2];
+
+            item.subtitle = items[3];
+            item.id = parseInt(items[0]);
+            item.win_id = parseInt(items[1]);
+            item.url = items[3];
+
+            item.action = 'switch_tab';
+
+            data.push(item);
+        });
+    } catch (err) {
+        LaunchBar.displayNotification({title: "LaunchBar Error", string: err});
+        LaunchBar.log(result);
         return false;
+    }
 
-    var favicon;
-    data.forEach(function(tab) {
-        var hostname = get_hostname(tab.url);
-        if (tab.title !== tab.url)
-            tab.subtitle = tab.url;
-
-        if (tab.title.length === 0)
-            tab.title = get_hostname(tab.url);
-
-        // favicon = get_favicon(tab.url);
-        // if (favicon !== false)
-        //     tab.icon = favicon.substr(0, favicon.length);
-
-        tab.action = 'switch_tab';
-    });
-
-    // LaunchBar.log(JSON.stringify(data));
     return data;
 }
 
