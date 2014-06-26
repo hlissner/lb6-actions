@@ -5,6 +5,8 @@ use.
 
 These were brewed myself or juryrigged from old applescripts.
 
+Any suggestions and requests are welcome!
+
 ## Installation
 
 To install any of these, [Download the Zip](https://github.com/hlissner/launchbar6-scripts/archive/master.zip) then double click the *.lbaction file. Viola!
