@@ -5,9 +5,13 @@ function run() {
     DATA.forEach(function(country) {
         var item = {
             title: country.country,
-            subtitle: country.iso,
             icon: country.iso.toLowerCase(),
             children: [
+                {
+                    title: country.country,
+                    subtitle: country.iso,
+                    icon: Action.path + "/Contents/Resources/"+country.iso.toLowerCase()+".gif"
+                },
                 {
                     title: "Get Current time",
                     url: "https://www.google.ca/search?q=time+in+" + encodeURIComponent(country.country),
