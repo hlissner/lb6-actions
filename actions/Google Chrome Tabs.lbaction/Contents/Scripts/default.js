@@ -1,7 +1,10 @@
 function run() {
     var data = get_tabs();
-    if (data === undefined) {
-        LaunchBar.displayNotification({title: "LaunchBar Error", string: "Can't get Chrome's tabs. Is Chrome running?"});
+    if (data === false) {
+        LaunchBar.displayNotification({
+            title: "LaunchBar Error", 
+            string: "Can't get Chrome's tabs. Is Chrome running?"
+        });
         return [];
     }
 
@@ -9,15 +12,15 @@ function run() {
 }
 
 function runWithString(string) {
-    run();
+    return run();
 }
 
 function runWithItem(item) {
-    var data = get_tabs();
-    data.forEach(function(tab) {
-        if (tab.url == item.url)
-            switch_tab(tab);
-    });
+    var tabs = get_tab();
+    for (var i = 0, len = tabs.length; i < len; i++) {
+        if (tabs[i].url == item.url)
+            return switch_tab(tabs[i]);
+    }
 
     LaunchBar.displayNotification({title: "LaunchBar Error", string: "Can't find the tab."});
     return [];
@@ -25,56 +28,64 @@ function runWithItem(item) {
 
 ///////////////////////////////
 function switch_tab(tab) {
-    LaunchBar.executeAppleScript(
-            'tell application "Google Chrome"',
-                'set (active tab index of (window '+tab.win_id+')) to '+tab.id,
-                'activate',
-                'set index of (window '+tab.win_id+') to 1',
-            'end tell'
-    );
+    LaunchBar.execute("/usr/bin/osascript", "switch_tab.scpt", tab.win_id, tab.id);
 }
 
 function get_tabs() {
-    var result = LaunchBar.execute("/usr/bin/osascript", "get_chrome_tabs.scpt");
+    only_local = LaunchBar.options.shiftKey;
+    // search_urls = LaunchBar.options.alternateKey;
+
+    var result = LaunchBar.execute("/usr/bin/osascript", "get_chrome_tabs.scpt", only_local ? '1' : '0');
     if (result === undefined)
         return false;
 
     var data = [];
+    var items = [];
+    var hostname;
 
     try {
-        result = result.split("\r");
-        result.forEach(function(row) {
-            var items = row.split("\t");
-            if (row.trim().length === 0 || items.length != 4)
-                return;
+        result_list = result.split("\n");
+        for (var i = 0, len = result_list.length; i < len; i++) {
+            items = result_list[i].split("\t");
+            if (result_list[i].length === 0 || items.length != 4)
+                continue;
 
-            LaunchBar.log(items);
-            // items[0] => tab_id
-            // items[1] => win_id
-            // items[2] => tab title
-            // items[3] => tab URL
+            var tab = {
+                id: items[0],
+                win_id: items[1],
+                title: items[2],
+                url: items[3]
+            };
 
-            var hostname = get_hostname(items[3]);
+            hostname = get_hostname(tab.url);
             
-            var item = {};
-            if (items[2] === undefined || items[2].length === 0 || items[2] === items[3])
-                item.title = hostname;
-            else
-                item.title = items[2];
+            if (tab.title.length === 0 || tab.title === tab.url)
+                tab.title = hostname;
 
-            item.subtitle = items[3];
-            item.id = parseInt(items[0]);
-            item.win_id = parseInt(items[1]);
-            item.url = items[3];
+            tab.subtitle = tab.url;
+            // if (search_urls) {
+            //     tab.subtitle = tab.title;
+            //     tab.title = tab.url;
+            // }
 
-            item.action = 'switch_tab';
+            tab.action = "switch_tab";
+            
+            // If you want favicon functionality, uncomment this
+            // item.icon = get_favicon(item.url);
+            
+            tab.icon = "tab";
+            // Display dev sites with a special icon
+            if (hostname === 'localhost' || hostname.indexOf('.dev') === hostname.length - 4)
+                tab.icon = "tab-dev";
+            else if (tab.url === "chrome://newtab/")
+                tab.icon = "tab-new";
 
-            data.push(item);
-        });
+            data.push(tab);
+        }
     } catch (err) {
         LaunchBar.displayNotification({title: "LaunchBar Error", string: err});
         LaunchBar.log(result);
-        return false;
+        return null;
     }
 
     return data;
@@ -82,13 +93,15 @@ function get_tabs() {
 
 function get_hostname(url) {
     var start = url.indexOf('//');
-    var end =  url.indexOf('/', start+2);
+    if (start !== -1) 
+        start += 2;
+    else
+        start = 0;
 
-    url = url.substr(start+2);
+    var end =  url.indexOf('/', start);
+    if (end === -1) return url.substr(start);
 
-    if (end === -1)
-        return url;
-    return url.substr(0, end-(start+2));
+    return url.substr(start, end-start);
 }
 
 // This gets the favicon of the tab and converts it to a Data URI. Google's 
@@ -102,7 +115,7 @@ function get_hostname(url) {
 //     if (spos === -1 || spos > 19) return false;
 //
 //     var hostname = get_hostname(url), 
-//         icon = false;
+//         icon = null;
 //
 //     if (Action.preferences.favicons === undefined) {
 //         Action.preferences.favicons = {};

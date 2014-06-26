@@ -19,7 +19,7 @@
     <string>chrome</string>
 
     <key>LBDebugLogEnabled</key>
-    <false />
+    <true />
 
     <!-- LB stuff -->
     <!-- <key>LSMinimumSystemVersion</key> -->
