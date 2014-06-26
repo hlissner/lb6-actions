@@ -72,7 +72,7 @@
 
         <!-- A short summary about what the action does and how it’s used. -->
         <key>LBSummary</key>
-        <string>Mutes your microphone on skype.</string>
+        <string>Toggles your microphone on skype.</string>
 
         <!-- Describe the arguments that should be passed to the action. For example, if
              your action’s default script specifies that it accepts paths via
