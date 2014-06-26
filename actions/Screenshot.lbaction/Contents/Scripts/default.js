@@ -15,7 +15,7 @@ function run() {
         if (!File.exists(dest_path)) throw "File couldn't be moved!";
 
         if (optimize(dest_path) === 0)
-            LaunchBar.debugLog("File was not optimized. Not optimizer found!");
+            LaunchBar.debugLog("File was not optimized. No optimizer found!");
 
         // This action runs in the background, but this allows it to resurface when the
         // image file is ready.
@@ -27,8 +27,8 @@ function run() {
 
 
 /**
- * The image will be optimized by ImageAlpha (if available). Hold down alt and
- * ImageOptim will also process the file (if available).
+ * The image is optimized with ImageAlpha (if available). Hold down alt and
+ * ImageOptim will also have a go at the file (if available).
  **/
 function optimize(path) {
     var optimized = 0;
