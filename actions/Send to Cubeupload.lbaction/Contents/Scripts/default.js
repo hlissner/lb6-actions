@@ -1,13 +1,8 @@
-
 var URL_PREFIX = 'http://i.cubeupload.com/';
 
-function runWithString(string) {
-    return runWithPaths([string]);
-}
+function runWithString(string) { return runWithPaths([string]); }
 
-function runWithItem(item) {
-    return runWithPaths([item.path]);
-}
+function runWithItem(item) { return runWithPaths([item.path]); }
 
 function runWithPaths(paths) {
     var items = [];
@@ -17,16 +12,14 @@ function runWithPaths(paths) {
             items.push({
                 title: URL_PREFIX + resp.file_name,
                 subtitle: basename(paths[i]),
+                quickLookURL: "file://" + paths[i],
                 url: URL_PREFIX + resp.file_name
             });
         }
     }
 
-    if (items.length === 0) {
-        LaunchBar.displayNotification({
-            title: "LaunchBar Error",
-            string: "Received " + paths.length + " items, but none of the items could be uploaded.",
-        });
+    if (!items.length) {
+        notify("Received " + paths.length + " items, but none of the items could be uploaded.");
         return [];
     }
 
@@ -36,41 +29,36 @@ function runWithPaths(paths) {
 ////////////////////////
 function upload(image_path) {
     // Only allow images + pdfs
-    var ext = image_path.split('.').pop();
-    if (['jpg', 'png', 'jpeg', 'gif', 'bmp', 'pdf'].indexOf(ext) == -1) {
-        LaunchBar.displayNotification({
-            title: "LaunchBar Error",
-            string: "Cubeupload expected an image, but got a " + ext + " file."
-        });
-        return false;
-    }
+    try {
+        var ext = image_path.split('.').pop();
+        if (['jpg', 'png', 'jpeg', 'gif', 'bmp', 'pdf'].indexOf(ext) == -1)
+            throw "Cubeupload expected an image (jpg, png, gif, bmp, or pdf), but got a " + ext + " file.";
 
-    var resp = LaunchBar.execute('/usr/bin/curl', 
-            '-X', 'POST',
-            '-F', 'name=' + basename(image_path),
-            '-F', 'fileinput[0]=@' + image_path,
-            'http://cubeupload.com/upload_json.php');
+        var resp = LaunchBar.execute('/usr/bin/curl', 
+                '-X', 'POST',
+                '-F', 'name=' + basename(image_path),
+                '-F', 'fileinput[0]=@' + image_path,
+                'http://cubeupload.com/upload_json.php');
 
-    if (resp !== "") {
+        if (resp.trim() === "")
+            throw "Received empty response from cubeupload.com.";
+
         resp = JSON.parse(resp);
-        if (resp.error === true) {
-            LaunchBar.displayNotification({
-                title: "LaunchBar Error",
-                string: resp.error_reason + ": " + resp.error_text
-            });
-            return false;
-        }
+        if (resp.error === true)
+            throw resp.error_reason + ": " + resp.error_text;
 
         return resp;
+    } catch(err) {
+        notify(err);
     }
 
-    LaunchBar.displayNotification({
-        title: "LaunchBar Error",
-        string: "Something went wrong!"
-    });
     return false;
 }
 
 function basename(path) {
     return path.replace(/^.*[\\\/]/, '');
+}
+
+function notify(msg) {
+    LaunchBar.displayNotification({title: "LaunchBar Error", string: msg});
 }
