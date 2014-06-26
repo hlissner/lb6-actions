@@ -16,7 +16,7 @@
     <string>1.0</string>
 
     <key>CFBundleIconFile</key>
-    <string>com.skype.skype</string>
+    <string>mute</string>
 
     <key>LBDebugLogEnabled</key>
     <false />
@@ -40,7 +40,7 @@
         <key>LBDefaultScript</key>
         <dict>
             <key>LBScriptName</key>
-            <string>default.scpt</string>
+            <string>default.applescript</string>
 
             <key>LBRunInBackground</key>
             <true />
@@ -92,7 +92,7 @@
              requires an active internet connection, iTunes to be playing a song, or
              a certain version of an app to be installed. -->
         <key>LBRequirements</key>
-        <string>Skype must be running with you in a call.</string>
+        <string>Skype must be running and in a call.</string>
     </dict>
 
 </dict>
