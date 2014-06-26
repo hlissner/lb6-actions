@@ -1,7 +1,7 @@
 ## Capture Screen Selection
 
-![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-csc-01.jpg)
-![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-csc-02.jpg)
+![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-csc-01.png)
+![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-csc-02.png)
 
 Use's OSX's screencapture to capture an area of the screen, save it to a temporary file,
 and pass it to LaunchBar for further SendTo processing. The bundled actions don't do
