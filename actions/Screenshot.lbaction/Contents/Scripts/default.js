@@ -14,13 +14,8 @@ function run() {
         LaunchBar.execute('/bin/cp', '-p', tmp_path, dest_path);
         if (!File.exists(dest_path)) throw "File couldn't be moved!";
 
-        // Put the image through any available optimizer (if any), BUT
-        // only optimize if alt/option is held down.
-        if (LaunchBar.options.alternateKey) {
-            if (optimize(dest_path) === 0)
-                LaunchBar.log("File was not optimized. Not optimizer found!");
-        } 
-        else LaunchBar.log("Optimize cancelled");
+        if (optimize(dest_path) === 0)
+            LaunchBar.debugLog("File was not optimized. Not optimizer found!");
 
         // This action runs in the background, but this allows it to resurface when the
         // image file is ready.
@@ -32,22 +27,26 @@ function run() {
 
 
 /**
- * Try to put the image through ImageAlpha and then ImageOptim, in that order.
- * I assume if you want to optimize your image, you want to go all out.
- */
+ * The image will be optimized by ImageAlpha (if available). Hold down alt and
+ * ImageOptim will also process the file (if available).
+ **/
 function optimize(path) {
     var optimized = 0;
-
-    // Detect file extension
+    
+    // ImageAlpha: http://pngmini.com/
     if (File.exists("/Applications/ImageAlpha.app")) {
         LaunchBar.execute('/Applications/ImageAlpha.app/Contents/Resources/pngquant', '--force', '--ext', '.png', path);
-        optimized = 1;
+        LaunchBar.debugLog("ImageAlpha used");
+        optimized++;
     }
 
-    // ImageOptim: https://imageoptim.com
-    if (File.exists("/Applications/ImageOptim.app")) {
-        LaunchBar.execute('/Applications/ImageOptim.app/Contents/MacOS/ImageOptim', path);
-        optimized = 2;
+    if (LaunchBar.options.alternateKey) {
+        // ImageOptim: https://imageoptim.com
+        if (File.exists("/Applications/ImageOptim.app")) {
+            LaunchBar.execute('/Applications/ImageOptim.app/Contents/MacOS/ImageOptim', path);
+            LaunchBar.debugLog("ImageOptim used");
+            optimized++;
+        }
     }
 
     return optimized;
