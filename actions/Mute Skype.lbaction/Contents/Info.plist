@@ -32,8 +32,8 @@
     <key>LBAssociatedApplication</key>
     <string>com.skype.skype</string>
 
-    <key>LBTextInputTitle</key>
-    <string>Rate</string>
+    <!-- <key>LBTextInputTitle</key> -->
+    <!-- <string>Rate</string> -->
 
     <key>LBScripts</key>
     <dict>
