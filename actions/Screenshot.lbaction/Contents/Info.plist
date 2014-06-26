@@ -4,10 +4,10 @@
 <dict>
 
     <key>CFBundleIdentifier</key>
-    <string>io.henrik.launchbar.CaptureScreenSelection</string>
+    <string>io.henrik.launchbar.Screenshot</string>
 
     <key>CFBundleName</key>
-    <string>Capture Screen Selection</string>
+    <string>Screenshot</string>
 
     <!-- <key>CFBundleShortVersionString</key> -->
     <!-- <value>1.0</value> -->
@@ -75,7 +75,9 @@
 
         <!-- A short summary about what the action does and how it’s used. -->
         <key>LBSummary</key>
-        <string>Capture a screenshot and pass the result file to LaunchBar, ready to send to another action</string>
+        <string>Takes a screenshot and returns it, ready for sendTo processing. Hold
+            down alt/option to have the image compressed with ImageAlpha/ImageOptim
+            (either or both if available).</string>
 
         <!-- Describe the arguments that should be passed to the action. For example, if
              your action’s default script specifies that it accepts paths via
@@ -89,13 +91,13 @@
              feed could document here that the resulting items represent the news
              articles. -->
         <key>LBResult</key>
-        <string>The resulting image file</string>
+        <string>The image file</string>
 
         <!-- Describe any further requirements for your action to work, e.g. if it
              requires an active internet connection, iTunes to be playing a song, or
              a certain version of an app to be installed. -->
-        <!-- <key>LBRequirements</key> -->
-        <!-- <string></string> -->
+        <key>LBRequirements</key>
+        <string>If you want image optimization: ImageAlpha or ImageOptim.</string>
     </dict>
 
 </dict>
