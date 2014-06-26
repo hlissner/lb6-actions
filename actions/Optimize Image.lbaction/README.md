@@ -8,3 +8,8 @@ Hold down alt and it will make a copy to optimize, rather than operate on the or
 
 ![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-oi-1.png)
 ![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-oi-2.png)
+
+Inspired from:
+
+* [My Screenshot action](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Screenshot.lbaction)
+* [Pregnagha's Screenshot action](https://github.com/prenagha/launchbar/tree/master/Screenshot.lbaction)

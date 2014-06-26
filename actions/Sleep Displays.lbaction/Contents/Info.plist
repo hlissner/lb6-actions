@@ -27,7 +27,7 @@
     
     <!-- Per-action keys -->
     <!-- <key>LBTextInputTitle</key> -->
-    <!-- <string>Rate</string> -->
+    <!-- <string></string> -->
 
     <key>LBScripts</key>
     <dict>
@@ -74,13 +74,13 @@
              feed could document here that the resulting items represent the news
              articles. -->
         <!-- <key>LBResult</key> -->
-        <!-- <string>The encoded string</string> -->
+        <!-- <string></string> -->
 
         <!-- Describe any further requirements for your action to work, e.g. if it
              requires an active internet connection, iTunes to be playing a song, or
              a certain version of an app to be installed. -->
         <!-- <key>LBRequirements</key> -->
-        <!-- <string>You must have the haste gem installed</string> -->
+        <!-- <string></string> -->
     </dict>
 
 </dict>
