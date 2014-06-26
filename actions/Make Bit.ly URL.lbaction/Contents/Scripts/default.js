@@ -1,9 +1,6 @@
-var BITLY_API = "~/.bitly";
 var API_URL = "https://api-ssl.bitly.com";
 
-function run() {
-    getApiKey();
-}
+function run() { getApiKey(); }
 
 function runWithString(url) {
     var api_key = getApiKey();
@@ -38,7 +35,7 @@ function runWithString(url) {
 // ----------------------
 
 function getApiKey() {
-    if (Action.preferences.api_key === undefined || LaunchBar.options.alternateKey || LaunchBar.options.shiftKey) {
+    if (Action.preferences.api_key === undefined || LaunchBar.options.shiftKey) {
         var input = LaunchBar.executeAppleScript('display dialog "Please enter your Bit.ly access token:" default answer ""', 'return text returned of result');
 
         if (input.trim().length === 0) {
