@@ -1,8 +1,7 @@
 function run() {
-    // Inspired by 
     var d = new Date();
-    var ds = "" + d.getFullYear() + (d.getMonth()+1) + d.getDate() 
-        + "_" + d.getHours() + d.getMinutes() + d.getSeconds()
+    var ds = "" + d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate() 
+        + "_" + d.getHours() + '-' + d.getMinutes() + '-' + d.getSeconds()
         + "_" + d.getMilliseconds();
 
     var tmp_path = '/tmp/sc_' + ds + '.png';
