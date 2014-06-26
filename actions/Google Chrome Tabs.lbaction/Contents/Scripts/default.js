@@ -28,14 +28,19 @@ function runWithItem(item) {
 
 ///////////////////////////////
 function switch_tab(tab) {
-    LaunchBar.execute("/usr/bin/osascript", "switch_tab.scpt", tab.win_id, tab.id);
+    LaunchBar.execute(
+        "/usr/bin/osascript", 
+        "switch_tab.applescript", 
+        tab.win_id, tab.id, 
+        LaunchBar.options.alternateKey ? 1 : 0
+    );
 }
 
 function get_tabs() {
     only_local = LaunchBar.options.shiftKey;
     // search_urls = LaunchBar.options.alternateKey;
 
-    var result = LaunchBar.execute("/usr/bin/osascript", "get_chrome_tabs.scpt", only_local ? '1' : '0');
+    var result = LaunchBar.execute("/usr/bin/osascript", "get_chrome_tabs.applescript", only_local ? '1' : '0');
     if (result === undefined)
         return false;
 
@@ -47,14 +52,15 @@ function get_tabs() {
         result_list = result.split("\n");
         for (var i = 0, len = result_list.length; i < len; i++) {
             items = result_list[i].split("\t");
-            if (result_list[i].length === 0 || items.length != 4)
+            if (result_list[i].length === 0 || items.length != 5)
                 continue;
 
             var tab = {
                 id: items[0],
                 win_id: items[1],
                 title: items[2],
-                url: items[3]
+                url: items[3],
+                is_active: items[4]
             };
 
             hostname = get_hostname(tab.url);
@@ -76,9 +82,12 @@ function get_tabs() {
             tab.icon = "tab";
             // Display dev sites with a special icon
             if (hostname === 'localhost' || hostname.indexOf('.dev') === hostname.length - 4)
-                tab.icon = "tab-dev";
+                tab.icon = "tab_dev";
             else if (tab.url === "chrome://newtab/")
-                tab.icon = "tab-new";
+                tab.icon = "tab_new";
+            
+            if (tab.is_active === '1')
+                tab.icon = tab.icon + "_active";
 
             data.push(tab);
         }
