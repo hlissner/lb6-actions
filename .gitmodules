@@ -1,3 +1,6 @@
 [submodule "ext/heikowitte"]
 	path = ext/heikowitte
 	url = https://github.com/heikowitte/LaunchBarActions
+[submodule "ext/prenagha"]
+	path = ext/prenagha
+	url = https://github.com/prenagha/launchbar
