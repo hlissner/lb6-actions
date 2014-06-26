@@ -23,7 +23,7 @@ function runWithPaths(paths) {
 
             item.path = new_path;
             item.title = basename(item.path);
-            item.quickLookURL = "file://" + encodeURIComponent(item.path);
+            item.quickLookURL = "file://" + item.path;
             item.actionArgument = item.path;
 
             if (dsize > 0.5) {
