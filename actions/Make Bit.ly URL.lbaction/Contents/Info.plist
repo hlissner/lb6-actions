@@ -71,7 +71,7 @@
 
         <!-- A short summary about what the action does and how it’s used. -->
         <key>LBSummary</key>
-        <string>Shortens an url and returns the bit.ly link</string>
+        <string>Shortens an url and returns the bit.ly link. Will request your api key on first use.</string>
 
         <!-- Describe the arguments that should be passed to the action. For example, if
              your action’s default script specifies that it accepts paths via
@@ -91,7 +91,7 @@
              requires an active internet connection, iTunes to be playing a song, or
              a certain version of an app to be installed. -->
         <!-- <key>LBRequirements</key> -->
-        <!-- <string>You must have the haste gem installed</string> -->
+        <!-- <string></string> -->
     </dict>
 
 </dict>
