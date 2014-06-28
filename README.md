@@ -18,7 +18,6 @@ To install any of these, [Download the Zip](https://github.com/hlissner/launchba
 * [Encode File as Data URI](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Encode%20File%20as%20Data%20URI.lbaction)
 * [Get Image in Clipboard](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Get%20Image%20in%20Clipboard.lbaction)
 * [Google Chrome Tabs](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Google%20Chrome%20Tabs.lbaction)
-* [HTML Decode](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/HTML%20Decode.lbaction) / [HTML Encode](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/HTML%20Encode.lbaction)
 * [Make Bit.ly URL](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Make%20Bit.ly%20URL.lbaction)
 * [Mute Skype](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Mute%20Skype.lbaction)
 * [Optimize Image](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Optimize%20Image.lbaction)
@@ -30,7 +29,8 @@ To install any of these, [Download the Zip](https://github.com/hlissner/launchba
 * [Sleep Displays](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Sleep%20Displays.lbaction)
 * [Strip Tags](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Strip%20Tags.lbaction)
 * [Time in...](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Time%20In.lbaction)
-* [URL Decode](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/URL%20Decode.lbaction) / [URL Encode](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/URL%20Encode.lbaction)
+* [Encode Text](https://github.com/hlissner/lb6-actions/tree/master/actions/Encode.lbaction)
+* [Decode Text](https://github.com/hlissner/lb6-actions/tree/master/actions/Decode.lbaction)
 
 ### 3rd Party Actions (that I use)
 

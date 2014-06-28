@@ -1,4 +1,4 @@
-# Decode
+# Encode
 
 Tries to HTML, Base64, URL and UTF-8 encode a string.
 
