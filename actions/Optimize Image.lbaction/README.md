@@ -8,6 +8,7 @@ Hold down alt and it will make a copy to optimize, rather than operate on the or
 
 ![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-oi-1.png)
 ![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-oi-2.png)
+![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-oi-3.png)
 
 Inspired from:
 
