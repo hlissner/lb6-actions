@@ -1,12 +1,6 @@
-# Convert Currency
+# Decode
 
-You'll never guess what this action does!
+Tries to HTML, Base64, URL and UTF-8 encode a string.
 
-![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-cc-01.png)
-![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-cc-02.png)
-![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-cc-03.png)
-
-That's right! It prints money!
-
-Note: your input has to follow the format: {amount} {from_currency_code} to
-{to_currency_code}
+![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-en-01.png);
+![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-en-02.png);
