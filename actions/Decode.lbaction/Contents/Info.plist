@@ -4,19 +4,19 @@
 <dict>
 
     <key>CFBundleIdentifier</key>
-    <string>io.henrik.launchbar.UrlDecode</string>
+    <string>io.henrik.launchbar.DecodeText</string>
 
     <key>CFBundleName</key>
-    <string>URL Decode</string>
+    <string>Decode Text</string>
 
     <!-- <key>CFBundleShortVersionString</key> -->
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.0</string>
+    <string>1.1</string>
 
-    <!-- <key>CFBundleIconFile</key> -->
-    <!-- <string></string> -->
+    <key>CFBundleIconFile</key>
+    <string>decode</string>
 
     <key>LBDebugLogEnabled</key>
     <false />
@@ -71,7 +71,7 @@
 
         <!-- A short summary about what the action does and how it’s used. -->
         <key>LBSummary</key>
-        <string>URLDecodes an encoded string</string>
+        <string>HTML, Base64, URL and UTF-8 decodes the string</string>
 
         <!-- Describe the arguments that should be passed to the action. For example, if
              your action’s default script specifies that it accepts paths via
@@ -85,14 +85,15 @@
              feed could document here that the resulting items represent the news
              articles. -->
         <key>LBResult</key>
-        <string>The decoded string</string>
+        <string>The decoded strings</string>
 
         <!-- Describe any further requirements for your action to work, e.g. if it
              requires an active internet connection, iTunes to be playing a song, or
              a certain version of an app to be installed. -->
         <!-- <key>LBRequirements</key> -->
-        <!-- <string>You must have the haste gem installed</string> -->
+        <!-- <string></string> -->
     </dict>
 
 </dict>
 </plist>
+

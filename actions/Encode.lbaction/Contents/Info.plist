@@ -4,19 +4,19 @@
 <dict>
 
     <key>CFBundleIdentifier</key>
-    <string>io.henrik.launchbar.HTMLEncode</string>
+    <string>io.henrik.launchbar.EncodeText</string>
 
     <key>CFBundleName</key>
-    <string>HTML Encode</string>
+    <string>Encode Text</string>
 
     <!-- <key>CFBundleShortVersionString</key> -->
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.0</string>
+    <string>1.1</string>
 
     <key>CFBundleIconFile</key>
-    <string>tag</string>
+    <string>encode</string>
 
     <key>LBDebugLogEnabled</key>
     <false />
@@ -34,7 +34,7 @@
         <key>LBDefaultScript</key>
         <dict>
             <key>LBScriptName</key>
-            <string>default.php</string>
+            <string>default.js</string>
 
             <key>LBRunInBackground</key>
             <false />
@@ -50,8 +50,8 @@
             <key>LBReturnsResult</key>
             <true />
 
-            <!-- <key>LBReturnType</key> -->
-            <!-- <string>string</string> -->
+            <key>LBReturnType</key>
+            <string>string</string>
         </dict>
     </dict>
 
@@ -71,27 +71,27 @@
 
         <!-- A short summary about what the action does and how it’s used. -->
         <key>LBSummary</key>
-        <string>Converts any html-encodable characters to entities</string>
+        <string>HTML, Base64, URL and UTF-8 encodes the string</string>
 
         <!-- Describe the arguments that should be passed to the action. For example, if
              your action’s default script specifies that it accepts paths via
              LBAcceptedArgumentTypes, but then the script itself checks that the user
              passed in a PDF file, this would be the right place to document that. -->
         <key>LBArgument</key>
-        <string>The string(s) to be html encoded</string>
+        <string>The string to be encoded</string>
 
         <!-- Describe the action’s result. For example, an action fetching news via RSS
              that then shows a list of items representing the single stories in the RSS
              feed could document here that the resulting items represent the news
              articles. -->
-        <!-- <key>LBResult</key> -->
-        <!-- <string></string> -->
+        <key>LBResult</key>
+        <string>The encoded strings</string>
 
         <!-- Describe any further requirements for your action to work, e.g. if it
              requires an active internet connection, iTunes to be playing a song, or
              a certain version of an app to be installed. -->
-        <key>LBRequirements</key>
-        <string>Requires PHP</string>
+        <!-- <key>LBRequirements</key> -->
+        <!-- <string></string> -->
     </dict>
 
 </dict>
