@@ -17,40 +17,41 @@ function runWithPaths(paths) {
 }
 
 function upload(image_path) {
-    // Only allow gifs
-    var ext = image_path.split('.').pop();
-    if (ext !== 'gif') {
-        LaunchBar.alert("Gfycat only accept gifs");
-        return;
+    try
+    {
+        // Only allow gifs
+        var ext = image_path.split('.').pop();
+        if (ext !== 'gif')
+            throw "Gfycat only accepts gifs";
+
+        // Upload the file
+        var key = makeKey();
+        var resp = LaunchBar.execute(
+            '/usr/bin/curl', '-i',
+            '-X', 'POST',
+            '-F', 'key='+key,
+            '-F', 'acl=private',
+            '-F', 'AWSAccessKeyId=AKIAIT4VU4B7G2LQYKZQ',
+            '-F', 'policy=eyAiZXhwaXJhdGlvbiI6ICIyMDIwLTEyLTAxVDEyOjAwOjAwLjAwMFoiLAogICAgICAgICAgICAiY29uZGl0aW9ucyI6IFsKICAgICAgICAgICAgeyJidWNrZXQiOiAiZ2lmYWZmZSJ9LAogICAgICAgICAgICBbInN0YXJ0cy13aXRoIiwgIiRrZXkiLCAiIl0sCiAgICAgICAgICAgIHsiYWNsIjogInByaXZhdGUifSwKCSAgICB7InN1Y2Nlc3NfYWN0aW9uX3N0YXR1cyI6ICIyMDAifSwKICAgICAgICAgICAgWyJzdGFydHMtd2l0aCIsICIkQ29udGVudC1UeXBlIiwgIiJdLAogICAgICAgICAgICBbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwgMCwgNTI0Mjg4MDAwXQogICAgICAgICAgICBdCiAgICAgICAgICB9',
+            '-F', 'success_action_status=200',
+            '-F', 'signature=mk9t/U/wRN4/uU01mXfeTe2Kcoc=',
+            '-F', 'Content-Type=image/gif',
+            '-F', 'file=@'+image_path,
+            'https://gifaffe.s3.amazonaws.com/'
+        );
+        LaunchBar.debugLog("POST: key="+key+"&file=@"+image_path+"\nResponse: "+resp);
+        if (resp.indexOf("HTTP/1.1 200 OK") == -1)
+            throw "("+resp.error_reason+") "+resp.error_text;
+        
+        // Tell gfycat to transcode the gif, then return the gfyname
+        resp = HTTP.getJSON("http://upload.gfycat.com/transcode/"+key);
+        if (resp instanceof Object && resp.data.task === "complete")
+            return resp.data.gfyname;
+    } catch (err) {
+        LaunchBar.displayNotification({title: "LaunchBar Error", string: err});
     }
 
-    // Upload the file
-    var key = makeKey();
-    var resp = LaunchBar.execute(
-        '/usr/bin/curl', '-i',
-        '-X', 'POST',
-        '-F', 'key='+key,
-        '-F', 'acl=private',
-        '-F', 'AWSAccessKeyId=AKIAIT4VU4B7G2LQYKZQ',
-        '-F', 'policy=eyAiZXhwaXJhdGlvbiI6ICIyMDIwLTEyLTAxVDEyOjAwOjAwLjAwMFoiLAogICAgICAgICAgICAiY29uZGl0aW9ucyI6IFsKICAgICAgICAgICAgeyJidWNrZXQiOiAiZ2lmYWZmZSJ9LAogICAgICAgICAgICBbInN0YXJ0cy13aXRoIiwgIiRrZXkiLCAiIl0sCiAgICAgICAgICAgIHsiYWNsIjogInByaXZhdGUifSwKCSAgICB7InN1Y2Nlc3NfYWN0aW9uX3N0YXR1cyI6ICIyMDAifSwKICAgICAgICAgICAgWyJzdGFydHMtd2l0aCIsICIkQ29udGVudC1UeXBlIiwgIiJdLAogICAgICAgICAgICBbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwgMCwgNTI0Mjg4MDAwXQogICAgICAgICAgICBdCiAgICAgICAgICB9',
-        '-F', 'success_action_status=200',
-        '-F', 'signature=mk9t/U/wRN4/uU01mXfeTe2Kcoc=',
-        '-F', 'Content-Type=image/gif',
-        '-F', 'file=@'+image_path,
-        'https://gifaffe.s3.amazonaws.com/'
-    );
-    if (resp.indexOf("HTTP/1.1 200 OK") == -1) {
-        LaunchBar.alert("Error "+resp.error_reason+": "+resp.error_text);
-        return false;
-    }
-    
-    // Tell gfycat to transcode the gif, then return the gfyname
-    resp = HTTP.getJSON("http://upload.gfycat.com/transcode/"+key);
-    if (resp instanceof Object && resp.data.task == "complete")
-        return resp.data.gfyname;
-
-    LaunchBar.alert("Error: Something went wrong!");
-    return false;
+    return [];
 }
 
 function basename(path) {
