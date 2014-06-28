@@ -58,6 +58,18 @@ function optimize(path) {
         if (File.exists("/Applications/ImageAlpha.app")) {
             LaunchBar.execute('/Applications/ImageAlpha.app/Contents/Resources/pngquant', '--force', '--ext', '.png', path);
             LaunchBar.debugLog("ImageAlpha used");
+        } else {
+            LaunchBar.displayNotification({title: "LaunchBar Error", string: "Your images weren't optimized because ImageAlpha couldn't be found!"});
+        }
+    }
+
+    if (LaunchBar.options.shiftKey) {
+        // ImageOptim: https://imageoptim.com
+        if (File.exists("/Applications/ImageOptim.app")) {
+            LaunchBar.execute('/Applications/ImageOptim.app/Contents/MacOS/ImageOptim', path);
+            LaunchBar.debugLog("ImageOptim used");
+        } else {
+            LaunchBar.displayNotification({title: "LaunchBar Error", string: "ImageOptim couldn't be found!"});
         }
     }
 
