@@ -30,8 +30,10 @@ function runWithPaths(paths) {
                 item.subtitle = "Reduced by " + (dsize*100).toFixed(1) + "%: "
                     + first_size.toFixed(1) + "KB "
                     + " to " + after_size.toFixed(1) + "KB";
+                item.icon = "y";
             } else {
                 item.subtitle = "Could not be reduced further!";
+                item.icon = "n";
             }
             items.push(item);
         }
