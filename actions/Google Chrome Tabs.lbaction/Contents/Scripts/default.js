@@ -32,7 +32,7 @@ function switch_tab(tab) {
         "/usr/bin/osascript", 
         "switch_tab.applescript", 
         tab.win_id, tab.id, 
-        LaunchBar.options.alternateKey ? 1 : 0
+        LaunchBar.options.shiftKey ? 1 : 0
     );
 }
 

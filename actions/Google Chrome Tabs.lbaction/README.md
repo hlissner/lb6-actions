@@ -7,5 +7,4 @@ Chrome into focus.
 ![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-gct-01.png)
 ![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-gct-02.png)
 
-Press **shift-enter** on the action and you'll only get a tab listing for the
-front-most Chrome window.
+Hold down shift and only the tabs of the front-most chrome window will be listed
