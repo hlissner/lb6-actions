@@ -32,6 +32,10 @@ To install any of these, [Download the Zip](https://github.com/hlissner/launchba
 * [Strip Tags](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Strip%20Tags.lbaction)
 * [Time in...](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Time%20In.lbaction)
 
+Other actions
+* [Chrome Tabs](https://github.com/hlissner/lb6-chrometabs): like Safari Tabs, but for
+  Chrome.
+
 ### 3rd Party Actions (that I use)
 
 Find them in ext/
