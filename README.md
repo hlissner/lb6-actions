@@ -15,9 +15,11 @@ To install any of these, [Download the Zip](https://github.com/hlissner/launchba
 
 * (WIP) [Country Directory](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Country%20Directory.lbaction)
 * [Convert Currency](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Convert%20Currency.lbaction)
+* [Decode Text](https://github.com/hlissner/lb6-actions/tree/master/actions/Decode.lbaction)
+* [Domai.nr](https://github.com/hlissner/lb6-actions/tree/master/actions/Domainr.lbaction)
 * [Encode File as Data URI](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Encode%20File%20as%20Data%20URI.lbaction)
+* [Encode Text](https://github.com/hlissner/lb6-actions/tree/master/actions/Encode.lbaction)
 * [Get Image in Clipboard](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Get%20Image%20in%20Clipboard.lbaction)
-* [Google Chrome Tabs](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Google%20Chrome%20Tabs.lbaction)
 * [Make Bit.ly URL](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Make%20Bit.ly%20URL.lbaction)
 * [Mute Skype](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Mute%20Skype.lbaction)
 * [Optimize Image](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Optimize%20Image.lbaction)
@@ -29,8 +31,6 @@ To install any of these, [Download the Zip](https://github.com/hlissner/launchba
 * [Sleep Displays](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Sleep%20Displays.lbaction)
 * [Strip Tags](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Strip%20Tags.lbaction)
 * [Time in...](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Time%20In.lbaction)
-* [Encode Text](https://github.com/hlissner/lb6-actions/tree/master/actions/Encode.lbaction)
-* [Decode Text](https://github.com/hlissner/lb6-actions/tree/master/actions/Decode.lbaction)
 
 ### 3rd Party Actions (that I use)
 
@@ -45,6 +45,7 @@ Find them in ext/
 * By [prenagha](https://github.com/prenagha/launchbar)
     * Expand URL
     * Timer
+    * Copy to iPhone / iPad
 
 ## Planned Actions
 
@@ -53,6 +54,5 @@ Find them in ext/
 * Vagrant VM: List, Start up, Shut down
 * Linode Manager
 * Share on Dropbox
-* Pause/Resume Youtube Video
 * Search MyAnimeList (with suggestions)
-* Text Search in Folder (using ag/ack)
+* Text Search in Folder (using ag)
