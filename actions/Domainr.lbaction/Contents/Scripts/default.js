@@ -5,6 +5,6 @@ function run() {
 }
 
 function runWithString(string) {
-    LaunchBar.openURL("https://domai.nr/"+encodeURIComponent(string));
+    LaunchBar.openURL(string.indexOf("http") === 0 ? string : "https://domai.nr/"+encodeURIComponent(string));
 }
 
