@@ -55,7 +55,6 @@ Find them in ext/
 
 ## Planned Actions
 
-* Change Status is Skype/Adium
 * Transmission-remote Manager
 * Vagrant VM: List, Start up, Shut down
 * Linode Manager
