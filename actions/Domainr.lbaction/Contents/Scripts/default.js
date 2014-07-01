@@ -1,4 +1,4 @@
-var API_URL = "https://domai.nr/api/json/search?q=";
+var API_URL = "https://domai.nr/api/json/search?client_id=lb6_action&q=";
 
 function run() {
     LaunchBar.openURL("https://domai.nr/");
