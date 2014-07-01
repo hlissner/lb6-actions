@@ -28,6 +28,7 @@ To install any of these, [Download the Zip](https://github.com/hlissner/launchba
 * [Send to Cubeupload](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Send%20to%20Cubeupload.lbaction)
 * [Send to Gfycat](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Send%20to%20Gfycat.lbaction)
 * [Send to Hastebin](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Send%20to%20Hastebin.lbaction)
+* [Set Status](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Set%20Status.lbaction)
 * [Site Status](https://github.com/hlissner/lb6-actions/tree/master/actions/Site%20Status.lbaction)
 * [Sleep Displays](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Sleep%20Displays.lbaction)
 * [Strip Tags](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Strip%20Tags.lbaction)
