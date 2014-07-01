@@ -5,7 +5,7 @@ function run() {
         Action.preferences.sites = [];
     }
 
-    if (Action.preferences.sites.length === 0) {
+    if (LaunchBar.options.shiftKey || Action.preferences.sites.length === 0) {
         return [
             {
                 title: "No sites set",
