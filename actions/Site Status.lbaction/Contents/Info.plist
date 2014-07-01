@@ -40,7 +40,7 @@
             <false />
 
             <key>LBRequiresArgument</key>
-            <true />
+            <false />
 
             <key>LBAcceptedArgumentTypes</key>
             <array>

@@ -1,5 +1,28 @@
 var API_URL = 'http://www.isup.me/';
 
+function run() {
+    if (Action.preferences.sites === undefined) {
+        Action.preferences.sites = [];
+    }
+
+    if (Action.preferences.sites.length === 0) {
+        return [
+            {
+                title: "No sites set",
+                subtitle: "Run this action to open the preferences plist",
+                path: Action.supportPath + "/Preferences.plist"
+            }
+        ];
+    }
+
+    var items = [];
+    Action.preferences.sites.forEach(function(site_url) {
+        items.push(runWithString(site_url)[0]);
+    });
+
+    return items;
+}
+
 function runWithString(string) {
     try {
         var resp = HTTP.get(API_URL + string);
