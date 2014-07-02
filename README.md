@@ -13,7 +13,6 @@ To install any of these, [Download the Zip](https://github.com/hlissner/launchba
 
 ## Actions
 
-* (WIP) [Country Directory](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Country%20Directory.lbaction)
 * [Convert Currency](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Convert%20Currency.lbaction)
 * [Decode Text](https://github.com/hlissner/lb6-actions/tree/master/actions/Decode.lbaction)
 * [Domai.nr](https://github.com/hlissner/lb6-actions/tree/master/actions/Domainr.lbaction)
