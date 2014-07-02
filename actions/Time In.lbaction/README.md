@@ -13,19 +13,33 @@ preferences (see below).
 
 ## Requirements
 
-A google API key is required. You'll be prompted for it on first run. You can get it
-here: https://code.google.com/apis/console
-
-You must enable the following services:
-
-* Geocoding API
-* Time Zone API
+* A Google Account
+* A Google API key (you'll be prompted for this on first run)
+* The following Google API services enabled:
+    * Geocoding API
+    * TimeZone API
 
 
-## Preferences
+## How to set it up
 
-If you need to change your API key, hold down alt while running the action OR modify its
-Preferences.plist.
+1. Go to [the Google Developer Console](https://console.developers.google.com) and sign in with your Google account.
+2. Click "Create new project" and name it whatever you like. I named mine "LaunchBar Actions".
+3. Go to **Credentials** on the left menu.
+4. Beneath **Public API Access**, click on a button labeled **Create new key**.
+5. Select "Browser Key" when it prompts you what type of key you want, then click "create" to finish the process.
+6. The API key has been created and should be displayed. Note this down. There's one more step before you're done.
+7. Go to "APIs" on the left menu, then find and enable these two services:
+    * Geocoding API
+    * TimeZone API
+
+And you're done! Run Time In once and it will request your API key. Enter it and you're good
+to go!
+
+
+## Notes
+
+To force the API key prompt to appear, hold alt while running the action. Alternatively,
+you can modify your api key in the Preferences.plist file for this action:
 
 `~/Library/Application Support/LaunchBar/Action Support/io.henrik.launchbar.TimeIn/Preferences.plist`
 
