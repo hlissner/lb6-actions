@@ -1,0 +1,330 @@
+#!/usr/bin/env ruby
+# Timebar natural-language-to-start-Timebar script
+# This is also a Alfred script, used by the Timebar Alfred workflow.
+# It's also used by Timebar itself to power the natural language input -- wow,
+# what a multi-talented script this is.
+# 17a9c8d0
+#
+# Comments and suggestions welcome -- send a tweet to @timebar.
+# http://whimsicalifornia.com/timebar
+#
+# That being said, even though you can read this, it's not really something I'm
+# ready to officially open source. I'd appreciate it if you consider this private
+# for now -- I hope to open source it in a more reusable form someday.
+#
+# For usage information, run without any parameters.
+
+require 'cgi'
+
+module TimebarCLI
+  OPT_REGEXP = /^--?([a-z]+)/
+
+  def self.run!
+    options = parse_command_line!
+
+    if options[:stop]
+      url = "timebar://whimsicalifornia.com/stop"
+
+      if options[:print]
+        puts url
+      else
+        system('open', url)
+      end
+
+      return
+    end
+
+    unless options[:duration]
+      print_usage_and_exit!('You have to specify a duration with --duration or --parse.', 4)
+    end
+
+    # Input
+    duration, message = if options[:duration_in_seconds]
+      unless options[:duration].match(/^[0-9]+$/)
+        puts "--duration must be specified in seconds"
+        abort
+      end
+
+      [options[:duration].to_i, nil]
+    else
+      NaturalLanguageTimeParser.parse(options[:duration])
+    end
+
+    message = CGI.escape(options[:message] || message || '')
+
+    if duration.nil? || duration < 1
+      # Parse error
+      print_usage_and_exit!("Sorry, I'm not sure what you meant by '#{options[:duration]}'.", 5)
+    end
+
+    # Output
+    if options[:helper]
+      # Just omit the duration in seconds
+      puts duration
+      exit
+    end
+
+    url = "timebar://whimsicalifornia.com/start?duration=#{duration}&message=#{message}"
+
+    if options[:print]
+      puts url
+    else
+      system('open', url)
+    end
+  end
+
+  def self.alfred_query
+    "{query}"
+  end
+
+  def self.parse_command_line!
+    if running_in_alfred?
+      if alfred_query == 'stop'
+        return { :stop => true }
+      else
+        return { :duration => alfred_query }
+      end
+    end
+
+    print_usage_and_exit!(message = nil, exit_code = 0) if ARGV.empty?
+
+    opt_name = nil
+    expecting_value = false
+    options = {}
+    ARGV.each do |arg|
+      if opt_name && expecting_value
+        # Previous argument was an option name, and this is the value
+        options[opt_name] = arg
+        expecting_value = false
+      elsif arg.match(OPT_REGEXP)
+        opt_name = arg.scan(OPT_REGEXP).flatten[0].to_sym
+        case opt_name
+        when :d, :duration
+          # Specifies a countdown duration, in seconds
+          if options[:duration]
+            print_usage_and_exit!("Oops, you can't specify --duration and --parse at the same time. :(", 2)
+          end
+
+          opt_name = :duration
+          options[:duration_in_seconds] = true
+          expecting_value = true
+        when :h, :help
+          print_usage_and_exit!(message = nil, exit_code = 0)
+        when :helper
+          # When running inside the app; only prints the duration
+          options[:helper] = true
+        when :m, :message
+          opt_name = :message
+          expecting_value = true
+        when :parse
+          # Natural language time input
+          if options[:duration]
+            print_usage_and_exit!("Oops, you can't specify --duration and --parse at the same time. :(", 2)
+          end
+          opt_name = :duration
+          expecting_value = true
+        when :p, :print
+          # Print out the URL needed to start Timebar, but not actually start it
+          options[:print] = true
+        when :s, :stop
+          # Stop the timer
+          options[:stop] = true
+        when :test
+          # Runs natural language parsing tests
+          run_tests_and_exit!
+        when :v, :version
+          print_version_info_and_exit!
+        else
+          print_usage_and_exit!("Unknown parameter input '#{arg}' :(", 6)
+        end
+      else
+        print_usage_and_exit!("Unexpected input '#{arg}' :(", 3)
+      end
+    end
+
+    options
+  end
+
+  def self.print_usage_and_exit!(message = nil, exit_code = 1)
+    if message
+      puts message + "\n\n"
+    end
+
+    puts """usage: timebar --duration <duration in seconds> [ --message message ]
+       timebar --parse <natural language duration and message>
+       timebar --help
+       timebar --version
+
+Command-line parameters:
+  --duration/-d     The duration of the countdown. See note below.
+  --message/-m      The message to show when the countdown completes. Optional.
+  --help/-h         Shows this message.
+  --version/-v      Show version information.
+
+Specifying a duration:
+  Timebar can parse durations in a number of formats. Here are some examples.
+  - '15 minutes', '15 minute', '15 mins', '15 min', '15m', ':15', and '15'
+  - '2 hours', '2 hour', '2 hrs', '2 hr', '2 h', '2:00'
+  - '10 seconds', '10 second', '10 secs', '10 sec', '10 s'
+
+  These can be combined -- for example, '2 hours, 15 minutes and 10 seconds',
+  '2 hr 15 min 10 sec', or '2:15:10'. Timebar is pretty flexible. Hours, minutes,
+  and seconds have to be specified in that order, however.
+
+  """
+
+    exit(exit_code)
+  end
+
+  def self.print_version_info_and_exit!
+    path = `mdfind "kMDItemCFBundleIdentifier == 'com.whimsicalifornia.timebar'"`.strip.split("\n")[0]
+    if path.nil?
+      puts "Can't find Timebar on your Mac. :( Download it from the Mac App Store:"
+      puts "https://itunes.apple.com/us/app/timebar/id617829225?mt=12"
+      abort
+    end
+
+    app_version_number = `mdls -name kMDItemVersion '#{path}'`.strip.split(' = ')[1].gsub('"', '')
+
+    puts "Timebar #{app_version_number}, script 17a9c8d0"
+    exit
+  end
+
+  def self.run_tests_and_exit!
+    puts "running tests"
+    duration_cases = {
+      "" => nil,
+      "pants" => nil,
+      "1:62" => 7320,
+      "1 hour 62 minutes" => 7320,
+      "62 minutes" => 3720,
+      "62 seconds" => 62,
+      "4 minutes 62 seconds" => 302,
+      "4 hours 15 minutes 51 seconds" => 14751,
+      "4 hour 15 minute" => 15300,
+      "4 hour and 15 minute" => 15300,
+      "4 hour and 15 minute and 51 second" => 15351,
+      "4hours15mins" => 15300,
+      "4hours15mins51sec" => 15351,
+      "4 hr 15 min" => 15300,
+      "4 hr 15 min 51 sec" => 15351,
+      "4hr15min" => 15300,
+      "4hr15min51sec" => 15351,
+      "4h15m" => 15300,
+      "4h15m51s" => 15351,
+      "4 h 15 m" => 15300,
+      "4 h 15 m 51 s" => 15351,
+      "4 hours 15 minutes" => 15300,
+      "4 hours 15 minutes 51 seconds" => 15351,
+      "4 hours and 15 minutes" => 15300,
+      "4 hours and 15 minutes and 51 seconds" => 15351,
+      "4 hours" => 14400,
+      "4 hours" => 14400,
+      "15 minutes" => 900,
+      "51 seconds" => 51,
+      "4:15:51" => 15351,
+      "1:23" => 4980,
+      ":23" => 1380,
+      "55" => 3300,
+      "120" => 7200
+    }
+    message_cases = {
+      "blah blah" => "blah blah",
+      "------- lots of dashes" => "lots of dashes",
+      ":colon" => "colon",
+      "#comment" => "comment",
+      ", then the message" => "then the message",
+      "; after a brief pause" => "after a brief pause"
+    }
+
+    # Build up all possible test cases
+    test_cases = {}
+    duration_cases.each_pair do |duration_phrase, expected_duration|
+      message_cases.each_pair do |message_phrase, expected_message|
+        test_cases[duration_phrase + ' ' + message_phrase] = [expected_duration, expected_message]
+      end
+    end
+
+    test_cases.each_pair do |input, output|
+      expected_duration, expected_message = output
+      actual_duration, actual_message = NaturalLanguageTimeParser.parse(input)
+      if expected_duration.nil? && actual_duration.nil?
+        puts "OK #{input} -> nil"
+      elsif actual_duration != expected_duration
+        puts "FAIL: '#{input}'. Duration '#{actual_duration}' did not match expected '#{expected_duration}'"
+        abort
+      elsif actual_message != expected_message
+        puts "FAIL: '#{input}'. Message '#{actual_message}' did not match expected '#{expected_message}'"
+        abort
+      elsif !running_in_alfred?
+        puts "OK #{input}"
+      end
+    end
+
+    puts "All tests passed. :)"
+    exit
+  end
+
+  def self.running_in_alfred?
+    # check to see whether we're running in Alfred or not
+    alfred_query.gsub('query', 'placeholder_for_alfred_query') != '{placeholder_for_alfred_query}'
+  end
+end
+
+module NaturalLanguageTimeParser
+  # Strip leading punctuation out of the message
+  LEADING_PUNCTUATION = /^[\-#,;:\s]+/
+
+  # Natural language:
+  # 4 hours 15 minutes
+  # 4 hours
+  # 15 minutes
+  # Also supports abbreviations: hours hour hr h and minutes minute min m
+  NATURAL_LANGUAGE_REGEXP = /^((\d+)\s*(hours|hour|hrs|hr|h))?\s*(and)?\s*((\d+)\s*(minutes|minute|mins|min|m))?\s*(and)?\s*((\d+)\s*(seconds|second|secs|sec|s))?\s*(.+)?/
+
+  # Time format:
+  # 4:15
+  # :15
+  TIME_REGEXP = /^(\d+:)?(\d+)?:(\d+)\s*(.+)?/
+
+  # Basic numeric format:
+  # 15
+  NUMERIC_REGEXP = /^(\d+)(\s+(.+))?/
+
+  def self.parse(input)
+    hours = 0
+    minutes = 0
+    seconds = 0
+
+    if (matches = input.match(TIME_REGEXP)) && (matches[1] || matches[2] || matches[3])
+      message = matches[4]
+      if matches[1] && matches[2] && matches[3] # h:m:s
+        hours = matches[1].to_i
+        minutes = matches[2].to_i
+        seconds = matches[3].to_i
+      elsif matches[3] # h:m and :m
+        hours = matches[2].to_i
+        minutes = matches[3].to_i
+      else
+        return nil
+      end
+    elsif (matches = input.match(NATURAL_LANGUAGE_REGEXP)) && (matches[2] || matches[6] || matches[10])
+      hours = matches[2].to_i
+      minutes = matches[6].to_i
+      seconds = matches[10].to_i
+      message = matches[12]
+    elsif (matches = input.match(NUMERIC_REGEXP)) && matches[1]
+      minutes = matches[1].to_i
+      message = matches[3]
+    else
+      return nil
+    end
+
+    duration = (hours * 3600) + (minutes * 60) + seconds
+    message = (message || "").gsub(LEADING_PUNCTUATION, '').strip
+
+    [duration, message]
+  end
+end
+
+TimebarCLI.run!
