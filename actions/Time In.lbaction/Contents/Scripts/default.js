@@ -41,7 +41,7 @@ function runWithString(address) {
                 lng: resp.data.results[0].geometry.location.lng
             };
 
-            cache(address, data);
+            cache(resp.data.results[0].formatted_address, data);
         }
 
         var d = new Date();
@@ -138,7 +138,7 @@ function request(url) {
 }
 
 function get_apikey() {
-    if (LaunchBar.options.alternateKey || Action.preferences.api_key === undefined)
+    if (Action.preferences.api_key === undefined)
         Action.preferences.api_key = prompt("Enter your Google API key:");
     return Action.preferences.api_key;
 }
