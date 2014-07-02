@@ -16,3 +16,7 @@ Also, you can type "stop" to stop the timer.
 
 Note: I don't have TimeBar so I can't test this. Any feedback is appreciated!
 
+
+## Credit
+
+* I didn't write the TimeBar CLI included
