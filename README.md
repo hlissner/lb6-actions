@@ -33,6 +33,7 @@ To install any of these, [Download the Zip](https://github.com/hlissner/launchba
 * [Sleep Displays](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Sleep%20Displays.lbaction)
 * [Strip Tags](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Strip%20Tags.lbaction)
 * [Time in...](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Time%20In.lbaction)
+* [TimeBar](https://github.com/hlissner/lb6-actions/tree/master/actions/Timebar.lbaction)
 
 Other actions
 * [Chrome Tabs](https://github.com/hlissner/lb6-chrometabs): like Safari Tabs, but for
