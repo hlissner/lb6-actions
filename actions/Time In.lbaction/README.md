@@ -3,13 +3,13 @@
 A quick wibbly wobbly, timey whimey way to look up what time it is anywhere in the
 world. Feed it an address, a country, a city--whatever.
 
-![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-ti-1.png)
-![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-ti-2.png)
+![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-1.png)
+![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-2.png)
 
 Run it without text and it will list the times of preset locations you've set in your
 preferences (see below).
 
-![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-ti-3.png)
+![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-3.png)
 
 ## Requirements
 
@@ -25,9 +25,14 @@ preferences (see below).
 1. Go to [the Google Developer Console](https://console.developers.google.com) and sign in with your Google account.
 2. Click "Create new project" and name it whatever you like. I named mine "LaunchBar Actions".
 3. Go to **Credentials** on the left menu.
+    
+    ![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-6.png)
+
 4. Beneath **Public API Access**, click on a button labeled **Create new key**.
 5. Select "Browser Key" when it prompts you what type of key you want, then click "create" to finish the process.
 6. The API key has been created and should be displayed. Note this down. There's one more step before you're done.
+    ![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-5.png)
+
 7. Go to "APIs" on the left menu, then find and enable these two services:
     * Geocoding API
     * TimeZone API
@@ -45,4 +50,4 @@ you can modify your api key in the Preferences.plist file for this action:
 
 Example:
 
-![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-ti-4.png)
+![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-4.png)
