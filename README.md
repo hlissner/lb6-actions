@@ -37,27 +37,31 @@ To install any of these, [Download the Zip](https://github.com/hlissner/launchba
 Other actions
 * [Chrome Tabs](https://github.com/hlissner/lb6-chrometabs): like Safari Tabs, but for
   Chrome.
+* [Can I Use](https://github.com/hlissner/lb6-caniuse): queries caniuse.com, inspired by
+  [the equivilent Alfred workflow](https://github.com/willfarrell/alfred-caniuse-workflow).
+* [Linode](https://github.com/hlissner/lb6-linode): management and overview of your Linodes.
 
-### 3rd Party Actions (that I use)
+### Planned Actions
 
-Find them in ext/
+* Search MyAnimeList (with suggestions)
+* Share on Dropbox
+* Text Search in Folder (using ag)
+* Transmission-remote Manager
+* Vagrant VM: List, Start up, Shut down
+
+## 3rd Party Actions (that I use)
 
 * By [heikowitte](https://github.com/heikowitte)
     * [Get Local IP](https://github.com/heikowitte/LaunchBarActions/tree/master/get-local-ip.lbaction) / [Get Public IP](https://github.com/heikowitte/LaunchBarActions/tree/master/get-public-ip.lbaction)
 * By [Manuel Weiel](http://manuel.weiel.eu/private-projects/launchbar-actions/)
-    * BatteryDetails 
-    * Search WolframAlpha
-    * Search YouTube (with suggestions)
+    * [BatteryDetails](http://manuel.weiel.eu/wp-content/uploads/BatteryDetails.lbaction)
+    * [Search WolframAlpha](http://manuel.weiel.eu/private-projects/launchbar-actions/search-wolfram-alpha/)
 * By [prenagha](https://github.com/prenagha/launchbar)
-    * Expand URL
-    * Timer
-    * Copy to iPhone / iPad
+    * [Copy to iPad](https://github.com/prenagha/launchbar/tree/master/Copy%20to%20iPad.lbaction)
+    * [Copy to iPhone](https://github.com/prenagha/launchbar/tree/master/Copy%20to%20iPhone.lbaction)
+    * [Expand URL](https://github.com/prenagha/launchbar/tree/master/Expand%20URL.lbaction)
+    * [Timer](https://github.com/prenagha/launchbar/tree/master/Timer.lbaction)
+* By [Nosrac]
+    * [Youtube Predictions](https://github.com/Nosrac/LBYoutubePredictions)
+    * [Define](https://github.com/Nosrac/LBDefine)
 
-## Planned Actions
-
-* Transmission-remote Manager
-* Vagrant VM: List, Start up, Shut down
-* Linode Manager
-* Share on Dropbox
-* Search MyAnimeList (with suggestions)
-* Text Search in Folder (using ag)
