@@ -16,11 +16,6 @@ function run() {
         item.subtitle = location + " | " + item.subtitle;
         items.push(item);
     });
-    items.sort(function(a, b) {
-         if (a.subtitle > b.subtitle) return 1;
-         if (a.subtitle < b.subtitle) return -1;
-         return 0;
-    });
 
     return items;
 }
