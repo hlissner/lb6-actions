@@ -61,7 +61,7 @@ Other actions
     * [Copy to iPhone](https://github.com/prenagha/launchbar/tree/master/Copy%20to%20iPhone.lbaction)
     * [Expand URL](https://github.com/prenagha/launchbar/tree/master/Expand%20URL.lbaction)
     * [Timer](https://github.com/prenagha/launchbar/tree/master/Timer.lbaction)
-* By [Nosrac]
+* By [Nosrac](https://github.com/Nosrac)
     * [Youtube Predictions](https://github.com/Nosrac/LBYoutubePredictions)
     * [Define](https://github.com/Nosrac/LBDefine)
 
