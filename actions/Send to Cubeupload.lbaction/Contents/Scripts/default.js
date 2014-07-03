@@ -1,10 +1,8 @@
 var URL_PREFIX = 'http://i.cubeupload.com/';
 
-function runWithString(string) { return runWithPaths([string]); }
-
-function runWithItem(item) { return runWithPaths([item.path]); }
-
 function runWithPaths(paths) {
+    if (!paths.length) return [];
+
     var items = [];
     for (var i in paths) {
         var resp = upload(paths[i]);
@@ -19,12 +17,16 @@ function runWithPaths(paths) {
     }
 
     if (!items.length) {
+        // LaunchBar.log(paths);
         notify("Received " + paths.length + " items, but none of the items could be uploaded.");
         return [];
     }
 
     return items;
 }
+
+function runWithItem(item) { return runWithPaths([item.path]); }
+
 
 ////////////////////////
 function upload(image_path) {
@@ -40,11 +42,11 @@ function upload(image_path) {
                 '-F', 'fileinput[0]=@' + image_path,
                 'http://cubeupload.com/upload_json.php');
 
-        if (resp.trim() === "")
+        if (!resp.trim())
             throw "Received empty response from cubeupload.com.";
 
         resp = JSON.parse(resp);
-        if (resp.error === true)
+        if (resp.error === false)
             throw resp.error_reason + ": " + resp.error_text;
 
         return resp;

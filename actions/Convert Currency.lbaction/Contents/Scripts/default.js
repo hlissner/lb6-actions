@@ -1,3 +1,7 @@
+/*
+ * TODO: Cache exchange rate for ~30 minutes
+ */
+
 var API_URL = "http://www.google.com/finance/converter";
 
 function runWithString(string) {
