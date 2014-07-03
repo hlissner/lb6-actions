@@ -13,14 +13,18 @@ preferences (see below).
 
 ## Requirements
 
-* A Google Account
-* A Google API key (you'll be prompted for this on first run)
-* The following Google API services enabled:
-    * Geocoding API
-    * TimeZone API
+«Time In» works out of the box. However, if you're getting API query limit errors,
+I recommend you have the following:
+
+* OPTIONAL:
+    * A Google Account
+    * A Google API key (you'll be prompted for this on first run)
+    * The following Google API services enabled:
+        * Geocoding API
+        * TimeZone API
 
 
-## How to set it up
+## How to set up Google API
 
 1. Go to [the Google Developer Console](https://console.developers.google.com) and sign in with your Google account.
 2. Click "Create new project" and name it whatever you like. I named mine "LaunchBar Actions".
@@ -37,17 +41,11 @@ preferences (see below).
     * Geocoding API
     * TimeZone API
 
-And you're done! Run Time In once and it will request your API key. Enter it and you're good
-to go!
-
-
-## Notes
-
-To force the API key prompt to appear, hold alt while running the action. Alternatively,
-you can modify your api key in the Preferences.plist file for this action:
-
-`~/Library/Application Support/LaunchBar/Action Support/io.henrik.launchbar.TimeIn/Preferences.plist`
-
-Example:
+And you're done! Run Time In while holding down alt and it will give you the
+Preferences.plist. Enter your API key in the api_key field and you're good to go!
 
 ![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-4.png)
+
+Otherwise, you'll find your preference file here:
+
+`~/Library/Application Support/LaunchBar/Action Support/io.henrik.launchbar.TimeIn/Preferences.plist`

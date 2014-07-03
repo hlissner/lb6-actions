@@ -4,15 +4,24 @@ var API_URL_PREFIX = "https://maps.googleapis.com/maps/api";
 var API = {
     key: function() {
         if (Action.preferences.api_key === undefined)
-            Action.preferences.api_key = prompt("Enter your Google API key:");
+            Action.preferences.api_key = "";
         return Action.preferences.api_key;
     },
 
-    request: function(url) {
-        var resp = HTTP.getJSON(url);
+    request: function(action, args) {
+        var url = API_URL_PREFIX + "/" + action + "/json?";
+        var argv = [];
+        var apikey = this.key();
+        if (apikey)
+            args.key = apikey;
+        for (var key in args)
+            argv.push(key + "=" + args[key]);
+
+        var resp = HTTP.getJSON(url + argv.join('&'));
         LaunchBar.debugLog("Requested: "+url);
         if (resp.error !== undefined)
-            throw resp.error;
+            throw "ERROR: " + resp.error;
+
         switch (resp.data.status) {
             case "INVALID_REQUEST":
                 throw {message: "The request was malformed. This is a bug!", log: resp.data.error_message, resp: resp};
@@ -35,10 +44,7 @@ var API = {
 
         var data = Cache.get(address.trim());
         if (!data) {
-            var resp = API.request(API_URL_PREFIX + "/geocode/json" + 
-                "?key=" + this.key() + 
-                "&address=" + encodeURIComponent(address)
-            );
+            var resp = API.request('geocode', {address: encodeURIComponent(address)});
             data = {
                 lat: resp.data.results[0].geometry.location.lat,
                 lng: resp.data.results[0].geometry.location.lng
@@ -57,27 +63,11 @@ var API = {
         var tzkey = lat+","+lng;
         var tzdata = Cache.get(tzkey, true);
         if (!tzdata) {
-            resp = API.request(API_URL_PREFIX + "/timezone/json" + 
-                "?key=" + this.key() + 
-                "&location=" + lat + "," + lng + 
-                "&timestamp=" + Math.floor(timestamp/1000)
-            );
+            resp = API.request('timezone', {location: lat+","+lng, timestamp: Math.floor(timestamp/1000)});
             
             tzdata = {rawOffset: resp.data.rawOffset, dstOffset: resp.data.dstOffset};
-            Cache.set(tzkey, tzdata, 60);
+            Cache.set(tzkey, tzdata, 86400);
         }
         return tzdata;
     }
 };
-
-function prompt(question) {
-    var input = LaunchBar.executeAppleScript(
-        'display dialog "'+question+'" default answer ""',
-        'return text returned of result'
-    ).trim();
-
-    if (input.length === 0)
-        throw "Dialog left blank";
-
-    return input;
-}

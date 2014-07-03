@@ -2,6 +2,12 @@ include("cache.js");
 include("api.js");
 
 function run() {
+    if (LaunchBar.options.alternateKey) {
+        API.key();
+        var path = Action.supportPath + "/Preferences.plist";
+        return [{title: "Preferences.plist", path: path}];
+    }
+
     if (Action.preferences.locations === undefined || Action.preferences.locations.length === 0) {
         return [
             {title: "You have no locations set."},
@@ -53,7 +59,7 @@ function runWithString(address) {
             msg = err.message;
             LaunchBar.log("Error: " + err.log);
             LaunchBar.log("Response: " + JSON.stringify(err.resp));
-        } 
+        }
         else msg = err;
 
         LaunchBar.displayNotification({title: "LaunchBar Error", string: msg});
