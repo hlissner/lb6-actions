@@ -1,27 +1,28 @@
-var API_URL = "https://domai.nr/api/json/search?q=";
+include("shared/request.js");
+include("shared/notify.js");
+
+var API_URL = "https://domai.nr/api/json/search";
 
 function runWithString(string) {
-    var data = api_call(string);
-    var items = [];
-    data.forEach(function(item) {
-        items.push({
-            title: item.domain,
-            url: item.register_url,
-            icon: item.availability,
-            actionArgument: item.domain
+    try {
+        return api_call(string).map(function(item) {
+            return {
+                title: item.domain,
+                url: item.register_url,
+                icon: item.availability,
+                actionArgument: item.domain
+            };
         });
-    });
-
-    return items;
+    } catch (err) {
+        Notify.error(err);
+    }
 }
 
 function api_call(term) {
-    var resp = HTTP.getJSON(API_URL + encodeURIComponent(term));
+    var resp = Request.getJSON(API_URL, {q: encodeURIComponent(term)});
     if (resp.error !== undefined)
-        throw resp.error;
-    if (resp.data.error !== undefined)
-        throw resp.data.error.message;
+        throw "Domai.nr ("+resp.error.status+"): "+resp.error.message;
 
-    return resp.data.results;
+    return resp.results;
 }
 
