@@ -1,14 +1,36 @@
-require 'fileutils'
+@shared = "shared/*.js"
+@dest = "actions/*.lbaction/Contents/Scripts/*.js"
 
-@shared = "./shared"
-@dest = "./actions/*.lbaction/Contents/Scripts/shared"
+verbose(false)
 
 task :default => :update
 
-task :update do
-    Dir.glob(@dest).each do |dir|
-        FileUtils.rm_rf(dir)
-        FileUtils.cp_r("shared", dir)
-        # puts dir
+task :update => :clean do
+    last = ""
+    Dir.glob(@dest).each do |file|
+        action = file.split("/")[1]
+
+        puts "==> Checking #{action}" unless last == action
+        last = action
+
+        scripts_dir = File.dirname(file)
+        shared_dir = "#{scripts_dir}/shared"
+
+        Dir.glob(@shared).each do |lib|
+            sh "grep 'include(\s*.#{lib}.\s*);' '#{file}' >/dev/null 2>&1" do |ok,res|
+                if ok
+                    puts "    * #{lib} in #{File.basename(file)}"
+                    mkdir_p shared_dir
+                    cp lib, "#{scripts_dir}/#{lib}"
+                end
+            end
+        end
+    end
+end
+
+task :clean do
+    Dir.glob("actions/*.lbaction/Contents/Scripts/shared") do |dir|
+        puts "==> Deleting #{dir.split("/")[1]}'s shared scripts"
+        rm_rf dir
     end
 end
