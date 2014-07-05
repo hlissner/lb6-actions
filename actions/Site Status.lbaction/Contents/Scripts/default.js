@@ -1,11 +1,12 @@
+include("shared/lib.js");
+
 var API_URL = 'http://www.isup.me/';
 
 function run() {
-    if (Action.preferences.sites === undefined) {
+    if (Action.preferences.sites === undefined)
         Action.preferences.sites = [];
-    }
 
-    if (LaunchBar.options.shiftKey || Action.preferences.sites.length === 0) {
+    if (LaunchBar.options.controlKey || Action.preferences.sites.length === 0) {
         return [
             {
                 title: "No sites set",
@@ -26,14 +27,15 @@ function run() {
 function runWithString(string) {
     try {
         var resp = HTTP.get(API_URL + string);
+        LaunchBar.debugLog("URL="+API_URL+string);
+
         if (resp.error !== undefined)
             throw resp.error;
         if (resp.response.status !== 200)
             throw resp.response.localizedStatus;
 
         var html = resp.data;
-
-        var url = get_hostname(string);
+        var url = URL.hostname(string);
         var m = html.match(/It's (not )?just you[!.]\s*<a href=".+" class="domain">(.+)<\/a>(<\/span>)? ((looks down from here)|(is up))./i);
         if (m === null) {
             return [{
@@ -43,28 +45,16 @@ function runWithString(string) {
             }];
         }
 
+        History.add(url);
+
         var is_up = m[1] !== "not ";
         return [{
             title: url,
-            subtitle: is_up ? "Site is up!" : "Site seems to be down.",
             url: url,
+            subtitle: is_up ? "Site is up!" : "Site seems to be down.",
             icon: is_up ? "up" : "down"
         }];
     } catch (err) {
-        LaunchBar.displayNotification({title: "LaunchBar Error", string: err});
-        LaunchBar.log("ERROR \nURL="+API_URL + string + "\nMSG=" + err);
+        Notify.error(err);
     }
-}
-
-function get_hostname(url) {
-    var start = url.indexOf('//');
-    if (start !== -1) 
-        start += 2;
-    else
-        start = 0;
-
-    var end =  url.indexOf('/', start);
-    if (end === -1) return url.substr(start);
-
-    return url.substr(start, end-start);
 }

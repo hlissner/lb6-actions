@@ -11,7 +11,4 @@ You can set a list of pre-set sites to check when you run Site Status without an
 
 ![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-sts-04.png);
 
-You can find your preferences here:
-
-`~/Library/Application Support/LaunchBar/Action
-Support/io.henrik.launchbar.SiteStatus/Preferences.plist`
+Hold down ctrl while running the action to select this action's Preferences.plist
