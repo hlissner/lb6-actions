@@ -55,7 +55,7 @@ var Path = {
 
 var Sanitize = {
     newlines: function(string) {
-        return string.replace(/(\r\n|\n|\r)/gm,"");
+        return string.replace(/(\r\n|\n|\r)/gm,"").trim();
     },
 
     urlpath: function(string) {
@@ -117,8 +117,10 @@ var Cache = {
         var data = File.readJSON(file_path);
 
         var ts = Date.now();
-        if (has_ttl && (ts - data.ts) > data.ttl)
+        if ((has_ttl && (ts - data.ts) > data.ttl) || data.data === undefined) {
+            LaunchBar.execute("rm", file_path);
             return false;
+        }
 
         LaunchBar.debugLog("CACHE="+key);
         return data.data;
@@ -134,10 +136,56 @@ var Cache = {
     set: function(key, value, ttl) {
         key = key.replace(/[^a-z0-9]/gi, '_').toLowerCase();
 
-        var data = {ts: Date.now(), data: value};
-        if (ttl !== undefined)
+        var data = {data: value};
+        if (ttl) {
+            data.ts = Date.now();
             data.ttl = ttl * 1000;
+        }
 
-        File.writeJSON(value, this.PATH + "/" + key + ".json", {'prettyPrint' : false});
+        File.writeJSON(data, this.PATH + "/" + key + ".json", {'prettyPrint' : false});
+    }
+};
+
+var History = {
+    MAX_ITEMS: 25,
+    DEFAULT_ICON: null,
+
+    add: function(location) {
+        if (typeof location != 'string')
+            return false;
+        location = Sanitize.newlines(location);
+
+        var list = this.get();
+        if (list.indexOf(location) !== -1)
+            return false;
+        
+        list.push(location);
+        if (list.length > this.MAX_ITEMS) {
+            list.shift();
+        }
+
+        Cache.set('history', list.reverse());
+        return true;
+    },
+
+    get: function() {
+        return Cache.get('history') || [];
+    },
+
+    list: function(icon) {
+        return this.get().map(function(item) {
+            return {title: item, icon: icon};
+        });
+    },
+
+    suggestions: function(query, icon) {
+        query = query.toLowerCase();
+
+        var items = [];
+        this.get().forEach(function(item) {
+            if (query === "" || item.toLowerCase().indexOf(query) !== -1)
+                items.push({title: item, icon: icon});
+        });
+        return items;
     }
 };
