@@ -1,29 +1,38 @@
+include("shared/lib.js");
+include("shared/path.js");
+include("shared/notify.js");
+
 function runWithPaths(paths) {
     try {
-        var items = [];
-        for (var i = 0, len = paths.length; i < len; i++) {
+        return paths.map(function(path) {
             var item = {};
 
-            var first_size = filesize(paths[i]) / 1000;
-
-            if (!File.exists(paths[i])) {
-                LaunchBar.displayNotification({title: "LaunchBar Error", string:"File does not exist: "+paths[i]});
-                continue;
+            var first_size = filesize(path) / 1000;
+            if (!File.exists(path)) {
+                return [{
+                    title: File.basename(path),
+                    path: path,
+                    icon: "404"
+                }];
             }
 
-            var new_path = paths[i];
+            // If alt is down, make a copy of the file so as to not 
+            // operate on the original
+            var new_path = path;
             if (LaunchBar.options.alternateKey) {
-                new_path = dirname(paths[i]) + '/min-' + basename(paths[i]);
-                LaunchBar.execute('/bin/cp', '-p', paths[i], new_path);
-                if (!File.exists(new_path)) throw "File couldn't be moved!";
+                new_path = Path.dirname(path) + '/min-' + Path.basename(path);
+                LaunchBar.execute('/bin/cp', '-p', path, new_path);
+
+                if (!File.exists(new_path)) 
+                    throw "File couldn't be moved!";
             }
 
             var after_size = optimize(new_path) / 1000;
             var dsize = Math.abs(first_size - after_size) / first_size;
 
             item.path = new_path;
-            item.title = basename(item.path);
-            item.quickLookURL = "file://" + item.path;
+            item.title = Path.basename(item.path);
+            item.quickLookURL = "file://" + item.path.encodeURIPath();
             item.actionArgument = item.path;
 
             if (dsize > 0.5) {
@@ -35,15 +44,11 @@ function runWithPaths(paths) {
                 item.subtitle = "Could not be reduced further!";
                 item.icon = "n";
             }
-            items.push(item);
-        }
 
-        // Save these files into history
-        return items.reverse();
+            return item;
+        }).reverse();
     } catch(err) {
-        LaunchBar.displayNotification({title: "LaunchBar Error", string:err});
-        LaunchBar.log(paths.join(",\n"));
-        return [];
+        Notify.error(err);
     }
 }
 
@@ -59,7 +64,7 @@ function optimize(path) {
             LaunchBar.execute('/Applications/ImageAlpha.app/Contents/Resources/pngquant', '--force', '--ext', '.png', path);
             LaunchBar.debugLog("ImageAlpha used");
         } else {
-            LaunchBar.displayNotification({title: "LaunchBar Error", string: "Your images weren't optimized because ImageAlpha couldn't be found!"});
+            Notify.error("ImageAlpha couldn't be found!");
         }
     }
 
@@ -69,7 +74,7 @@ function optimize(path) {
             LaunchBar.execute('/Applications/ImageOptim.app/Contents/MacOS/ImageOptim', path);
             LaunchBar.debugLog("ImageOptim used");
         } else {
-            LaunchBar.displayNotification({title: "LaunchBar Error", string: "ImageOptim couldn't be found!"});
+            Notify.error("ImageOptim couldn't be found!");
         }
     }
 
@@ -86,12 +91,4 @@ function filesize(file) {
         throw "Filesize couldn't be ascertained for: "+basename(file);
 
     return parseInt(out);
-}
-
-function basename(path) {
-    return path.replace(/^.*[\\\/]/, '');
-}
-
-function dirname(path) {
-    return path.replace(/\\/g, '/').replace(/\/[^\/]*\/?$/, '');
 }
