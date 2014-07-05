@@ -1,4 +1,4 @@
-include("url.js");
+include("shared/url.js");
 
 var Request = {
     get: function(url, argv, ttl) {
@@ -35,7 +35,7 @@ var Request = {
         }
         args.push(url);
 
-        var resp = LaunchBar.execute(argv);
+        var resp = LaunchBar.execute(args);
         if (!resp)
             throw "Bad response from "+url;
 
@@ -49,6 +49,6 @@ var Request = {
     },
 
     postJSON: function(url, argv, ttl) {
-        return this.post(url, argv, ttl);
+        return JSON.parse(this.post(url, argv, ttl));
     }
 };
