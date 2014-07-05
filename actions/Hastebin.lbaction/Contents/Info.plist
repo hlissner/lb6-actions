@@ -4,30 +4,30 @@
 <dict>
 
     <key>CFBundleIdentifier</key>
-    <string>io.henrik.launchbar.SendToHastebin</string>
+    <string>io.henrik.launchbar.Hastebin</string>
 
     <key>CFBundleName</key>
-    <string>Send to Hastebin</string>
+    <string>Hastebin</string>
 
     <!-- <key>CFBundleShortVersionString</key> -->
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.0</string>
+    <string>1.2</string>
 
     <key>CFBundleIconFile</key>
-    <string>upload</string>
+    <string>at.obdev.LaunchBar:ContactNote</string>
 
     <key>LBDebugLogEnabled</key>
-    <false />
+    <true />
 
     <!-- LB stuff -->
     <!-- <key>LSMinimumSystemVersion</key> -->
     <!-- <string>10.9.1</string> -->
     
     <!-- Per-action keys -->
-    <!-- <key>LBTextInputTitle</key> -->
-    <!-- <string>Rate</string> -->
+    <key>LBTextInputTitle</key>
+    <string>Send to Hastebin</string>
 
     <key>LBScripts</key>
     <dict>
@@ -40,7 +40,7 @@
             <false />
 
             <key>LBRequiresArgument</key>
-            <true />
+            <false />
 
             <key>LBAcceptedArgumentTypes</key>
             <array>
