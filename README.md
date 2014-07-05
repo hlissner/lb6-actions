@@ -55,6 +55,8 @@ Other actions
 * Text Search in Folder (using ag)
 * Transmission-remote Manager
 * Vagrant VM: List, Start up, Shut down
+* Temperature In...
+* 7-day Forecasts
 
 ## 3rd Party Actions (that I use)
 
