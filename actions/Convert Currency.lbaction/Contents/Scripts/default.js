@@ -1,6 +1,10 @@
 /*
+ * TODO: Calculate new amount w/ exchange rates
  * TODO: Cache exchange rate for ~30 minutes
  */
+
+include("shared/notify.js");
+include("shared/url.js");
 
 var API_URL = "http://www.google.com/finance/converter";
 
@@ -16,15 +20,11 @@ function runWithString(string) {
         var from = match[2];
         var to = match[3];
 
-        var data = request(API_URL + 
-            "?a=" + amt + 
-            "&from=" + from + 
-            "&to=" + to
-        );
+        var data = request({a: amt, from: from, to: to});
 
         // Parse the html
         var result = data.match(/<div id=currency_converter_result>.+<span class=bld>([\d\.]+) ([\w]{3})<\/span>/);
-        if (result === null || result.length != 3)
+        if (!result || result.length != 3)
             throw "Invalid currency code! ...or is Google Finance down?";
 
         // Assemble a readable string
@@ -38,12 +38,12 @@ function runWithString(string) {
             icon: "money_gold"
         }];
     } catch (err) {
-        LaunchBar.displayNotification({title: "LaunchBar Error", string: err});
+        Notify.error(err);
     }
 }
 
-function request(url) {
-    var resp = HTTP.get(url);
+function request(args) {
+    var resp = HTTP.get(API_URL + "?" + URL.dict2qs(args));
     if (resp.error !== undefined) {
         switch (resp.response.status) {
             case 500:
