@@ -23,14 +23,6 @@ function prompt(question) {
     return input;
 }
 
-function php(args) {
-    if (!args || !args instanceof Object)
-        args = [];
-
-    args.unshift("/usr/bin/php");
-    return LaunchBar.execute(args);
-}
-
 String.prototype.flatten = function() {
     return this.replace(/(\r\n|\n|\r)/gm,"").trim();
 };
