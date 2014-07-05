@@ -1,24 +1,20 @@
-include("cache.js");
+include("shared/lib.js");
 include("api.js");
 
 function run() {
-    if (LaunchBar.options.alternateKey) {
+    var path = Action.supportPath + "/Preferences.plist";
+    if (LaunchBar.options.controlKey) {
         API.key();
-        var path = Action.supportPath + "/Preferences.plist";
+        Action.preferences.locations = Action.preferences.locations || [];
         return [{title: "Preferences.plist", path: path}];
     }
 
-    if (Action.preferences.locations === undefined || Action.preferences.locations.length === 0) {
-        return [
-            {title: "You have no locations set."},
-            {title: "How do I set it up?", url: "https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Time%20In.lbaction/README.md", icon: "setup"}
-        ];
-    }
+    if (Action.preferences.locations === undefined || Action.preferences.locations.length === 0)
+        return [{title: "You have no locations set", subtitle: "Run this action to open your preferences", path: path}];
 
     var items = [];
-    var item = {};
     Action.preferences.locations.forEach(function(location) {
-        item = runWithString(location)[0];
+        var item = runWithString(location)[0];
         item.subtitle = location + " | " + item.subtitle;
         items.push(item);
     });
@@ -28,14 +24,12 @@ function run() {
 
 function runWithString(address) {
     LaunchBar.debugLog("Searching for "+address);
-    if (!address.trim()) return;
 
     try {
         var resp;
         var d = new Date();
         var ts = d.getTime();
 
-        var apikey = API.key();
         var coords = API.coordinates(address);
         var tzdata = API.tzdata(ts, coords.lat, coords.lng);
         
@@ -51,7 +45,7 @@ function runWithString(address) {
         return [{
             title: _format(time),
             subtitle: diffline,
-            icon: "clock2"
+            icon: "clockTemplate"
         }];
     } catch (err) {
         var msg;

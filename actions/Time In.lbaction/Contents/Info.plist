@@ -13,10 +13,10 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.1</string>
+    <string>1.2</string>
 
     <key>CFBundleIconFile</key>
-    <string>clock</string>
+    <string>clockTemplate</string>
 
     <key>LBDebugLogEnabled</key>
     <false />
@@ -53,6 +53,15 @@
             <key>LBReturnType</key>
             <string>string</string>
         </dict>
+
+        <key>LBSuggestionsScript</key>
+        <dict>
+            <key>LBScriptName</key>
+            <string>suggestions.js</string>
+
+            <key>LBRunInBackground</key>
+            <true />
+        </dict>
     </dict>
 
     <key>LBDescription</key>
@@ -71,7 +80,7 @@
 
         <!-- A short summary about what the action does and how it’s used. -->
         <key>LBSummary</key>
-        <string>Gets the time in a country or at an address.</string>
+        <string>Gets the time in a country, at an address or of a preset list of locations.</string>
 
         <!-- Describe the arguments that should be passed to the action. For example, if
              your action’s default script specifies that it accepts paths via
@@ -90,8 +99,8 @@
         <!-- Describe any further requirements for your action to work, e.g. if it
              requires an active internet connection, iTunes to be playing a song, or
              a certain version of an app to be installed. -->
-        <key>LBRequirements</key>
-        <string>A Google API key, and API access to the Geocoding and Timezone APIs (see https://code.google.com/apis/console).</string>
+        <!-- <key>LBRequirements</key> -->
+        <!-- <string></string> -->
     </dict>
 
 </dict>

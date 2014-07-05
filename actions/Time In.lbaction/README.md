@@ -11,17 +11,19 @@ preferences (see below).
 
 ![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-3.png)
 
+Note:
+* Hold down ctrl to select this action's Preferences.plist
+
 ## Requirements
 
-«Time In» works out of the box. However, if you're getting API query limit errors,
-I recommend you have the following:
+«Time In» works out of the box **without** an API key, but if you're getting API
+query limit errors you might be better off with one:
 
-* OPTIONAL:
-    * A Google Account
-    * A Google API key (you'll be prompted for this on first run)
-    * The following Google API services enabled:
-        * Geocoding API
-        * TimeZone API
+* A Google Account
+* A Google API key (you'll be prompted for this on first run)
+* The following Google API services enabled:
+    * Geocoding API
+    * TimeZone API
 
 
 ## How to set up Google API
@@ -46,6 +48,4 @@ Preferences.plist. Enter your API key in the api_key field and you're good to go
 
 ![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-4.png)
 
-Otherwise, you'll find your preference file here:
-
-`~/Library/Application Support/LaunchBar/Action Support/io.henrik.launchbar.TimeIn/Preferences.plist`
+Hold down control why running the action to select the action's Preferences.plist.

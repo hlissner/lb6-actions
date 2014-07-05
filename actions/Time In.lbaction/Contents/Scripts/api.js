@@ -1,7 +1,8 @@
-include("cache.js");
+include("shared/lib.js");
 
-var API_URL_PREFIX = "https://maps.googleapis.com/maps/api";
 var API = {
+    URL_PREFIX: "https://maps.googleapis.com/maps/api",
+
     key: function() {
         if (Action.preferences.api_key === undefined)
             Action.preferences.api_key = "";
@@ -9,7 +10,7 @@ var API = {
     },
 
     request: function(action, args) {
-        var url = API_URL_PREFIX + "/" + action + "/json?";
+        var url = this.URL_PREFIX + "/" + action + "/json?";
         var argv = [];
         var apikey = this.key();
         if (apikey)
@@ -43,7 +44,7 @@ var API = {
             throw "Missing parameters for API.coordinates";
 
         var data = Cache.get(address.trim());
-        if (!data) {
+        if (LaunchBar.options.shiftKey || !data) {
             var resp = API.request('geocode', {address: encodeURIComponent(address)});
             data = {
                 lat: resp.data.results[0].geometry.location.lat,
@@ -51,6 +52,7 @@ var API = {
             };
 
             Cache.set(resp.data.results[0].formatted_address, data);
+            History.add(resp.data.results[0].formatted_address);
         }
 
         return data;
@@ -62,7 +64,7 @@ var API = {
 
         var tzkey = lat+","+lng;
         var tzdata = Cache.get(tzkey, true);
-        if (!tzdata) {
+        if (LaunchBar.options.shiftKey || !tzdata) {
             resp = API.request('timezone', {location: lat+","+lng, timestamp: Math.floor(timestamp/1000)});
             
             tzdata = {rawOffset: resp.data.rawOffset, dstOffset: resp.data.dstOffset};
