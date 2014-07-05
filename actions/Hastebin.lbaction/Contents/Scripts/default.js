@@ -1,4 +1,9 @@
-include("shared/lib.js");
+include("shared/history.js");
+include("shared/notify.js");
+include("shared/path.js");
+include("shared/request.js");
+include("shared/url.js");
+include("shared/cache.js");
 
 var API_URL = "http://hastebin.com";
 
@@ -54,8 +59,7 @@ function runWithPaths(paths) {
 }
 
 function post(string) {
-    var resp = HTTP.postJSON(API_URL+"/documents", {"-d": string});
-    LaunchBar.debugLog(JSON.stringify(resp));
+    var resp = Request.postJSON(API_URL+"/documents", {"-d": string});
     if (resp.key === undefined) 
         throw "Malformed response from hastebin";
 
