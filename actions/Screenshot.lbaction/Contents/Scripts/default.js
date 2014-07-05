@@ -1,3 +1,5 @@
+include("shared/notify.js");
+
 function run() {
     var d = new Date();
     var ds = "" + d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate() 
@@ -21,15 +23,14 @@ function run() {
         // image file is ready.
         LaunchBar.openCommandURL('select?file='+encodeURIComponent(dest_path));
     } catch (err) {
-        LaunchBar.displayNotification({title: "LaunchBar Error", string: err});
+        Notify.error(err);
     }
 }
-
 
 /**
  * The image is optimized with ImageAlpha (if available). Hold down alt and
  * ImageOptim will also have a go at the file (if available).
- **/
+ */
 function optimize(path) {
     var optimized = 0;
     
