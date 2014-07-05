@@ -16,7 +16,7 @@
     <string>1.0</string>
 
     <key>CFBundleIconFile</key>
-    <string>tag</string>
+    <string>tagTemplate</string>
 
     <key>LBDebugLogEnabled</key>
     <false />
@@ -27,7 +27,7 @@
     
     <!-- Per-action keys -->
     <!-- <key>LBTextInputTitle</key> -->
-    <!-- <string>Rate</string> -->
+    <!-- <string></string> -->
 
     <key>LBScripts</key>
     <dict>
