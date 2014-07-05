@@ -13,10 +13,10 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.0</string>
+    <string>1.1</string>
 
     <key>CFBundleIconFile</key>
-    <string>QR</string>
+    <string>iconTemplate</string>
 
     <key>LBDebugLogEnabled</key>
     <false />
@@ -78,7 +78,7 @@
              LBAcceptedArgumentTypes, but then the script itself checks that the user
              passed in a PDF file, this would be the right place to document that. -->
         <key>LBArgument</key>
-        <string>The string(s) to be encoded</string>
+        <string>The file to be encoded</string>
 
         <!-- Describe the action’s result. For example, an action fetching news via RSS
              that then shows a list of items representing the single stories in the RSS
@@ -91,7 +91,7 @@
              requires an active internet connection, iTunes to be playing a song, or
              a certain version of an app to be installed. -->
         <key>LBRequirements</key>
-        <string>Requires Python</string>
+        <string>Requires Python (bundled with OSX)</string>
     </dict>
 
 </dict>
