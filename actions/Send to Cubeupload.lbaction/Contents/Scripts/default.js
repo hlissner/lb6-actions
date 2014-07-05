@@ -1,8 +1,6 @@
 var URL_PREFIX = 'http://i.cubeupload.com/';
 
 function runWithPaths(paths) {
-    if (!paths.length) return [];
-
     var items = [];
     for (var i in paths) {
         var resp = upload(paths[i]);
