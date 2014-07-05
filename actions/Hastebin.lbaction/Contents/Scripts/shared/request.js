@@ -1,22 +1,33 @@
+/*
+ * Included from ./shared/request.js in root.
+ *
+ * Do not modify the copies of this file. Run "rake" in root to
+ * propogate changes.
+ */
+
 include("shared/url.js");
 
 var Request = {
     get: function(url, argv, ttl) {
-        var resp = HTTP.get(url + "?" + URL.dict2qs(argv), ttl || 5);
-        if (resp.error !== undefined)
-            throw "Error: " + resp.error;
-        if (resp.response.status !== 200)
-            throw "Request Error: " + resp.response.localizedStatus;
+        var _url = url + "?" + URL.dict2qs(argv);
+        var resp = HTTP.get(_url, ttl || 5);
+        
+        LaunchBar.debugLog("URL="+_url);
+        this._get_check(resp);
+        LaunchBar.debugLog("RESP="+JSON.stringify(resp));
 
-        return resp.data;
+        return resp.data || "";
     },
 
     getJSON: function(url, argv, ttl) {
-        var data = this.get(url, argv, ttl);
-        if (data === undefined)
-            return [];
-        
-        return JSON.parse(data);
+        var _url = url + "?" + URL.dict2qs(argv);
+        var resp = HTTP.getJSON(_url, ttl || 5);
+
+        LaunchBar.debugLog("URL="+_url);
+        this._get_check(resp);
+        LaunchBar.debugLog("RESP="+JSON.stringify(resp));
+
+        return resp.data || [];
     },
 
     post: function(url, argv, ttl) {
@@ -50,5 +61,12 @@ var Request = {
 
     postJSON: function(url, argv, ttl) {
         return JSON.parse(this.post(url, argv, ttl));
+    },
+
+    _get_check: function(resp) {
+        if (resp.error !== undefined)
+            throw "Request Error: " + resp.error;
+        if (resp.response.status !== 200)
+            throw "Request Error: " + resp.response.localizedStatus;
     }
 };

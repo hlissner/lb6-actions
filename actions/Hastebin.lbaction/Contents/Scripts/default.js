@@ -2,8 +2,6 @@ include("shared/history.js");
 include("shared/notify.js");
 include("shared/path.js");
 include("shared/request.js");
-include("shared/url.js");
-include("shared/cache.js");
 
 var API_URL = "http://hastebin.com";
 
