@@ -13,10 +13,10 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.0</string>
+    <string>1.1</string>
 
     <key>CFBundleIconFile</key>
-    <string>encode</string>
+    <string>icon</string>
 
     <key>LBDebugLogEnabled</key>
     <false />

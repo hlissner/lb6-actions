@@ -1,4 +1,8 @@
-include('base64.js');
+// TODO: Add history
+
+include('shared/lib.js');
+include('shared/notify.js');
+include('shared/base64.js');
 
 function runWithString(string) {
     try {
@@ -28,8 +32,7 @@ function runWithString(string) {
                 icon: "utf8" },
         ];
     } catch (err) {
-        LaunchBar.displayNotification({title: "LaunchBar Error", string: err});
-        return [];
+        Notify.error(err);
     }
 }
 
@@ -38,5 +41,5 @@ function htmldecode(string) {
         "/usr/bin/php",
         Action.path + "/Contents/Scripts/html_decode.php", 
         string
-    ).replace(/(\r\n|\n|\r)/gm,"").trim();
+    ).trim_nl();
 }
