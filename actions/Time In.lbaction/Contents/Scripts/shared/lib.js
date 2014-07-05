@@ -50,6 +50,19 @@ var Path = {
     }
 };
 
+var URL = {
+    hostname: function(url) {
+        var start = url.indexOf('//');
+
+        start = start !== -1 ? start + 2 : 0;
+
+        var end =  url.indexOf('/', start);
+        if (end === -1) return url.substr(start);
+
+        return url.substr(start, end-start);
+    }
+};
+
 
 /**************************/
 
@@ -178,14 +191,14 @@ var History = {
         });
     },
 
-    suggestions: function(query, icon) {
-        query = query.toLowerCase();
+    suggestions: function(query) {
+        var history = this.get();
+        if (query === "")
+            return history;
 
-        var items = [];
-        this.get().forEach(function(item) {
-            if (query === "" || item.toLowerCase().indexOf(query) !== -1)
-                items.push({title: item, icon: icon});
+        query = query.toLowerCase();
+        return history.filter(function(item) {
+            return item.toLowerCase().indexOf(query) !== -1;
         });
-        return items;
     }
 };
