@@ -16,7 +16,7 @@
     <string>1.0</string>
 
     <key>CFBundleIconFile</key>
-    <string>display_zzz</string>
+    <string>iconTemplate</string>
 
     <key>LBDebugLogEnabled</key>
     <false />
