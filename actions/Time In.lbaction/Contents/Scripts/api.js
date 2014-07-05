@@ -1,4 +1,7 @@
 include("shared/lib.js");
+include("shared/request.js");
+include("shared/cache.js");
+include("shared/history.js");
 
 var API = {
     URL_PREFIX: "https://maps.googleapis.com/maps/api",
@@ -10,20 +13,14 @@ var API = {
     },
 
     request: function(action, args) {
-        var url = this.URL_PREFIX + "/" + action + "/json?";
-        var argv = [];
+        var url = this.URL_PREFIX + "/" + action + "/json";
+
         var apikey = this.key();
         if (apikey)
             args.key = apikey;
-        for (var key in args)
-            argv.push(key + "=" + args[key]);
 
-        var resp = HTTP.getJSON(url + argv.join('&'));
-        LaunchBar.debugLog("Requested: "+url);
-        if (resp.error !== undefined)
-            throw "ERROR: " + resp.error;
-
-        switch (resp.data.status) {
+        var resp = Request.getJSON(url, args);
+        switch (resp.status) {
             case "INVALID_REQUEST":
                 throw {message: "The request was malformed. This is a bug!", log: resp.data.error_message, resp: resp};
             case "OVER_QUERY_LIMIT":
@@ -47,12 +44,12 @@ var API = {
         if (LaunchBar.options.shiftKey || !data) {
             var resp = API.request('geocode', {address: encodeURIComponent(address)});
             data = {
-                lat: resp.data.results[0].geometry.location.lat,
-                lng: resp.data.results[0].geometry.location.lng
+                lat: resp.results[0].geometry.location.lat,
+                lng: resp.results[0].geometry.location.lng
             };
 
-            Cache.set(resp.data.results[0].formatted_address, data);
-            History.add(resp.data.results[0].formatted_address);
+            Cache.set(resp.results[0].formatted_address, data);
+            History.add(resp.results[0].formatted_address);
         }
 
         return data;

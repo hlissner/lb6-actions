@@ -1,10 +1,10 @@
-include("shared/lib.js");
+include("shared/history.js");
 
 function runWithString(address) {
     return History.suggestions(address).map(function(loc) {
         return {
             title: loc,
-            icon: "at.obdev.LaunchBar:Text"
+            icon: "at.obdev.LaunchBar:ABLocation"
         };
     });
 }

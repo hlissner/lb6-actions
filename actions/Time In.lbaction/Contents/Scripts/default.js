@@ -2,7 +2,7 @@
  * TODO: Add timezone in subtitle
  */
 
-include("shared/lib.js");
+include("shared/notify.js");
 include("api.js");
 
 function run() {
@@ -13,24 +13,26 @@ function run() {
         return [{title: "Preferences.plist", path: path}];
     }
 
-    if (Action.preferences.locations === undefined || Action.preferences.locations.length === 0)
-        return [{title: "You have no locations set", subtitle: "Run this action to open your preferences", path: path}];
+    if (!Action.preferences.locations || Action.preferences.locations.length === 0) {
+        return [{
+            title: "You have no locations set",
+            subtitle: "Run this action to open your preferences",
+            path: path
+        }];
+    }
 
-    var items = [];
-    Action.preferences.locations.forEach(function(location) {
+    return Action.preferences.locations.map(function(location) {
         var item = runWithString(location)[0];
         item.subtitle = location + " | " + item.subtitle;
-        items.push(item);
-    });
 
-    return items;
+        return item;
+    });
 }
 
 function runWithString(address) {
     LaunchBar.debugLog("Searching for "+address);
 
     try {
-        var resp;
         var d = new Date();
         var ts = d.getTime();
 
@@ -52,15 +54,7 @@ function runWithString(address) {
             icon: "clockTemplate"
         }];
     } catch (err) {
-        var msg;
-        if (err !== undefined && err instanceof Object) {
-            msg = err.message;
-            LaunchBar.log("Error: " + err.log);
-            LaunchBar.log("Response: " + JSON.stringify(err.resp));
-        }
-        else msg = err;
-
-        LaunchBar.displayNotification({title: "LaunchBar Error", string: msg});
+        Notify.error(err instanceof Object ? err.message : err);
     }
 }
 
