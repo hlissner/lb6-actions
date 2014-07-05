@@ -1,3 +1,10 @@
+/*
+ * Included from ./shared/notify.js in root.
+ *
+ * Do not modify the copies of this file. Run "rake" in root to
+ * propogate changes.
+ */
+
 var Notify = {
     error: function(msg, data) {
         msg = msg || "There was an unexpected error.";

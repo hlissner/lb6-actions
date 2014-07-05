@@ -2,7 +2,7 @@ include("shared/lib.js");
 include("shared/notify.js");
 include("shared/url.js");
 include("shared/history.js");
-include("shared/cache.js");
+include("shared/request.js");
 
 var API_URL = 'http://www.isup.me/';
 
@@ -11,35 +11,23 @@ function run() {
         Action.preferences.sites = [];
 
     if (LaunchBar.options.controlKey || Action.preferences.sites.length === 0) {
-        return [
-            {
-                title: "No sites set",
-                subtitle: "Run this action to open the preferences plist",
-                path: Action.supportPath + "/Preferences.plist"
-            }
-        ];
+        return [{
+            title: "No sites set",
+            subtitle: "Run this action to open the preferences plist",
+            path: Action.supportPath + "/Preferences.plist"
+        }];
     }
 
-    var items = [];
-    Action.preferences.sites.forEach(function(site_url) {
-        items.push(runWithString(site_url)[0]);
+    return Action.preferences.sites.map(function(site_url) {
+        return runWithString(site_url)[0];
     });
-
-    return items;
 }
 
 function runWithString(string) {
     try {
-        var resp = HTTP.get(API_URL + string);
-        LaunchBar.debugLog("URL="+API_URL+string);
-
-        if (resp.error !== undefined)
-            throw resp.error;
-        if (resp.response.status !== 200)
-            throw resp.response.localizedStatus;
-
-        var html = resp.data;
         var url = URL.hostname(string);
+        var html = Request.get(API_URL + url);
+
         var m = html.match(/It's (not )?just you[!.]\s*<a href=".+" class="domain">(.+)<\/a>(<\/span>)? ((looks down from here)|(is up))./i);
         if (m === null) {
             return [{

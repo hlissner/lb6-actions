@@ -1,4 +1,4 @@
-/*
+/**
  * Included from ./shared/lib.js in root.
  *
  * Do not modify the copies of this file. Run "rake" in root to
@@ -21,14 +21,6 @@ function prompt(question) {
         return false;
 
     return input;
-}
-
-function php(args) {
-    if (!args || !args instanceof Object)
-        args = [];
-
-    args.unshift("/usr/bin/php");
-    return LaunchBar.execute(args);
 }
 
 String.prototype.flatten = function() {
