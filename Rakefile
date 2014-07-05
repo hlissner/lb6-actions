@@ -1,36 +1,44 @@
-@shared = "shared/*.js"
-@dest = "actions/*.lbaction/Contents/Scripts/*.js"
+# TODO: Make more idiomatic
+
+@dest = "actions/*.lbaction/Contents/Scripts"
 
 verbose(false)
 
 task :default => :update
 
+desc "Copies shared js libraries to the actions that need them."
 task :update => :clean do
-    last = ""
-    Dir.glob(@dest).each do |file|
-        action = file.split("/")[1]
+    Dir.glob(@dest).each do |dir|
+        puts "==> Checking #{dir.split("/")[1]}"
 
-        puts "==> Checking #{action}" unless last == action
-        last = action
-
-        scripts_dir = File.dirname(file)
-        shared_dir = "#{scripts_dir}/shared"
-
-        Dir.glob(@shared).each do |lib|
-            sh "grep 'include(\s*.#{lib}.\s*);' '#{file}' >/dev/null 2>&1" do |ok,res|
-                if ok
-                    puts "    * #{lib} in #{File.basename(file)}"
-                    mkdir_p shared_dir
-                    cp lib, "#{scripts_dir}/#{lib}"
-                end
-            end
+        libs = []
+        grep("shared/.*\\.js", "'#{dir}'/*.js").each do |libfile|
+            libs.concat(grep("shared/.*\\.js", libfile)).push(libfile)
         end
+
+        libs.delete("")
+        libs.uniq!
+        if libs.any?
+            mkdir_p "#{dir}/shared"
+            libs.each { |lib| cp_r(lib, "#{dir}/#{lib}") }
+        end
+
+        puts libs.map {|l| "  * #{l}"}
     end
 end
 
+desc "Deletes all the shared js libraries in the actions"
 task :clean do
-    Dir.glob("actions/*.lbaction/Contents/Scripts/shared") do |dir|
+    Dir.glob("#{@dest}/shared") do |dir|
         puts "==> Deleting #{dir.split("/")[1]}'s shared scripts"
         rm_rf dir
+    end
+    puts ""
+end
+
+
+def grep(search, glob)
+    `grep -h 'include(.*#{search}.*);' #{glob} 2>/dev/null`.split("\n").map! do |line|
+        line.split(%r{['"]})[1]
     end
 end

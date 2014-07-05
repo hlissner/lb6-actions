@@ -5,6 +5,8 @@
  * propogate changes.
  */
 
+include("shared/cache.js");
+
 var History = {
     MAX_ITEMS: 25,
     DEFAULT_ICON: null,

@@ -1,3 +1,10 @@
+/**
+ * Included from ./shared/base64.js in root.
+ *
+ * Do not modify the copies of this file. Run "rake" in root to
+ * propogate changes.
+ */
+
 /* From: http://www.webtoolkit.info/javascript-base64.html */
 
 var Base64 = {

@@ -1,4 +1,4 @@
-/*
+/**
  * Included from ./shared/lib.js in root.
  *
  * Do not modify the copies of this file. Run "rake" in root to

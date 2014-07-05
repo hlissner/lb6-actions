@@ -1,3 +1,10 @@
+/*
+ * Included from ./shared/request.js in root.
+ *
+ * Do not modify the copies of this file. Run "rake" in root to
+ * propogate changes.
+ */
+
 include("shared/url.js");
 
 var Request = {
