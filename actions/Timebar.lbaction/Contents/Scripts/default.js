@@ -1,4 +1,4 @@
-include("shared/lib.js");
+include("shared/notify.js");
 
 function runWithString(time_str) {
     time_str = time_str.trim().toLowerCase();
