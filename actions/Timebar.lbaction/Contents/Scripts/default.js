@@ -1,12 +1,19 @@
-var CLI_PATH = Action.path + "/Contents/Scripts/timebar";
+include("shared/lib.js");
 
 function runWithString(time_str) {
-    var resp;
-    if (time_str.trim().toLowerCase() === "stop") {
-        resp = LaunchBar.execute(CLI_PATH, "--stop");
-    } else {
-        resp = LaunchBar.execute(CLI_PATH, "--parse", time_str);
+    time_str = time_str.trim().toLowerCase();
+
+    var argv = [Action.path + "/Contents/Scripts/timebar"];
+    switch(time_str) {
+        case "stop":
+            argv.push("--stop");
+            break;
+        default:
+            argv.push("--parse");
+            argv.push(time_str);
     }
 
-    return [{title: resp}];
+    var resp = LaunchBar.execute(argv);
+    if (resp)
+        Notify.error(resp);
 }

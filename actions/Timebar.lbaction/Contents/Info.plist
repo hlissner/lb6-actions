@@ -13,7 +13,7 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.0</string>
+    <string>1.1</string>
 
     <key>CFBundleIconFile</key>
     <string>icon</string>
@@ -37,7 +37,7 @@
             <string>default.js</string>
 
             <key>LBRunInBackground</key>
-            <false />
+            <true />
 
             <key>LBRequiresArgument</key>
             <true />
@@ -48,10 +48,7 @@
             </array>
 
             <key>LBReturnsResult</key>
-            <true />
-
-            <key>LBReturnType</key>
-            <string>string</string>
+            <false />
         </dict>
     </dict>
 
