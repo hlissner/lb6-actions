@@ -32,5 +32,5 @@ String.prototype.trim_nl = function() {
 };
 
 String.prototype.encodeURIPath = function() {
-    return encodeURIComponent(string).replace("%2F", "/");
+    return encodeURIComponent(this).replace("%2F", "/");
 };
