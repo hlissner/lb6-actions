@@ -47,11 +47,14 @@ var Request = {
         args.push(url);
 
         var resp = LaunchBar.execute(args);
-        if (!resp)
+        if (resp.trim() === "")
             throw "Bad response from "+url;
 
         var lines = resp.split("\n");
         var stat = lines.filter(function(line) {
+            // Some curl requests get one HTTP status before receiving the HTTP
+            // 200 OK. This makes sure to gloss over any number of statuses until the
+            // 200, if it exists.
             return line.indexOf("HTTP/1.") === 0 && line.indexOf("200 OK") !== -1;
         });
 
