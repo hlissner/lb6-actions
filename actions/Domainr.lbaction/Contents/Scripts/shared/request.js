@@ -51,10 +51,12 @@ var Request = {
             throw "Bad response from "+url;
 
         var lines = resp.split("\n");
-        var matches = lines[0].match(/HTTP.+(\d{3}) ([^\n\r]+)/);
-        var status = parseInt(matches[1]);
-        if (status !== 200)
-            throw "Error ("+matches[1]+"): "+matches[2];
+        var stat = lines.filter(function(line) {
+            return line.indexOf("HTTP/1.") === 0 && line.indexOf("200 OK") !== -1;
+        });
+
+        if (stat.length === 0)
+            throw "Failed request to "+url;
 
         return lines.splice(lines.indexOf("")).join("\n");
     },
