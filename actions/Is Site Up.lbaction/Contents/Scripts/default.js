@@ -26,20 +26,31 @@ function run() {
 function runWithString(string) {
     try {
         var url = URL.hostname(string);
-        var html = Request.get(API_URL + url);
+        var html;
+        var is_up = false;
+        try {
+            html = Request.get(API_URL + url);
 
-        var m = html.match(/It's (not )?just you[!.]\s*<a href=".+" class="domain">(.+)<\/a>(<\/span>)? ((looks down from here)|(is up))./i);
-        if (m === null) {
-            return [{
-                title: url,
-                subtitle: "Huh? That doesn't look like a site on the interwho.",
-                icon: "404"
-            }];
+            var m = html.match(/It's (not )?just you[!.]\s*<a href=".+" class="domain">(.+)<\/a>(<\/span>)? ((looks down from here)|(is up))./i);
+            if (m === null) {
+                return [{
+                    title: url,
+                    subtitle: "Huh? That doesn't look like a site on the interwho.",
+                    icon: "404"
+                }];
+            }
+
+            is_up = m[1] !== "not ";
+        } catch (err) {
+            // Use isitdown.co.uk as a fallback
+            html = Request.post('http://isitdown.co.uk/check/', {domainname: string});
+
+            if (html.indexOf(" is not down") !== -1)
+                is_up = true;
         }
 
         History.add(url);
 
-        var is_up = m[1] !== "not ";
         return [{
             title: url,
             url: url,
