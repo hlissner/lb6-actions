@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+
+    <key>CFBundleIdentifier</key>
+    <string>io.henrik.launchbar.Forecast</string>
+
+    <key>CFBundleName</key>
+    <string>Forecast</string>
+
+    <!-- <key>CFBundleShortVersionString</key> -->
+    <!-- <value>1.0</value> -->
+
+    <key>CFBundleVersion</key>
+    <string>1.0</string>
+
+    <key>CFBundleIconFile</key>
+    <string>iconTemplate</string>
+
+    <key>LBDebugLogEnabled</key>
+    <false />
+
+    <!-- LB stuff -->
+    <!-- <key>LSMinimumSystemVersion</key> -->
+    <!-- <string>10.9.1</string> -->
+    
+    <!-- Per-action keys -->
+    <key>LBTextInputTitle</key>
+    <string>Forecast in</string>
+
+    <key>LBScripts</key>
+    <dict>
+        <key>LBDefaultScript</key>
+        <dict>
+            <key>LBScriptName</key>
+            <string>default.js</string>
+
+            <key>LBRunInBackground</key>
+            <false />
+
+            <key>LBRequiresArgument</key>
+            <false />
+
+            <key>LBAcceptedArgumentTypes</key>
+            <array>
+                <string>string</string>
+            </array>
+
+            <key>LBReturnsResult</key>
+            <true />
+
+            <key>LBReturnType</key>
+            <string>string</string>
+        </dict>
+
+        <key>LBSuggestionsScript</key>
+        <dict>
+            <key>LBScriptName</key>
+            <string>suggestions.js</string>
+
+            <key>LBRunInBackground</key>
+            <true />
+        </dict>
+    </dict>
+
+    <key>LBDescription</key>
+    <dict>
+        <key>LBAuthor</key>
+        <string>Henrik Lissner</string>
+
+        <key>LBWebsite</key>
+        <string>http://henrik.io</string>
+
+        <key>LBEmail</key>
+        <string>henrik@lissner.net</string>
+
+        <key>LBTwitter</key>
+        <string>@HenrikLissner</string>
+
+        <!-- A short summary about what the action does and how it’s used. -->
+        <key>LBSummary</key>
+        <string>Gets the forecast for any location in the world, or preset locations set in Preferences.plist</string>
+
+        <!-- Describe the arguments that should be passed to the action. For example, if
+             your action’s default script specifies that it accepts paths via
+             LBAcceptedArgumentTypes, but then the script itself checks that the user
+             passed in a PDF file, this would be the right place to document that. -->
+        <key>LBArgument</key>
+        <string>The country and city to get the forecast for</string>
+
+        <!-- Describe the action’s result. For example, an action fetching news via RSS
+             that then shows a list of items representing the single stories in the RSS
+             feed could document here that the resulting items represent the news
+             articles. -->
+        <key>LBResult</key>
+        <string>The 7-day forecast</string>
+
+        <!-- Describe any further requirements for your action to work, e.g. if it
+             requires an active internet connection, iTunes to be playing a song, or
+             a certain version of an app to be installed. -->
+        <!-- <key>LBRequirements</key> -->
+        <!-- <string></string> -->
+    </dict>
+
+</dict>
+</plist>
