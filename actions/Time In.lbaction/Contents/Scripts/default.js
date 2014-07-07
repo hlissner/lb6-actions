@@ -47,7 +47,7 @@ function runWithString(address) {
             : "Same timezone";
 
         var time = new Date(ts2);
-        var offset = (tzdata.rawOffset/3600);
+        var offset = (tzdata.rawOffset+tzdata.dstOffset)/3600;
         return [{
             title: _format(time),
             subtitle: tzdata.timezone + " (GMT " + (offset >= 0 ? "+"+offset : offset) + ") | " + diffline,
