@@ -3,6 +3,8 @@
 A quick wibbly wobbly, timey whimey way to look up what time it is anywhere in the
 world. Feed it an address, a country, a city--whatever.
 
+Keeps a history of locations you've looked up and suggests them as you type.
+
 ![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-1.png)
 ![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-2.png)
 
