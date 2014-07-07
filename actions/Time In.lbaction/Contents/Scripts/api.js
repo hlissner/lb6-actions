@@ -66,7 +66,9 @@ var API = {
             if (resp.rawOffset === undefined || resp.dstOffset === undefined)
                 throw "Could not find the timezone for that location";
             
-            tzdata = {rawOffset: resp.rawOffset, dstOffset: resp.dstOffset};
+            tzdata = {rawOffset: resp.rawOffset, dstOffset: resp.dstOffset, timezone: resp.timeZoneName.split(" ").map(function(word) {
+                return word[0];
+            }).join("")};
             Cache.set(tzkey, tzdata, 86400);
         }
         return tzdata;

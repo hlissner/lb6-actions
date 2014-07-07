@@ -47,9 +47,10 @@ function runWithString(address) {
             : "Same timezone";
 
         var time = new Date(ts2);
+        var offset = (tzdata.rawOffset/3600);
         return [{
             title: _format(time),
-            subtitle: diffline,
+            subtitle: tzdata.timezone + " (GMT " + (offset >= 0 ? "+"+offset : offset) + ") | " + diffline,
             icon: "clockTemplate"
         }];
     } catch (err) {
@@ -60,7 +61,10 @@ function runWithString(address) {
 /////////////////////
 
 function _format(time) {
-    return ("0" + time.getHours()).slice(-2) + ":" +
-        ("0" + time.getMinutes()).slice(-2) + ":" +
-        ("0" + time.getSeconds()).slice(-2) + " ";
+    var hr = time.getHours();
+    var hour = (hr % 12);
+    hour = hour ? hour : 12;
+
+    return ("0" + hour).slice(-2) + ":" +
+        ("0" + time.getMinutes()).slice(-2) + " " + (hr >= 12 ? "PM" : "AM");
 }
