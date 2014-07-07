@@ -49,6 +49,7 @@ To install any of these, [Download the Zip](https://github.com/hlissner/lb6-acti
 * Can I Use: queries caniuse.com, inspired by
   [the equivilent Alfred workflow](https://github.com/willfarrell/alfred-caniuse-workflow).
 * Linode: management and overview of your Linodes.
+* GDrive browser/search
 
 ## 3rd Party Actions (that I use)
 
