@@ -33,7 +33,6 @@ var Cache = {
 
         var ts = Date.now();
         if ((has_ttl && (ts - data.ts) > data.ttl) || data.data === undefined) {
-            LaunchBar.execute("rm", file_path);
             return false;
         }
 
