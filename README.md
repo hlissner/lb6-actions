@@ -1,9 +1,10 @@
 # LaunchBar 6 actions
 
-Requires [LaunchBar 6](http://obdev.at/products/launchbar) and sufficient nerdiness to
-use.
+Brewed myself or juryrigged from old applescripts.
 
-These were brewed myself or juryrigged from old applescripts.
+Requirements
+* [LaunchBar 6](http://obdev.at/products/launchbar)
+* Sufficient nerdiness
 
 Any suggestions and requests are welcome!
 
@@ -18,28 +19,23 @@ To install any of these, [Download the Zip](https://github.com/hlissner/launchba
 * [Domai.nr](https://github.com/hlissner/lb6-actions/tree/master/actions/Domainr.lbaction)
 * [Encode File as Data URI](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Encode%20File%20as%20Data%20URI.lbaction)
 * [Encode Text](https://github.com/hlissner/lb6-actions/tree/master/actions/Encode.lbaction)
+* [Forecast](https://github.com/hlissner/lb6-actions/tree/master/actions/Forecast.lbaction) (Get a 7-day forecast for any location, or a default location)
 * [Get Image in Clipboard](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Get%20Image%20in%20Clipboard.lbaction)
-* [Is Site Up](https://github.com/hlissner/lb6-actions/tree/master/actions/Is%20Site%20Up.lbaction)
-    (Checks if a website is up using downforeveryoneorjustme.com)
-* [Toggle Skype Mic](https://github.com/hlissner/lb6-actions/tree/master/actions/Toggle%20Skype%20Mic.lbaction)
-    (Toggles your mic in a skype call)
-* [Optimize Image](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Optimize%20Image.lbaction)
-    (Reduces the size of images with ImageAlpha--and ImageOptim if you hold shift)
+* [Hastebin](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Hastebin.lbaction) (For sharing text; complete with syntax highlighting)
+* [Is Site Up](https://github.com/hlissner/lb6-actions/tree/master/actions/Is%20Site%20Up.lbaction) (Checks if a website is up using downforeveryoneorjustme.com)
+* [Optimize Image](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Optimize%20Image.lbaction) (Reduces the size of images with ImageAlpha--and ImageOptim if you hold shift)
 * [Rate Current Song](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Rate%20Current%20Song.lbaction)
-* [Screenshot](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Screenshot.lbaction)
-    (Takes a screenshot, optimizes the result and selects it in LaunchBar)
+* [Screenshot](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Screenshot.lbaction) (Takes a screenshot, optimizes the result and selects it in LaunchBar)
 * [Send to Cubeupload](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Send%20to%20Cubeupload.lbaction)
 * [Send to Gfycat](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Send%20to%20Gfycat.lbaction)
-* [Hastebin](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Hastebin.lbaction)
-    (For sharing text; complete with syntax highlighting)
-* [Set Status](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Set%20Status.lbaction)
-    (Set your availability in Skype and/or Adium)
+* [Set Status](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Set%20Status.lbaction) (Set your availability in Skype and/or Adium)
 * [Shorten URL (Bit.ly)](https://github.com/hlissner/lb6-actions/tree/master/actions/Shorten%20URL%20(Bit.ly).lbaction)
 * [Sleep Displays](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Sleep%20Displays.lbaction)
 * [Strip Tags](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Strip%20Tags.lbaction)
-* [Time in...](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Time%20In.lbaction)
-    (Get the time anywhere in the world; feed it a city, country, an address--whatever)
+* [Temperature In...](https://github.com/hlissner/lb6-actions/tree/master/actions/Temperature%20In.lbaction) (Like "Time in...", but for temperatures)
+* [Time in...](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Time%20In.lbaction) (Get the time anywhere in the world; feed it a city, country, an address--whatever)
 * [TimeBar](https://github.com/hlissner/lb6-actions/tree/master/actions/Timebar.lbaction)
+* [Toggle Skype Mic](https://github.com/hlissner/lb6-actions/tree/master/actions/Toggle%20Skype%20Mic.lbaction) (Toggles your mic in a skype call)
 
 Other actions
 * [Chrome Tabs](https://github.com/hlissner/lb6-chrometabs): like Safari Tabs, but for
