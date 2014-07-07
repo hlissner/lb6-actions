@@ -73,7 +73,7 @@ var Request = {
             throw "Request Error: " + resp.error;
         if (resp.response.status !== 200)
             throw "Response Error: " + resp.response.localizedStatus;
-        if (resp.data === undefined || resp.data.length === 0)
+        if (resp.data === undefined)
             throw "Request received no data";
     }
 };

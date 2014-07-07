@@ -19,6 +19,9 @@ var Cache = {
      * @returns mixed/bool The entry value, or false if it has outlived its ttl
      */
     get: function(key, has_ttl) {
+        if (Action.debugLogEnabled)
+            return false;
+
         key = key.replace(/[^a-z0-9]/gi, '_').toLowerCase();
 
         var file_path = this.PATH + "/" + key + ".json";
