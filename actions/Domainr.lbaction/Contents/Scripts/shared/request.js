@@ -6,8 +6,11 @@
  */
 
 include("shared/url.js");
+include("shared/lib.js");
 
 var Request = {
+    TMP_DIR: "/tmp",
+
     get: function(url, argv, ttl) {
         var _url = url + "?" + URL.dict2qs(argv);
         var resp = HTTP.get(_url, ttl || 5);
@@ -34,7 +37,9 @@ var Request = {
         ttl = ttl || 5;
         if (!url) throw "Request.post: Improper URL provided";
 
-        var args = ['/usr/bin/curl', '-i', '-X', 'POST', '--connect-timeout', ttl.toString()];
+        var tmpfile = this.TMP_DIR + "/" + genUID(5);
+
+        var args = ['/usr/bin/curl', '-D', tmpfile, '-L', '-X', 'POST', '--connect-timeout', ttl.toString()];
         for (var key in argv) {
             if (key[0] === "-") {
                 args.push(key);
@@ -47,21 +52,13 @@ var Request = {
         args.push(url);
 
         var resp = LaunchBar.execute(args);
-        if (resp.trim() === "")
+        LaunchBar.debugLog("OUTPUT="+resp);
+        if (resp === "")
             throw "Bad response from "+url;
 
-        var lines = resp.split("\n");
-        var stat = lines.filter(function(line) {
-            // Some curl requests get one HTTP status before receiving the HTTP
-            // 200 OK. This makes sure to gloss over any number of statuses until the
-            // 200, if it exists.
-            return line.indexOf("HTTP/1.") === 0 && line.indexOf("200 OK") !== -1;
-        });
+        this._check_headers(tmpfile);
 
-        if (stat.length === 0)
-            throw "Failed request to "+url;
-
-        return lines.splice(lines.indexOf("")).join("\n");
+        return resp;
     },
 
     postJSON: function(url, argv, ttl) {
@@ -72,8 +69,31 @@ var Request = {
         if (resp.error !== undefined)
             throw "There was an error with the request: " + resp.error;
         if (resp.response.status !== 200)
-            throw "There was an error on the server: " + resp.response.localizedStatus;
-        if (resp.data === undefined)
-            throw "No data received from server";
-    }
+            throw "There was an error on the server (" + resp.response.status + "): " + resp.response.localizedStatus;
+    },
+
+    _check_headers: function(file) {
+        var lines = File.readText(file).split("\n");
+        if (lines.length === 0)
+            return;
+
+        var status, message;
+        var headers = {};
+        for (var i in lines) {
+            var line = lines[i].trim();
+            if (line.indexOf("HTTP/1") === 0) {
+                var parts = line.split(" ");
+                message = parts[2];
+                status = parseInt(parts[1]);
+                continue;
+            }
+            if (line.trim() === "" || line.indexOf(': ') === -1)
+                continue;
+            var items = line.split(": ");
+            headers[items[0].trim()] = items[1].trim();
+        }
+
+        if (status !== 200)
+            throw "There was an error on the server (" + status + "): " + message;
+    },
 };

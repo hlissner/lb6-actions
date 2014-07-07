@@ -34,3 +34,15 @@ String.prototype.trim_nl = function() {
 String.prototype.encodeURIPath = function() {
     return encodeURIComponent(this).replace("%2F", "/");
 };
+
+function genUID(len) {
+    len = len || 5;
+
+    var text = "";
+    var mask = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for( var i=0; i < len; i++ )
+        text += mask.charAt(Math.floor(Math.random() * mask.length));
+
+    return text;
+}
