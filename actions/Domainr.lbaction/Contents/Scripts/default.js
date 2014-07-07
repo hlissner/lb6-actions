@@ -1,14 +1,37 @@
-var API_URL = "https://domai.nr/api/json/search?client_id=lb6_action&q=";
+include("shared/request.js");
+include("shared/notify.js");
 
-function run() {
-    LaunchBar.openURL("https://domai.nr/");
-}
+var API_URL = "https://domai.nr/api/json/search";
 
 function runWithString(string) {
-    LaunchBar.openURL(
-        string.indexOf("http") === 0 
-            ? string 
-            : "https://domai.nr/"+encodeURIComponent(string)
-    );
+    try {
+        if (LaunchBar.options.commandKey) {
+            LaunchBar.openURL(
+                "https://domai.nr/"+encodeURIComponent(string)
+            );
+        }
+
+        return api_call(string).map(function(item) {
+            return {
+                title: item.domain,
+                url: item.register_url,
+                icon: item.availability,
+                actionArgument: item.domain
+            };
+        });
+    } catch (err) {
+        if (Action.scriptType === "default")
+            Notify.error(err);
+    }
 }
+
+function api_call(term) {
+    var resp = Request.getJSON(API_URL, {client_id: "lb6_action", q: encodeURIComponent(term)});
+    if (resp.error !== undefined)
+        throw "Domai.nr ("+resp.error.status+"): "+resp.error.message;
+
+    return resp.results;
+}
+
+
 
