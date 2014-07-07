@@ -13,13 +13,13 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.1</string>
+    <string>1.2</string>
 
     <key>CFBundleIconFile</key>
     <string>iconTemplate</string>
 
     <key>LBDebugLogEnabled</key>
-    <true />
+    <false />
 
     <!-- LB stuff -->
     <!-- <key>LSMinimumSystemVersion</key> -->
@@ -37,7 +37,7 @@
         <key>LBDefaultScript</key>
         <dict>
             <key>LBScriptName</key>
-            <string>default.js</string>
+            <string>default.applescript</string>
 
             <key>LBRequiresArgument</key>
             <false />
