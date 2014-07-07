@@ -70,10 +70,10 @@ var Request = {
 
     _get_check: function(resp) {
         if (resp.error !== undefined)
-            throw "Request Error: " + resp.error;
+            throw "There was an error with the request: " + resp.error;
         if (resp.response.status !== 200)
-            throw "Response Error: " + resp.response.localizedStatus;
+            throw "There was an error on the server: " + resp.response.localizedStatus;
         if (resp.data === undefined)
-            throw "Request received no data";
+            throw "No data received from server";
     }
 };
