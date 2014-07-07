@@ -20,8 +20,7 @@ function runWithString(string) {
             };
         });
     } catch (err) {
-        if (Action.scriptType === "default")
-            Notify.error(err);
+        Notify.error(err);
     }
 }
 
