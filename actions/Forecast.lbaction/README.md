@@ -5,6 +5,8 @@ Get a 7-day weather forecast for any city in the world.
 Run it without text and it will show the forecast for the default location you've set in your
 preferences. 
 
+Keeps a history of previous forecast locations and suggests them as you type.
+
 ![](https://github.com/hlissner/lb6-actions/raw/master/images/cb-forecast.gif);
 
 * Hold down control while running it to select Preference.plist
