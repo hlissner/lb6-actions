@@ -10,15 +10,14 @@ function run() {
     if (LaunchBar.options.controlKey) {
         API.key();
         Action.preferences.locations = Action.preferences.locations || [];
-        return [{title: "Preferences.plist", path: path}];
+        return [{title: "Preferences", path: path}];
     }
 
     if (!Action.preferences.locations || Action.preferences.locations.length === 0) {
-        return [{
-            title: "You have no locations set",
-            subtitle: "Run this action to open your preferences",
-            path: path
-        }];
+        return [
+            {title: "You have no locations set"},
+            {title: "Preferences", path: path}
+        ];
     }
 
     return Action.preferences.locations.map(function(location) {

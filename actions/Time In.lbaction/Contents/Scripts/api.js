@@ -63,8 +63,10 @@ var API = {
         var tzdata = Cache.get(tzkey, true);
         if (LaunchBar.options.shiftKey || !tzdata) {
             resp = API.request('timezone', {location: lat+","+lng, timestamp: Math.floor(timestamp/1000)});
+            if (resp.rawOffset === undefined || resp.dstOffset === undefined)
+                throw "Could not find the timezone for that location";
             
-            tzdata = {rawOffset: resp.data.rawOffset, dstOffset: resp.data.dstOffset};
+            tzdata = {rawOffset: resp.rawOffset, dstOffset: resp.dstOffset};
             Cache.set(tzkey, tzdata, 86400);
         }
         return tzdata;

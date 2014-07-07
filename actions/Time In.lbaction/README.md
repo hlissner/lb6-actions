@@ -12,6 +12,7 @@ preferences (see below).
 ![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-3.png)
 
 Note:
+* Hold down shift to ignore & clear the cache
 * Hold down ctrl to select this action's Preferences.plist
 
 ## Requirements
