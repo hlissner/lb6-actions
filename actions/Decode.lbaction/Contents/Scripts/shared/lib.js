@@ -35,6 +35,31 @@ String.prototype.encodeURIPath = function() {
     return encodeURIComponent(this).replace("%2F", "/");
 };
 
+String.prototype.wrap = function(width) {
+    var str = this;
+    var newLineStr = "\n"; done = false; res = '';
+    do {
+        found = false;
+        for (i = width - 1; i >= 0; i--) {
+            if (new RegExp(/^\s$/).test(str.charAt(i).charAt(0))) {
+                res = res + [str.slice(0, i), newLineStr].join('');
+                str = str.slice(i + 1);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            res += [str.slice(0, width), newLineStr].join('');
+            str = str.slice(width);
+        }
+
+        if (str.length < width)
+            done = true;
+    } while (!done);
+
+    return res + str;
+};
+
 function genUID(len) {
     len = len || 5;
 
