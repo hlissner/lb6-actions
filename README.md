@@ -1,18 +1,22 @@
-# LaunchBar 6 actions
+LaunchBar 6 Actions
+-------------------
 
 Brewed myself or juryrigged from old applescripts.
+
+Suggestions and requests are welcome! Leave a star to encourage me to make more.
 
 Requirements
 * [LaunchBar 6](http://obdev.at/products/launchbar)
 * Sufficient nerdiness
 
-Any suggestions and requests are welcome!
-
-## Installation
+---
 
 To install any of these, [Download the Zip](https://github.com/hlissner/lb6-actions/archive/master.zip) then double click the *.lbaction file. Viola!
 
-## Actions
+List of Actions
+---------------
+
+Here's what you'll find inside, click for screenshots and more info.
 
 * [Chrome/Chromium Tabs](https://github.com/hlissner/lb6-actions/tree/master/actions/Chrome%20Tabs.lbaction) (like Safari Tabs, but for Chrome/Chromium)
 * [Convert Currency](https://github.com/hlissner/lb6-actions/tree/master/actions/Convert%20Currency.lbaction)
@@ -24,6 +28,7 @@ To install any of these, [Download the Zip](https://github.com/hlissner/lb6-acti
 * [Get Image in Clipboard](https://github.com/hlissner/lb6-actions/tree/master/actions/Get%20Image%20in%20Clipboard.lbaction)
 * [Hastebin](https://github.com/hlissner/lb6-actions/tree/master/actions/Hastebin.lbaction) (For sharing text; complete with syntax highlighting)
 * [Is Site Up](https://github.com/hlissner/lb6-actions/tree/master/actions/Is%20Site%20Up.lbaction) (Checks if a website is up using downforeveryoneorjustme.com)
+* [Number Trivia](https://github.com/hlissner/lb6-actions/tree/master/actions/Number%20Trivia.lbaction) (gives you random trivia for a number you specify. Leave it blank for a random number)
 * [Optimize Image](https://github.com/hlissner/lb6-actions/tree/master/actions/Optimize%20Image.lbaction) (Reduces the size of images with ImageAlpha--and ImageOptim if you hold shift)
 * [Rate Current Song](https://github.com/hlissner/lb6-actions/tree/master/actions/Rate%20Current%20Song.lbaction)
 * [Screenshot](https://github.com/hlissner/lb6-actions/tree/master/actions/Screenshot.lbaction) (Takes a screenshot, optimizes the result and selects it in LaunchBar)
@@ -38,20 +43,37 @@ To install any of these, [Download the Zip](https://github.com/hlissner/lb6-acti
 * [TimeBar](https://github.com/hlissner/lb6-actions/tree/master/actions/Timebar.lbaction)
 * [Toggle Skype Mic](https://github.com/hlissner/lb6-actions/tree/master/actions/Toggle%20Skype%20Mic.lbaction) (Toggles your mic in a skype call)
 
-### Planned Actions
+Planned actions
+---------------
+
+World domination isn't easy. Let me know if you take a stab at any of these.
 
 * Search MyAnimeList (with suggestions)
-* Share on Dropbox
+* Send to Dropbox
+* Send to Imgur
 * Text Search in Folder (using ag)
-* Transmission-remote Manager
-* Vagrant VM: List, Start up, Shut down
-* Activity Monitor substitute
+* Transmission-remote: list/remove/add torrents
+* VirtualBox/Vagrant manager: List, Start up, Shut down
+* Activity Monitor substitute/process list w/ system stats
 * Can I Use: queries caniuse.com, inspired by
   [the equivilent Alfred workflow](https://github.com/willfarrell/alfred-caniuse-workflow).
 * Linode: management and overview of your Linodes.
 * GDrive browser/search
+* Google Translate
+* Google Analytics
+* Kill process
+* Set-image-as-wallpaper (multi-monitor friendly)
+* Smarter image resizer/scaler
+* Image conversion
+* Github indexer
+* Unicode symbol library
+* Flush DNS
+* Integration with explainshell.com (w/ suggestions)
+* YOURS url shortening
+* Should I play this game/watch this movie lookup
 
-## 3rd Party Actions (that I use)
+Other fantastic actions I use
+-----------------------------
 
 * By [heikowitte](https://github.com/heikowitte)
     * [Get Local IP](https://github.com/heikowitte/LaunchBarActions/tree/master/get-local-ip.lbaction) / [Get Public IP](https://github.com/heikowitte/LaunchBarActions/tree/master/get-public-ip.lbaction)
