@@ -13,7 +13,7 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.3</string>
+    <string>1.4</string>
 
     <key>CFBundleIconFile</key>
     <string>icon</string>
@@ -36,22 +36,11 @@
             <key>LBScriptName</key>
             <string>default.js</string>
 
-            <key>LBRunInBackground</key>
-            <false />
-
-            <key>LBRequiresArgument</key>
+            <key>LBLiveFeedbackEnabled</key>
             <true />
 
-            <key>LBAcceptedArgumentTypes</key>
-            <array>
-                <string>string</string>
-            </array>
-
-            <key>LBReturnsResult</key>
+            <key>LBBackgroundKillEnabled</key>
             <true />
-
-            <key>LBReturnType</key>
-            <string>string</string>
         </dict>
     </dict>
 

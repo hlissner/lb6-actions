@@ -31,6 +31,3 @@ function api_call(term) {
 
     return resp.results;
 }
-
-
-
