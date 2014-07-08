@@ -12,23 +12,23 @@ var Request = {
     TMP_DIR: "/tmp",
 
     get: function(url, argv, ttl) {
-        var _url = url + "?" + URL.dict2qs(argv);
+        var _url = url + URL.dict2qs(argv);
         var resp = HTTP.get(_url, ttl || 5);
         
         LaunchBar.debugLog("URL="+_url);
-        this._get_check(resp);
         LaunchBar.debugLog("RESP="+JSON.stringify(resp));
+        this._get_check(resp);
 
         return resp.data || "";
     },
 
     getJSON: function(url, argv, ttl) {
-        var _url = url + "?" + URL.dict2qs(argv);
+        var _url = url + URL.dict2qs(argv);
         var resp = HTTP.getJSON(_url, ttl || 5);
 
         LaunchBar.debugLog("URL="+_url);
-        this._get_check(resp);
         LaunchBar.debugLog("RESP="+JSON.stringify(resp));
+        this._get_check(resp);
 
         return resp.data || [];
     },

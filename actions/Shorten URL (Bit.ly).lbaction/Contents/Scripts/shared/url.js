@@ -28,6 +28,8 @@ var URL = {
         var items = [];
         for (var key in obj)
             items.push(key + "=" + obj[key]);
-        return items.join("&");
+        if (items.length > 0)
+            return '?' + items.join("&");
+        return "";
     }
 };
