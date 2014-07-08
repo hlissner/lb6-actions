@@ -19,7 +19,7 @@
     <string>iconTemplate</string>
 
     <key>LBDebugLogEnabled</key>
-    <true />
+    <false />
 
     <!-- LB stuff -->
     <!-- <key>LSMinimumSystemVersion</key> -->
