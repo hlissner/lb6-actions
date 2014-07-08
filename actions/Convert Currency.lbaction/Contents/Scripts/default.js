@@ -5,6 +5,7 @@
 
 include("shared/notify.js");
 include("shared/url.js");
+include("shared/request.js");
 
 var API_URL = "http://www.google.com/finance/converter";
 
@@ -20,7 +21,7 @@ function runWithString(string) {
         var from = match[2];
         var to = match[4];
 
-        var data = request({a: amt, from: from, to: to});
+        var data = Request.get(API_URL, {a: amt, from: from, to: to});
 
         // Parse the html
         var result = data.match(/<div id=currency_converter_result>.+<span class=bld>([\d\.]+) ([\w]{3})<\/span>/);
@@ -41,20 +42,4 @@ function runWithString(string) {
     } catch (err) {
         Notify.error(err);
     }
-}
-
-function request(args) {
-    var resp = HTTP.get(API_URL + "?" + URL.dict2qs(args));
-    if (resp.error !== undefined) {
-        switch (resp.response.status) {
-            case 500:
-                throw "There was an error on Google Finance's end. Try again later.";
-            case 200:
-                throw "Something else went wrong. Maybe Google Finance is returning a malformed response? Please report this to henrik@lissner.net";
-        }
-
-        throw "Something went wrong!";
-    }
-    
-    return resp.data;
 }
