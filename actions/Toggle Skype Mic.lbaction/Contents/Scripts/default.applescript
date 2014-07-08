@@ -9,6 +9,4 @@ on run
 			send command "SET MUTE ON" script name "LaunchBar"
 		end if
 	end tell
-	
-	do shell script "afplay /System/Library/Sounds/Pop.aiff"
 end run
