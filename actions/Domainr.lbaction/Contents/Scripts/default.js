@@ -11,6 +11,10 @@ function runWithString(string) {
             );
         }
 
+        string = string.trim();
+        if (string.length === 0)
+            return;
+
         return api_call(string).map(function(item) {
             return {
                 title: item.domain,
