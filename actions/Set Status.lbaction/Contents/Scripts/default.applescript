@@ -1,10 +1,16 @@
-on run argv
-	
+on run
+	return [{title:"Available", icon:"online", action:"set_status", actionArgument:"0", actionRunsInBackground:true}, Â
+		{title:"Away", icon:"away", action:"set_status", actionArgument:"1", actionRunsInBackground:true}, Â
+		{title:"Do Not Disturb", icon:"dnd", action:"set_status", actionArgument:"2", actionRunsInBackground:true}, Â
+		{title:"Invisible", icon:"offline", action:"set_status", actionArgument:"3", actionRunsInBackground:true}]
+end run
+
+on set_status(status)
 	-- 0 = available
 	-- 1 = away
 	-- 2 = do not disturb
 	-- 3 = invisible
-	set new_state to first item of argv as number
+	set new_state to status as number
 	
 	--Check App Status, to only act on apps if running
 	set AdiumRunning to is_running("Adium")
@@ -37,8 +43,7 @@ on run argv
 			end if
 		end tell
 	end if
-	
-end run
+end set_status
 
 on is_running(appName)
 	tell application "System Events" to (name of processes) contains appName

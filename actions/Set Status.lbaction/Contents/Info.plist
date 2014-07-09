@@ -13,7 +13,7 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.0</string>
+    <string>1.1</string>
 
     <key>CFBundleIconFile</key>
     <string>icon</string>
@@ -40,13 +40,7 @@
         <key>LBDefaultScript</key>
         <dict>
             <key>LBScriptName</key>
-            <string>default.js</string>
-
-            <key>LBRunInBackground</key>
-            <false />
-
-            <key>LBRequiresArgument</key>
-            <false />
+            <string>default.applescript</string>
 
             <!-- <key>LBAcceptedArgumentTypes</key> -->
             <!-- <array> </array> -->
