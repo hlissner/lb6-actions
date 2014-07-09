@@ -27,6 +27,10 @@ var History = {
     get: function() {
         return Cache.get('history') || [];
     },
+    
+    clear: function() {
+        Cache.clear('history');
+    },
 
     suggestions: function(query) {
         var history = this.get();

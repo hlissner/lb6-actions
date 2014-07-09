@@ -57,5 +57,14 @@ var Cache = {
         }
 
         File.writeJSON(data, this.PATH + "/" + key + ".json", {'prettyPrint' : false});
+    },
+
+    /**
+     * Deletes a cache entry file.
+     *
+     * @param key string The id of the entry
+     */
+    clear: function(key) {
+        LaunchBar.execute("/bin/rm", this.PATH + "/" + key + ".json");
     }
 };
