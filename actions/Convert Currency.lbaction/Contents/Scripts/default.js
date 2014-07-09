@@ -15,7 +15,7 @@ function runWithString(string) {
         if (match === null || match.length != 5)
             throw "Your input wasn't formatted correctly!\nProper example: 100 USD to JPY";
 
-        var amt = parseFloat(match[1]);
+        var amt = parseFloat(match[1]).toFixed(2);
         var from = match[2];
         var to = match[4];
 
@@ -26,12 +26,24 @@ function runWithString(string) {
 
         var new_amt = Math.round(((amt * rate) * 100).toFixed(0)) / 100;
 
-        return [{
-            title: new_amt + " " + to,
-            subtitle: amt + " " + from + " | 1 " + to + " = " + rate.toFixed(5) + " " + from,
-            actionArgument: string,
-            icon: "money_gold"
-        }];
+        return [
+            {
+                title: new_amt + " " + to,
+                subtitle: "Result",
+                icon: "money_gold"
+            },
+            {
+                title: amt + " " + from,
+                subtitle: "From",
+                icon: "money_silver"
+            },
+            {
+                title: "1 " + to + " = " + rate.toFixed(5) + " " + from,
+                subtitle: "Exchange Rate",
+                actionArgument: rate.toString(),
+                icon: "at.obdev.LaunchBar:CalculatorResult"
+            }
+        ];
     } catch (err) {
         Notify.error(err);
     }
