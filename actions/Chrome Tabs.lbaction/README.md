@@ -1,18 +1,16 @@
 # Google Chrome Tabs
 
 Inspired by [Safari
-Tabs](http://manuel.weiel.eu/private-projects/launchbar-actions/safari-tabs/), this is
-a [Launchbar 6](http://www.obdev.at/products/launchbar/index.html) action for navigating
-and fuzzy searching your google chrome tabs. 
+Tabs](http://manuel.weiel.eu/private-projects/launchbar-actions/safari-tabs/), this
+action lets you navigate and fuzzy-search your Chrome/Chromium tabs.
 
-Extras:
+![](img/cb-chrometabs-1.png)
+![](img/cb-chrometabs-2.png)
 
-* Works with Chromium too
-* Press space on a tab to switch to it without closing Launchbar
+Notes:
+* Press space on a tab to switch to it __without__ closing Launchbar (nifty for browsing
+  your tabs)
 * Press enter to switch to it and to Chrome, closing Launchbar
-
-![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-chrometabs-1.png)
-![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-chrometabs-2.png)
 
 ## Installation
 
