@@ -38,7 +38,7 @@ function runWithString(string) {
                 icon: "money_silver"
             },
             {
-                title: "1 " + to + " = " + rate.toFixed(5) + " " + from,
+                title: "1 " + from + " = " + rate.toFixed(5) + " " + to,
                 subtitle: "Exchange Rate",
                 actionArgument: rate.toString(),
                 icon: "at.obdev.LaunchBar:CalculatorResult"
