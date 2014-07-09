@@ -1,7 +1,10 @@
-# TimeBar
+# Set TimeBar
 
-Controls [TimeBar.app](https://itunes.apple.com/us/app/timebar/id617829225). Feed it
-a time string and message, like so:
+Controls [TimeBar.app](https://itunes.apple.com/us/app/timebar/id617829225). It attaches
+itself to the TimeBar.app, so you can select it in LaunchBar and press space to invoke
+this action.
+
+Feed it a time string and message, like so:
 
 * 30s Flee from Godzilla
 * 5 minutes - Walk the dog
@@ -12,9 +15,7 @@ a time string and message, like so:
 
 *(The delimiter isn't necessary)*
 
-Also, you can type "stop" to stop the timer.
-
-Note: I don't have TimeBar so I can't test this. Any feedback is appreciated!
+Other commands are autocompleted as you type, such as "stop" and "version".
 
 
 ## Credit

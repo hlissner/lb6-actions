@@ -7,13 +7,13 @@
     <string>io.henrik.launchbar.Timebar</string>
 
     <key>CFBundleName</key>
-    <string>Timebar</string>
+    <string>Set Timebar</string>
 
     <!-- <key>CFBundleShortVersionString</key> -->
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.2</string>
+    <string>1.3</string>
 
     <key>CFBundleIconFile</key>
     <string>icon</string>
@@ -25,16 +25,22 @@
     <!-- <key>LSMinimumSystemVersion</key> -->
     <!-- <string>10.9.1</string> -->
     
+    <!-- <key>LBMinimumLaunchBarVersion</key> -->
+    <!-- <string>6015</string> -->
+    
     <!-- Per-action keys -->
-    <!-- <key>LBTextInputTitle</key> -->
-    <!-- <string>Rate</string> -->
+    <key>LBRequiredApplication</key>
+    <string>com.whimsicalifornia.timebar</string>
+
+    <key>LBAssociatedApplication</key>
+    <string>com.whimsicalifornia.timebar</string>
 
     <key>LBScripts</key>
     <dict>
         <key>LBDefaultScript</key>
         <dict>
             <key>LBScriptName</key>
-            <string>default.js</string>
+            <string>default.sh</string>
 
             <key>LBRunInBackground</key>
             <true />
@@ -46,9 +52,15 @@
             <array>
                 <string>string</string>
             </array>
+        </dict>
 
-            <key>LBReturnsResult</key>
-            <false />
+        <key>LBSuggestionsScript</key>
+        <dict>
+            <key>LBScriptName</key>
+            <string>suggestions.js</string>
+
+            <key>LBBackgroundKillEnabled</key>
+            <true />
         </dict>
     </dict>
 
