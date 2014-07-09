@@ -1,6 +1,7 @@
 # TODO: Make more idiomatic
 
 @dest = "actions/*.lbaction/Contents/Scripts"
+@destExt = "actions/*.lbext/Contents/Resources/Actions/*.lbaction/Contents/Scripts"
 
 verbose(false)
 
@@ -8,8 +9,8 @@ task :default => :update
 
 desc "Copies shared js libraries to the actions that need them."
 task :update => :clean do
-    Dir.glob(@dest).each do |dir|
-        puts "==> Checking #{dir.split("/")[1]}"
+    Dir.glob("{#{@dest},#{@destExt}}").each do |dir|
+        puts "==> Checking #{dir.scan(/\/([^\/]+\.lbaction)\//).last.first}"
 
         libs = []
         grep("shared/.*\\.js", "'#{dir}'/*.js").each do |libfile|
@@ -18,7 +19,7 @@ task :update => :clean do
 
         libs.delete("")
         libs.uniq!
-        if libs.any?
+        if libs.any? and not ENV['DEBUG']
             mkdir_p "#{dir}/shared"
             libs.each { |lib| cp_r(lib, "#{dir}/#{lib}") }
         end
@@ -31,7 +32,8 @@ desc "Deletes all the shared js libraries in the actions"
 task :clean do
     Dir.glob("#{@dest}/shared") do |dir|
         puts "==> Deleting #{dir.split("/")[1]}'s shared scripts"
-        rm_rf dir
+        
+        rm_rf dir unless ENV['DEBUG']
     end
     puts ""
 end
