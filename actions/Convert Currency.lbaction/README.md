@@ -1,12 +1,13 @@
 # Convert Currency
 
-You'll never guess what this action does!
+Converts all the money you wish you had, using freecurrencyconverterapi.com.
 
-![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-cc-01.png)
-![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-cc-02.png)
-![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-cc-03.png)
+![](img/01.png)
 
-That's right! It prints money!
+It autocompletes your currencies too!
 
-Note: your input has to follow the format: {amount} {from_currency_code} to
-{to_currency_code}
+![](img/02.gif)
+
+Notes:
+* Rates are cached for 30 minutes, hold down CTRL to clear your cache and history (might
+  be a little slow on first run).

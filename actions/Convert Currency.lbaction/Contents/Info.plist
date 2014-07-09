@@ -13,10 +13,10 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.2</string>
+    <string>2.0</string>
 
     <key>CFBundleIconFile</key>
-    <string>money_silver.png</string>
+    <string>money_silver</string>
 
     <key>LBDebugLogEnabled</key>
     <false />
@@ -26,8 +26,8 @@
     <!-- <string>10.9.1</string> -->
     
     <!-- Per-action keys -->
-    <!-- <key>LBTextInputTitle</key> -->
-    <!-- <string>Rate</string> -->
+    <key>LBTextInputTitle</key>
+    <string>Convert</string>
 
     <key>LBScripts</key>
     <dict>
@@ -49,9 +49,15 @@
 
             <key>LBReturnsResult</key>
             <true />
+        </dict>
 
-            <key>LBReturnType</key>
-            <string>string</string>
+        <key>LBSuggestionsScript</key>
+        <dict>
+            <key>LBScriptName</key>
+            <string>suggestions.js</string>
+
+            <key>LBBackgroundKillEnabled</key>
+            <true />
         </dict>
     </dict>
 

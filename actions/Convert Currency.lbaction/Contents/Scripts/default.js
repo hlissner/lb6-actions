@@ -4,10 +4,8 @@
  */
 
 include("shared/notify.js");
-include("shared/url.js");
-include("shared/request.js");
-
-var API_URL = "http://www.google.com/finance/converter";
+include("shared/history.js");
+include("api.js");
 
 function runWithString(string) {
     string = string.trim();
@@ -21,21 +19,16 @@ function runWithString(string) {
         var from = match[2];
         var to = match[4];
 
-        var data = Request.get(API_URL, {a: amt, from: from, to: to});
+        var rate = API.get_rate(from, to);
+        History.add(string);
+        if (LaunchBar.options.controlKey)
+            History.clear();
 
-        // Parse the html
-        var result = data.match(/<div id=currency_converter_result>.+<span class=bld>([\d\.]+) ([\w]{3})<\/span>/);
-        if (!result || result.length != 3)
-            throw "Invalid currency code! ...or is Google Finance down?";
+        var new_amt = Math.round(((amt * rate) * 100).toFixed(0)) / 100;
 
-        // Assemble a readable string
-        var new_amt = parseFloat(result[1]).toFixed(2);
-        var res_from = amt + " " + from;
-        var res_to = new_amt + " " + result[2];
-
-        return [{ 
-            title: res_to,
-            subtitle: res_from + " | 1 " + to + " to " + (amt/new_amt).toFixed(3) + " " + from,
+        return [{
+            title: new_amt + " " + to,
+            subtitle: amt + " " + from + " | 1 " + to + " = " + rate.toFixed(5) + " " + from,
             actionArgument: string,
             icon: "money_gold"
         }];
