@@ -11,19 +11,25 @@ function run() {
         Action.preferences.sites = [];
 
     if (LaunchBar.options.controlKey || Action.preferences.sites.length === 0) {
-        return [{
+        return {
             title: "No sites set",
             subtitle: "Run this action to open the preferences plist",
             path: Action.supportPath + "/Preferences.plist"
-        }];
+        };
     }
 
     return Action.preferences.sites.map(function(site_url) {
-        return runWithString(site_url)[0];
+        return runWithString(site_url);
     });
 }
 
 function runWithString(string) {
+    if (string.indexOf("\n") !== -1) {
+        return string.split("\n").map(function(domain) {
+            return runWithString(domain);
+        });
+    }
+
     try {
         var url = URL.hostname(string);
         var html;
@@ -33,30 +39,26 @@ function runWithString(string) {
 
             var m = html.match(/It's (not )?just you[!.]\s*<a href=".+" class="domain">(.+)<\/a>(<\/span>)? ((looks down from here)|(is up))./i);
             if (m === null) {
-                return [{
+                return {
                     title: url,
                     subtitle: "Huh? That doesn't look like a site on the interwho.",
                     icon: "404"
-                }];
+                };
             }
 
             is_up = m[1] !== "not ";
         } catch (err) {
-            // Use isitdown.co.uk as a fallback
-            html = Request.post('http://isitdown.co.uk/check/', {domainname: string});
-
-            if (html.indexOf(" is not down") !== -1)
-                is_up = true;
+            Notify.error(err);
         }
 
         History.add(url);
 
-        return [{
+        return {
             title: url,
             url: url,
             subtitle: is_up ? "Site is up!" : "Site seems to be down.",
             icon: is_up ? "up" : "down"
-        }];
+        };
     } catch (err) {
         Notify.error(err);
     }
