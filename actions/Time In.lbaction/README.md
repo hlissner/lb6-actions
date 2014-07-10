@@ -5,13 +5,13 @@ world. Feed it an address, a country, a city--whatever.
 
 Keeps a history of locations you've looked up and suggests them as you type.
 
-![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-1.png)
-![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-2.png)
+![](img/01.png)
+![](img/02.png)
 
 Run it without text and it will list the times of preset locations you've set in your
 preferences (see below).
 
-![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-3.png)
+![](img/03.png)
 
 Note:
 * Hold down shift to ignore & clear the cache
@@ -35,12 +35,12 @@ query limit errors you might be better off with one:
 2. Click "Create new project" and name it whatever you like. I named mine "LaunchBar Actions".
 3. Go to **Credentials** on the left menu.
     
-    ![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-6.png)
+    ![](img/06.png)
 
 4. Beneath **Public API Access**, click on a button labeled **Create new key**.
 5. Select "Browser Key" when it prompts you what type of key you want, then click "create" to finish the process.
 6. The API key has been created and should be displayed. Note this down. There's one more step before you're done.
-    ![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-5.png)
+    ![](img/05.png)
 
 7. Go to "APIs" on the left menu, then find and enable these two services:
     * Geocoding API
@@ -49,6 +49,6 @@ query limit errors you might be better off with one:
 And you're done! Run Time In while holding down alt and it will give you the
 Preferences.plist. Enter your API key in the api_key field and you're good to go!
 
-![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-ti-4.png)
+![](img/04.png)
 
 Hold down control why running the action to select the action's Preferences.plist.
