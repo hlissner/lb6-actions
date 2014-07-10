@@ -16,7 +16,7 @@
     <string>1.0</string>
 
     <key>CFBundleIconFile</key>
-    <string>upload</string>
+    <string>iconTemplate</string>
 
     <key>LBDebugLogEnabled</key>
     <false />
