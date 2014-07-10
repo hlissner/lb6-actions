@@ -16,7 +16,7 @@
     <string>1.1</string>
 
     <key>CFBundleIconFile</key>
-    <string>icon</string>
+    <string>at.obdev.LaunchBar:Image_Compress</string>
 
     <key>LBDebugLogEnabled</key>
     <false />
@@ -28,6 +28,12 @@
     <!-- Per-action keys -->
     <!-- <key>LBTextInputTitle</key> -->
     <!-- <string>Rate</string> -->
+
+    <key>LBRequiredApplication</key>
+    <string>net.pornel.ImageAlpha</string>
+
+    <key>LBAssociatedApplication</key>
+    <string>net.pornel.ImageAlpha</string>
 
     <key>LBScripts</key>
     <dict>
