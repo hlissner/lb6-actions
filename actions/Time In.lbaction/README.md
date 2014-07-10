@@ -17,6 +17,11 @@ Note:
 * Hold down shift to ignore & clear the cache
 * Hold down ctrl to select this action's Preferences.plist
 
+## Available Preferences
+
+* show_seconds (yes|no): display the seconds in the result or not. Off by default.
+* format_24hour (yes|no): display the time in 24 hour format or not. Off by default.
+
 ## Requirements
 
 «Time In» works out of the box **without** an API key, but if you're getting API

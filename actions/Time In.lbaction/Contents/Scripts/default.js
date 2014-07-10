@@ -2,14 +2,14 @@ include("shared/notify.js");
 include("api.js");
 
 function run() {
+    init();
     var path = Action.supportPath + "/Preferences.plist";
     if (LaunchBar.options.controlKey) {
         API.key();
-        Action.preferences.locations = Action.preferences.locations || [];
         return [{title: "Preferences", path: path}];
     }
 
-    if (!Action.preferences.locations || Action.preferences.locations.length === 0) {
+    if (Action.preferences.locations.length === 0) {
         return [
             {title: "You have no locations set"},
             {title: "Preferences", path: path}
@@ -17,7 +17,7 @@ function run() {
     }
 
     return Action.preferences.locations.map(function(location) {
-        var item = runWithString(location)[0];
+        var item = runWithString(location);
         item.subtitle = location + " | " + item.subtitle;
 
         return item;
@@ -25,6 +25,7 @@ function run() {
 }
 
 function runWithString(address) {
+    init();
     LaunchBar.debugLog("Searching for "+address);
 
     try {
@@ -44,14 +45,25 @@ function runWithString(address) {
 
         var time = new Date(ts2);
         var offset = (tzdata.rawOffset+tzdata.dstOffset)/3600;
-        return [{
-            title: _format(time),
+        return {
+            title: Action.preferences.format_24hours ? _format24(time) : _format(time),
             subtitle: tzdata.timezone + " (GMT " + (offset >= 0 ? "+"+offset : offset) + ") | " + diffline,
             icon: "clockTemplate"
-        }];
+        };
     } catch (err) {
         Notify.error(err instanceof Object ? err.message : err);
     }
+}
+
+function init() {
+    if (Action.preferences.locations === undefined)
+        Action.preferences.locations = [];
+
+    if (Action.preferences.format_24hours === undefined)
+        Action.preferences.format_24hours = false;
+
+    if (Action.preferences.show_seconds === undefined)
+        Action.preferences.show_seconds = false;
 }
 
 /////////////////////
@@ -62,5 +74,13 @@ function _format(time) {
     hour = hour ? hour : 12;
 
     return ("0" + hour).slice(-2) + ":" +
-        ("0" + time.getMinutes()).slice(-2) + " " + (hr >= 12 ? "PM" : "AM");
+        ("0" + time.getMinutes()).slice(-2) + 
+        (Action.preferences.show_seconds ? ":" + ("0" + time.getSeconds()).slice(-2) : "") +
+        " " + (hr >= 12 ? "PM" : "AM");
+}
+
+function _format24(time) {
+    return ("0" + time.getHours()).slice(-2) + ":" +
+        ("0" + time.getMinutes()).slice(-2) + 
+        (Action.preferences.show_seconds ? ":" + ("0" + time.getSeconds()).slice(-2) : "");
 }
