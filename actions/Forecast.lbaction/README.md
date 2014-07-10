@@ -7,7 +7,7 @@ preferences.
 
 Keeps a history of previous forecast locations and suggests them as you type.
 
-![](https://github.com/hlissner/lb6-actions/raw/master/images/cb-forecast.gif);
+![](img/01.gif);
 
 * Hold down control while running it to select Preference.plist
 * Hold down shift to ignore and clear cache

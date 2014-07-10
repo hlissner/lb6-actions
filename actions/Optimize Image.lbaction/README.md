@@ -4,15 +4,15 @@ Sending files to ImageOptim is easy, but I find the ImageAlpha GUI a tad cumbers
 This processes your image(s) through ImageAlpha and reports on savings. Works with
 multiple images.
 
-Hold down alt and it will make a copy to optimize, rather than operate on the original.
+![](img/01.png)
+![](img/02.png)
+![](img/03.png)
 
-Hold down shift and it will also process them with ImageOptim (if available).
-
-![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-oi-1.png)
-![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-oi-2.png)
-![](https://dl.dropboxusercontent.com/u/2908279/public/cb/cb-oi-3.png)
+Notes:
+* Hold down alt to make a copy to optimize rather than operate on the original.
+* Hold down shift to also process images through ImageOptim (if available).
 
 Inspired from:
 
-* [My Screenshot action](https://github.com/hlissner/launchbar6-scripts/tree/master/actions/Screenshot.lbaction)
+* [My Screenshot action](https://github.com/hlissner/lb6-actions/tree/master/actions/Screenshot.lbaction)
 * [Pregnagha's Screenshot action](https://github.com/prenagha/launchbar/tree/master/Screenshot.lbaction)

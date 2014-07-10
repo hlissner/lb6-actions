@@ -2,12 +2,12 @@
 
 Get's the temperature at a location; feed it an address, city, country--whatever.
 
-![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-temp-01.png)
-![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-temp-02.png)
+![](img/01.png)
+![](img/02.png)
 
 Run it without text and it will list the temperatures at preset locations: 
 
-![](https://raw.githubusercontent.com/hlissner/lb6-actions/master/images/cb-temp-03.png)
+![](img/03.png)
 
 Keeps a history of all the locations you've looked up and will suggest them as you type.
 
