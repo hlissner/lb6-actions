@@ -40,8 +40,7 @@ var API = {
             return data;
 
         return data.filter(function(curr) {
-            query = query.toLowerCase();
-            return curr.currencyName.toLowerCase().indexOf(query) !== -1 || curr.id.toLowerCase().indexOf(query) !== -1;
+            return curr.currencyName.toLowerCase().indexOf(query) !== -1 || curr.id.indexOf(query) !== -1;
         });
     },
 
