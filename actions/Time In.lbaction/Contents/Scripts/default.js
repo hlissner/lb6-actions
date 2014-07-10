@@ -45,10 +45,11 @@ function runWithString(address) {
 
         var time = new Date(ts2);
         var offset = (tzdata.rawOffset+tzdata.dstOffset)/3600;
+        var hr = time.getHours();
         return {
             title: Action.preferences.format_24hours ? _format24(time) : _format(time),
             subtitle: tzdata.timezone + " (GMT " + (offset >= 0 ? "+"+offset : offset) + ") | " + diffline,
-            icon: "clockTemplate"
+            icon: (hr < 6 || hr > 21 ? "N" : "D") + "clockTemplate"
         };
     } catch (err) {
         Notify.error(err instanceof Object ? err.message : err);

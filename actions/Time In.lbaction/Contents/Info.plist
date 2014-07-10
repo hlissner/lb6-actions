@@ -16,7 +16,7 @@
     <string>1.4</string>
 
     <key>CFBundleIconFile</key>
-    <string>clockTemplate</string>
+    <string>AMclockTemplate</string>
 
     <key>LBDebugLogEnabled</key>
     <false />
