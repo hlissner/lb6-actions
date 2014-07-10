@@ -55,5 +55,3 @@ And you're done! Run Time In while holding down alt and it will give you the
 Preferences.plist. Enter your API key in the api_key field and you're good to go!
 
 ![](img/04.png)
-
-Hold down control why running the action to select the action's Preferences.plist.
