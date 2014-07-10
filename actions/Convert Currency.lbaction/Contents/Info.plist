@@ -13,7 +13,7 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>2.1</string>
+    <string>2.1.1</string>
 
     <key>CFBundleIconFile</key>
     <string>money_silver</string>

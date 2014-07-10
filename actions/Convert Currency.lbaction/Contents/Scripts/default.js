@@ -11,8 +11,8 @@ function runWithString(string) {
             throw "Your input wasn't formatted correctly!\nProper example: 100 USD to JPY";
 
         var amt = parseFloat(match[1]).toFixed(2);
-        var from = match[2];
-        var to = match[4];
+        var from = match[2].toUpperCase();
+        var to = match[4].toUpperCase();
 
         var rate = API.get_rate(from, to);
         History.add(string);
