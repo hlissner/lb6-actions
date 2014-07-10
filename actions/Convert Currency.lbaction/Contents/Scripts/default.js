@@ -1,8 +1,3 @@
-/*
- * TODO: Calculate new amount w/ exchange rates
- * TODO: Cache exchange rate for ~30 minutes
- */
-
 include("shared/notify.js");
 include("shared/history.js");
 include("api.js");

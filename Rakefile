@@ -1,4 +1,4 @@
-# TODO: Make more idiomatic
+# TODO: Implement support for php/python dependencies
 
 @dest = "actions/{*.lbaction,*.lbext/Contents/Resources/Actions/*.lbaction}/Contents/Scripts"
 
