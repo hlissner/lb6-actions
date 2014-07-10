@@ -1,7 +1,6 @@
 # TODO: Make more idiomatic
 
-@dest = "actions/*.lbaction/Contents/Scripts"
-@destExt = "actions/*.lbext/Contents/Resources/Actions/*.lbaction/Contents/Scripts"
+@dest = "actions/{*.lbaction,*.lbext/Contents/Resources/Actions/*.lbaction}/Contents/Scripts"
 
 verbose(false)
 
@@ -9,7 +8,7 @@ task :default => :update
 
 desc "Copies shared js libraries to the actions that need them."
 task :update => :clean do
-    Dir.glob("{#{@dest},#{@destExt}}").each do |dir|
+    Dir.glob(@dest).each do |dir|
         puts "==> Checking #{dir.scan(/\/([^\/]+\.lbaction)\//).last.first}"
 
         libs = []
