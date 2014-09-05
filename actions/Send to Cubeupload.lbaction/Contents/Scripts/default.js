@@ -15,8 +15,6 @@ function runWithPaths(paths) {
     }
 
     if (!items.length) {
-        // LaunchBar.log(paths);
-        notify("Received " + paths.length + " items, but none of the items could be uploaded.");
         return [];
     }
 
@@ -30,11 +28,11 @@ function runWithItem(item) { return runWithPaths([item.path]); }
 function upload(image_path) {
     // Only allow images + pdfs
     try {
-        var ext = image_path.split('.').pop();
+        var ext = image_path.split('.').pop().toLowerCase();
         if (['jpg', 'png', 'jpeg', 'gif', 'bmp', 'pdf'].indexOf(ext) == -1)
             throw "Cubeupload expected an image (jpg, png, gif, bmp, or pdf), but got a " + ext + " file.";
 
-        var resp = LaunchBar.execute('/usr/bin/curl', 
+        var resp = LaunchBar.execute('/usr/bin/curl',
                 '-X', 'POST',
                 '-F', 'name=' + basename(image_path),
                 '-F', 'fileinput[0]=@' + image_path,
@@ -44,7 +42,7 @@ function upload(image_path) {
             throw "Received empty response from cubeupload.com.";
 
         resp = JSON.parse(resp);
-        if (resp.error === false)
+        if (resp.error !== false)
             throw resp.error_reason + ": " + resp.error_text;
 
         return resp;
