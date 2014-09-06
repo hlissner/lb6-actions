@@ -16,34 +16,35 @@ To install any of these, [Download the Zip](https://github.com/hlissner/lb6-acti
 List of Actions
 ---------------
 
-Here's what you'll find inside, click for screenshots and more info.
+Here's what you'll find in actions/* -- screenshots and details are
+available in their respective folders.
 
-* [Can I Use](tree/master/actions/Can%20I%20Use.lbaction) (browser compatibility search engine)
-* [Chrome/Chromium Tabs](tree/master/actions/Chrome%20Tabs.lbaction) (like Safari Tabs, but for Chrome/Chromium)
-* [Convert Currency](tree/master/actions/Convert%20Currency.lbaction)
-* [Decode Text](tree/master/actions/Decode.lbaction)
-* [Domai.nr](tree/master/actions/Domainr.lbaction)
-* [Encode File as Data URI](tree/master/actions/Encode%20File%20as%20Data%20URI.lbaction)
-* [Encode Text](tree/master/actions/Encode.lbaction)
-* [Enter Path in Dialog](tree/master/actions/Enter%20Path%20in%20Dialog.lbaction) (Sets the foremost open/save dialog window to the folder selected in LaunchBar)
-* [Forecast](tree/master/actions/Forecast.lbaction) (Get a 7-day forecast for any location, or a default location)
-* [Get Image in Clipboard](tree/master/actions/Get%20Image%20in%20Clipboard.lbaction)
-* [Hastebin](tree/master/actions/Hastebin.lbaction) (For sharing text; complete with syntax highlighting)
-* [Is Site Up](tree/master/actions/Is%20Site%20Up.lbaction) (Checks if a website is up using downforeveryoneorjustme.com)
-* [Number Trivia](tree/master/actions/Number%20Trivia.lbaction) (gives you random trivia for a number you specify. Leave it blank for a random number)
-* [Optimize Image](tree/master/actions/Optimize%20Image.lbaction) (Reduces the size of images with ImageAlpha--and ImageOptim if you hold shift)
-* [Rate Current Song](tree/master/actions/Rate%20Current%20Song.lbaction)
-* [Screenshot](tree/master/actions/Screenshot.lbaction) (Takes a screenshot, optimizes the result and selects it in LaunchBar)
-* [Send to Cubeupload](tree/master/actions/Send%20to%20Cubeupload.lbaction)
-* [Send to Gfycat](tree/master/actions/Send%20to%20Gfycat.lbaction)
-* [Set Status](tree/master/actions/Set%20Status.lbaction) (Set your availability in Skype and/or Adium)
-* [Shorten URL (Bit.ly)](tree/master/actions/Shorten%20URL%20(Bit.ly).lbaction)
-* [Sleep Displays](tree/master/actions/Sleep%20Displays.lbaction)
-* [Strip Tags](tree/master/actions/Strip%20Tags.lbaction)
-* [Temperature In...](tree/master/actions/Temperature%20In.lbaction) (Like "Time in...", but for temperatures)
-* [Time in...](tree/master/actions/Time%20In.lbaction) (Get the time anywhere in the world; feed it a city, country, an address--whatever)
-* [TimeBar](tree/master/actions/Timebar.lbaction)
-* [Toggle Skype Mic](tree/master/actions/Toggle%20Skype%20Mic.lbaction) (Toggles your mic in a skype call)
+* Can I Use (browser compatibility search engine)
+* Chrome/Chromium Tabs (like Safari Tabs, but for Chrome/Chromium)
+* Convert Currency
+* Decode Text
+* Domai.nr
+* Encode File as Data URI
+* Encode Text
+* Enter Path in Dialog (Sets the foremost open/save dialog window to the folder selected in LaunchBar)
+* Forecast (Get a 7-day forecast for any location, or a default location)
+* Get Image in Clipboard
+* Hastebin (For sharing text; complete with syntax highlighting)
+* Is Site Up (Checks if a website is up using downforeveryoneorjustme.com)
+* Number Trivia (gives you random trivia for a number you specify. Leave it blank for a random number)
+* Optimize Image (Reduces the size of images with ImageAlpha--and ImageOptim if you hold shift)
+* Rate Current Song
+* Screenshot (Takes a screenshot, optimizes the result and selects it in LaunchBar)
+* Send to Cubeupload
+* Send to Gfycat
+* Set Status (Set your availability in Skype and/or Adium)
+* Shorten URL (actions/Shorten%20URL%20(Bit.ly).lbaction)
+* Sleep Displays
+* Strip Tags
+* Temperature In... (Like "Time in...", but for temperatures)
+* Time in... (Get the time anywhere in the world; feed it a city, country, an address--whatever)
+* TimeBar
+* Toggle Skype Mic (Toggles your mic in a skype call)
 
 Planned actions
 ---------------
@@ -54,7 +55,6 @@ World domination isn't easy. Let me know if you take a stab at any of these.
 * Send to Dropbox
 * Send to Imgur
 * Transmission-remote: list/remove/add torrents
-* VirtualBox/Vagrant manager: List, Start up, Shut down
 * Linode: overview of your Linodes.
 * GDrive browser/search
 * Google Translate

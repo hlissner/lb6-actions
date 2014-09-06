@@ -1,5 +1,7 @@
 # Can I Use
 
-Searches browser compatability tables on caniuse.com (with live suggestions).
+Searches browser compatibility tables on caniuse.com (with live suggestions).
 
 ![](img/01.png)
+
+Inspired by this [Alfred workflow](https://github.com/willfarrell/alfred-caniuse-workflow).
