@@ -18,6 +18,7 @@ List of Actions
 
 Here's what you'll find inside, click for screenshots and more info.
 
+* [Can I Use](tree/master/actions/Can%20I%20Use.lbaction) (browser compatibility search engine)
 * [Chrome/Chromium Tabs](tree/master/actions/Chrome%20Tabs.lbaction) (like Safari Tabs, but for Chrome/Chromium)
 * [Convert Currency](tree/master/actions/Convert%20Currency.lbaction)
 * [Decode Text](tree/master/actions/Decode.lbaction)
@@ -54,17 +55,13 @@ World domination isn't easy. Let me know if you take a stab at any of these.
 * Send to Imgur
 * Transmission-remote: list/remove/add torrents
 * VirtualBox/Vagrant manager: List, Start up, Shut down
-* Can I Use: queries caniuse.com, inspired by [the equivilent Alfred workflow](https://github.com/willfarrell/alfred-caniuse-workflow).
 * Linode: overview of your Linodes.
 * GDrive browser/search
 * Google Translate
 * Google Analytics
 * Inline Activity Monitor w/ kill process + system stats (temperature, load, etc.)
 * Smarter image tools: resizing, scaling, converting, etc.
-* Get color palette from an image
 * Gist: create/search/paste
-* YOURS url shortening
-* Should I play this game/watch this movie lookup
 
 Other fantastic actions I use
 -----------------------------
@@ -82,4 +79,4 @@ Other fantastic actions I use
 * By [Nosrac](https://github.com/Nosrac)
     * [Youtube Predictions](https://github.com/Nosrac/LBYoutubePredictions)
     * [Define](https://github.com/Nosrac/LBDefine)
-
+* [Unicode Symbols](https://github.com/nbjahan/launchbar-unisym) By [nbjahan](https://github.com/nbjahan)
