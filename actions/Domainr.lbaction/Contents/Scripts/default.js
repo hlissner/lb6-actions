@@ -2,13 +2,13 @@ include("shared/request.js");
 include("shared/notify.js");
 include("shared/cache.js");
 
-var API_URL = "https://domai.nr/api/json/search";
+var API_URL = "https://domainr.com/api/json/search";
 
 function runWithString(string) {
     try {
         if (LaunchBar.options.commandKey) {
             LaunchBar.openURL(
-                "https://domai.nr/"+encodeURIComponent(string)
+                "https://domainr.com/"+encodeURIComponent(string)
             );
         }
 
@@ -38,7 +38,7 @@ function runWithString(string) {
 function api_call(term) {
     var resp = Request.getJSON(API_URL, {client_id: "lb6_action", q: encodeURIComponent(term)});
     if (resp.error !== undefined)
-        throw "Domai.nr error ("+resp.error.status+"): "+resp.error.message;
+        throw "Domainr error ("+resp.error.status+"): "+resp.error.message;
 
     return resp.results;
 }
