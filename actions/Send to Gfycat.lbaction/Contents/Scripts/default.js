@@ -5,7 +5,7 @@ include("shared/notify.js");
 var URL_PREFIX = 'http://gfycat.com/';
 
 function runWithPaths(paths) {
-    return paths .map(function(path) {
+    return paths.map(function(path) {
         var dest = upload(path);
         return dest !== false ? {
             "title": URL_PREFIX + dest,
@@ -55,7 +55,7 @@ function upload(image_path) {
         if (resp.data.task === "complete")
             return resp.data.gfyname;
     } catch (err) {
-        Notify.error(err);
+        Lib.Notify.error(err);
     }
 
     return false;
