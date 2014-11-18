@@ -5,7 +5,9 @@
  * propogate changes.
  */
 
-var Cache = {
+var Lib = Lib || {};
+
+Lib.Cache = {
     /**
      * Path to the cache path.
      */

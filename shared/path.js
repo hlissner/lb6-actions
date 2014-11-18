@@ -5,7 +5,9 @@
  * propogate changes.
  */
 
-var Path = {
+var Lib = Lib || {};
+
+Lib.Path = {
     scripts: Action.path + "/Contents/Scripts",
 
     basename: function(path) {
