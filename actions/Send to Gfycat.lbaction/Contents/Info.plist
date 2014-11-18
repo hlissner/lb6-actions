@@ -13,7 +13,7 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.1</string>
+    <string>1.2</string>
 
     <key>CFBundleIconFile</key>
     <string>iconTemplate</string>
@@ -70,14 +70,14 @@
 
         <!-- A short summary about what the action does and how it’s used. -->
         <key>LBSummary</key>
-        <string>Uploads image(s) to Gfycat (note: temporary, until Gfycat has a real API)</string>
+        <string>Uploads *.gif or *.mov files to Gfycat</string>
 
         <!-- Describe the arguments that should be passed to the action. For example, if
              your action’s default script specifies that it accepts paths via
              LBAcceptedArgumentTypes, but then the script itself checks that the user
              passed in a PDF file, this would be the right place to document that. -->
         <key>LBArgument</key>
-        <string>The image(s) to upload</string>
+        <string>The *.gif or *.mov file to upload</string>
 
         <!-- Describe the action’s result. For example, an action fetching news via RSS
              that then shows a list of items representing the single stories in the RSS
