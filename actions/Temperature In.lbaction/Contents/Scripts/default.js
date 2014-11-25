@@ -1,6 +1,9 @@
-include("shared/notify.js");
-include("shared/cache.js");
+/*global Lib,API*/
+
 include("shared/history.js");
+include("shared/cache.js");
+include("shared/notify.js");
+
 include("api.js");
 
 function run() {
@@ -20,10 +23,10 @@ function run() {
 
     return Action.preferences.locations.map(function(location) {
         var item = runWithString(location)[0];
-        if (!item) return;
-
-        item.subtitle = location + " | " + item.subtitle;
-        return item;
+        if (item) {
+            item.subtitle = location + " | " + item.subtitle;
+            return item;
+        }
     });
 }
 
@@ -32,7 +35,7 @@ function runWithString(address) {
     LaunchBar.debugLog("Searching for "+address);
 
     try {
-        var results = Cache.get(address, true);
+        var results = Lib.Cache.get(address, true);
         if (!results || LaunchBar.options.shiftKey) {
             var resp = API.request(address);
 
@@ -44,13 +47,13 @@ function runWithString(address) {
                 icon: "iconTemplate"
             };
 
-            History.add(address);
-            Cache.set(address, results, 600);
+            Lib.History.add(address);
+            Lib.Cache.set(address, results, 600);
         }
 
         return [results];
     } catch (err) {
-        Notify.error(err);
+        Lib.Notify.error(err);
     }
 }
 

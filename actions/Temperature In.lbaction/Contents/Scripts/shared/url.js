@@ -5,7 +5,9 @@
  * propogate changes.
  */
 
-var URL = {
+var Lib = Lib || {};
+
+Lib.URL = {
     hostname: function(url) {
         var start = url.indexOf('//');
 
