@@ -8,13 +8,15 @@
 include("shared/url.js");
 include("shared/lib.js");
 
-var Request = {
+var Lib = Lib || {};
+
+Lib.Request = {
     TMP_DIR: "/tmp",
 
     get: function(url, argv, ttl) {
         var _url = url + URL.dict2qs(argv);
         var resp = HTTP.get(_url, ttl || 5);
-        
+
         LaunchBar.debugLog("URL="+_url);
         LaunchBar.debugLog("RESP="+JSON.stringify(resp));
         this._get_check(resp);

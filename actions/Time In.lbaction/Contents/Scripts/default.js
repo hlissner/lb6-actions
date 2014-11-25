@@ -1,4 +1,5 @@
 include("shared/notify.js");
+
 include("api.js");
 
 function run() {
@@ -34,7 +35,7 @@ function runWithString(address) {
 
         var coords = API.coordinates(address);
         var tzdata = API.tzdata(ts, coords.lat, coords.lng);
-        
+
         var ts2 = ts + ((tzdata.dstOffset + tzdata.rawOffset) * 1000) + (d.getTimezoneOffset() * 60000);
         var diff = (ts2 - ts) / (1000 * 60 * 60);
 
@@ -47,12 +48,12 @@ function runWithString(address) {
         var offset = (tzdata.rawOffset+tzdata.dstOffset)/3600;
         var hr = time.getHours();
         return {
-            title: Action.preferences.format_24hours ? _format24(time) : _format(time),
+            title: Action.preferences.format_24hours ? Time.format24(time) : Time.format(time),
             subtitle: tzdata.timezone + " (GMT " + (offset >= 0 ? "+"+offset : offset) + ") | " + diffline,
             icon: (hr < 6 || hr > 21 ? "N" : "D") + "clockTemplate"
         };
     } catch (err) {
-        Notify.error(err instanceof Object ? err.message : err);
+        Lib.Notify.error(err instanceof Object ? err.message : err);
     }
 }
 
@@ -69,19 +70,21 @@ function init() {
 
 /////////////////////
 
-function _format(time) {
-    var hr = time.getHours();
-    var hour = (hr % 12);
-    hour = hour ? hour : 12;
+var Time = {
+    format: function (time) {
+        var hr = time.getHours();
+        var hour = (hr % 12);
+        hour = hour ? hour : 12;
 
-    return ("0" + hour).slice(-2) + ":" +
-        ("0" + time.getMinutes()).slice(-2) + 
-        (Action.preferences.show_seconds ? ":" + ("0" + time.getSeconds()).slice(-2) : "") +
-        " " + (hr >= 12 ? "PM" : "AM");
-}
+        return ("0" + hour).slice(-2) + ":" +
+            ("0" + time.getMinutes()).slice(-2) +
+            (Action.preferences.show_seconds ? ":" + ("0" + time.getSeconds()).slice(-2) : "") +
+            " " + (hr >= 12 ? "PM" : "AM");
+    },
 
-function _format24(time) {
-    return ("0" + time.getHours()).slice(-2) + ":" +
-        ("0" + time.getMinutes()).slice(-2) + 
-        (Action.preferences.show_seconds ? ":" + ("0" + time.getSeconds()).slice(-2) : "");
-}
+    format24: function(time) {
+        return ("0" + time.getHours()).slice(-2) + ":" +
+            ("0" + time.getMinutes()).slice(-2) +
+            (Action.preferences.show_seconds ? ":" + ("0" + time.getSeconds()).slice(-2) : "");
+    }
+};

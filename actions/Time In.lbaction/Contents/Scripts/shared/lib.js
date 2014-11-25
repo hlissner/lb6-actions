@@ -5,23 +5,43 @@
  * propogate changes.
  */
 
-/**
- * Display a dialog prompt asking for input.
- *
- * @param string question What to ask the user
- * @return string/bool The entered text. False if cancelled.
- */
-function prompt(question) {
-    var input = LaunchBar.executeAppleScript(
-        'display dialog "'+question+'" default answer ""',
-        'return text returned of result'
-    ).trim();
+var Lib = {
+    /**
+     * Display a dialog prompt asking for input.
+     *
+     * @param {string} question What to ask the user
+     * @return {string,bool} The entered text. False if cancelled.
+     */
+    prompt: function(question) {
+        var input = LaunchBar.executeAppleScript(
+            'display dialog "'+question+'" default answer ""',
+            'return text returned of result'
+        ).trim();
 
-    if (input.length === 0)
-        return false;
+        if (input.length === 0)
+            return false;
 
-    return input;
-}
+        return input;
+    },
+
+    /**
+     * Generate a unique ID of specified length.
+     *
+     * @param {int} len Length of the ID to generate
+     * @return {string} The unique ID
+     */
+    genUID: function(len) {
+        len = len || 5;
+
+        var text = "";
+        var mask = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for (var i=0; i < len; i++)
+            text += mask.charAt(Math.floor(Math.random() * mask.length));
+
+        return text;
+    }
+};
 
 String.prototype.flatten = function() {
     return this.replace(/(\r\n|\n|\r)/gm,"").trim();
@@ -59,15 +79,3 @@ String.prototype.wrap = function(width) {
 
     return res + str;
 };
-
-function genUID(len) {
-    len = len || 5;
-
-    var text = "";
-    var mask = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-    for( var i=0; i < len; i++ )
-        text += mask.charAt(Math.floor(Math.random() * mask.length));
-
-    return text;
-}

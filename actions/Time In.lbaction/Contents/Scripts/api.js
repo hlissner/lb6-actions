@@ -19,7 +19,7 @@ var API = {
         if (apikey)
             args.key = apikey;
 
-        var resp = Request.getJSON(url, args);
+        var resp = Lib.Request.getJSON(url, args);
         switch (resp.status) {
             case "INVALID_REQUEST":
                 throw {message: "The request was malformed. This is a bug!", log: resp.data.error_message, resp: resp};
@@ -40,7 +40,7 @@ var API = {
         if (address === undefined)
             throw "Missing parameters for API.coordinates";
 
-        var data = Cache.get(address.trim());
+        var data = Lib.Cache.get(address.trim());
         if (LaunchBar.options.shiftKey || !data) {
             var resp = API.request('geocode', {address: encodeURIComponent(address)});
             data = {
@@ -48,8 +48,8 @@ var API = {
                 lng: resp.results[0].geometry.location.lng
             };
 
-            Cache.set(resp.results[0].formatted_address, data);
-            History.add(resp.results[0].formatted_address);
+            Lib.Cache.set(resp.results[0].formatted_address, data);
+            Lib.History.add(resp.results[0].formatted_address);
         }
 
         return data;
@@ -60,16 +60,21 @@ var API = {
             throw "Missing parameters for API.tzdata";
 
         var tzkey = lat+","+lng;
-        var tzdata = Cache.get(tzkey, true);
+        var tzdata = Lib.Cache.get(tzkey, true);
+        var resp;
         if (LaunchBar.options.shiftKey || !tzdata) {
             resp = API.request('timezone', {location: lat+","+lng, timestamp: Math.floor(timestamp/1000)});
             if (resp.rawOffset === undefined || resp.dstOffset === undefined)
                 throw "Could not find the timezone for that location";
-            
-            tzdata = {rawOffset: resp.rawOffset, dstOffset: resp.dstOffset, timezone: resp.timeZoneName.split(" ").map(function(word) {
-                return word[0];
-            }).join("")};
-            Cache.set(tzkey, tzdata, 86400);
+
+            tzdata = {
+                rawOffset: resp.rawOffset,
+                dstOffset: resp.dstOffset,
+                timezone:  resp.timeZoneName.split(" ").map(function(word) {
+                    return word[0];
+                }).join("")
+            };
+            Lib.Cache.set(tzkey, tzdata, 86400);
         }
         return tzdata;
     }

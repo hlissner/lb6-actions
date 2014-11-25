@@ -13,10 +13,10 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.4</string>
+    <string>1.5</string>
 
     <key>CFBundleIconFile</key>
-    <string>AMclockTemplate</string>
+    <string>DclockTemplate</string>
 
     <key>LBDebugLogEnabled</key>
     <false />
@@ -24,7 +24,7 @@
     <!-- LB stuff -->
     <!-- <key>LSMinimumSystemVersion</key> -->
     <!-- <string>10.9.1</string> -->
-    
+
     <!-- Per-action keys -->
     <!-- <key>LBTextInputTitle</key> -->
     <!-- <string>Rate</string> -->
