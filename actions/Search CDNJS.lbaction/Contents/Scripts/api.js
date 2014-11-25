@@ -20,8 +20,9 @@ var API = {
             }
 
             data = data.data.results.map(function(lib) {
+                var filename = lib.latest.split("/").pop().replace(/[.-]min/, "");
                 return {
-                    "title": lib.name,
+                    "title": lib.name + " | " + filename,
                     "subtitle": lib.latest.replace('http://cdnjs.cloudflare.com/ajax/libs', ''),
                     "latest": lib.latest,
                     "action": DATA.select,
