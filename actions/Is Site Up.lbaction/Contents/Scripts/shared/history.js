@@ -7,7 +7,9 @@
 
 include("shared/cache.js");
 
-var History = {
+var Lib = Lib || {};
+
+Lib.History = {
     MAX_ITEMS: 25,
     DEFAULT_ICON: null,
 
@@ -15,21 +17,21 @@ var History = {
         var list = this.get();
         if (list.indexOf(item) !== -1)
             return false;
-        
+
         list.push(item);
         if (list.length > this.MAX_ITEMS)
             list.shift();
 
-        Cache.set('history', list.reverse());
+        Lib.Cache.set('history', list.reverse());
         return true;
     },
 
     get: function() {
-        return Cache.get('history') || [];
+        return Lib.Cache.get('history') || [];
     },
-    
+
     clear: function() {
-        Cache.clear('history');
+        Lib.Cache.clear('history');
     },
 
     suggestions: function(query) {

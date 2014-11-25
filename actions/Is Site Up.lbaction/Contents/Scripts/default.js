@@ -1,8 +1,8 @@
 include("shared/lib.js");
-include("shared/notify.js");
 include("shared/url.js");
 include("shared/history.js");
 include("shared/request.js");
+include("shared/notify.js");
 
 var API_URL = 'http://www.isup.me/';
 
@@ -31,11 +31,11 @@ function runWithString(string) {
     }
 
     try {
-        var url = URL.hostname(string);
+        var url = Lib.URL.hostname(string);
         var html;
         var is_up = false;
         try {
-            html = Request.get(API_URL + url);
+            html = Lib.Request.get(API_URL + url);
 
             var m = html.match(/It's (not )?just you[!.]\s*<a href=".+" class="domain">(.+)<\/a>(<\/span>)? ((looks down from here)|(is up))./i);
             if (m === null) {
@@ -48,10 +48,10 @@ function runWithString(string) {
 
             is_up = m[1] !== "not ";
         } catch (err) {
-            Notify.error(err);
+            Lib.Notify.error(err);
         }
 
-        History.add(url);
+        Lib.History.add(url);
 
         return {
             title: url,
@@ -60,6 +60,6 @@ function runWithString(string) {
             icon: is_up ? "up" : "down"
         };
     } catch (err) {
-        Notify.error(err);
+        Lib.Notify.error(err);
     }
 }
