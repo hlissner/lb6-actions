@@ -22,16 +22,16 @@ Lib.History = {
         if (list.length > this.MAX_ITEMS)
             list.shift();
 
-        Cache.set('history', list.reverse());
+        Lib.Cache.set('history', list.reverse());
         return true;
     },
 
     get: function() {
-        return Cache.get('history') || [];
+        return Lib.Cache.get('history') || [];
     },
 
     clear: function() {
-        Cache.clear('history');
+        Lib.Cache.clear('history');
     },
 
     suggestions: function(query) {

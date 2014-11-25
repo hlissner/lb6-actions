@@ -5,42 +5,42 @@
  * propogate changes.
  */
 
-var Lib = {
-    /**
-     * Display a dialog prompt asking for input.
-     *
-     * @param {string} question What to ask the user
-     * @return {string,bool} The entered text. False if cancelled.
-     */
-    prompt: function(question) {
-        var input = LaunchBar.executeAppleScript(
-            'display dialog "'+question+'" default answer ""',
-            'return text returned of result'
-        ).trim();
+var Lib = Lib || {};
 
-        if (input.length === 0)
-            return false;
+/**
+ * Display a dialog prompt asking for input.
+ *
+ * @param {string} question What to ask the user
+ * @return {string,bool} The entered text. False if cancelled.
+ */
+Lib.prompt = function(question) {
+    var input = LaunchBar.executeAppleScript(
+        'display dialog "'+question+'" default answer ""',
+        'return text returned of result'
+    ).trim();
 
-        return input;
-    },
+    if (input.length === 0)
+        return false;
 
-    /**
-     * Generate a unique ID of specified length.
-     *
-     * @param {int} len Length of the ID to generate
-     * @return {string} The unique ID
-     */
-    genUID: function(len) {
-        len = len || 5;
+    return input;
+};
 
-        var text = "";
-        var mask = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+/**
+ * Generate a unique ID of specified length.
+ *
+ * @param {int} len Length of the ID to generate
+ * @return {string} The unique ID
+ */
+Lib.genUID = function(len) {
+    len = len || 5;
 
-        for (var i=0; i < len; i++)
-            text += mask.charAt(Math.floor(Math.random() * mask.length));
+    var text = "";
+    var mask = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-        return text;
-    }
+    for (var i=0; i < len; i++)
+        text += mask.charAt(Math.floor(Math.random() * mask.length));
+
+    return text;
 };
 
 String.prototype.flatten = function() {
@@ -57,9 +57,11 @@ String.prototype.encodeURIPath = function() {
 
 String.prototype.wrap = function(width) {
     var str = this;
-    var newLineStr = "\n"; done = false; res = '';
+    var done = false;
+    var res = '';
+    var newLineStr = "\n";
     do {
-        found = false;
+        var found = false;
         for (i = width - 1; i >= 0; i--) {
             if (new RegExp(/^\s$/).test(str.charAt(i).charAt(0))) {
                 res = res + [str.slice(0, i), newLineStr].join('');
