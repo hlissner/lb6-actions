@@ -35,6 +35,7 @@ available in their respective folders.
 * Optimize Image (Reduces the size of images with ImageAlpha--and ImageOptim if you hold shift)
 * Rate Current Song
 * Screenshot (Takes a screenshot, optimizes the result and selects it in LaunchBar)
+* Search CDNJS (Search cdnjs.com for js/css libraries)
 * Send to Cubeupload
 * Send to Gfycat
 * Set Status (Set your availability in Skype and/or Adium)
@@ -57,7 +58,6 @@ World domination isn't easy. Let me know if you take a stab at any of these.
 * Transmission-remote: list/remove/add torrents
 * Linode: overview of your Linodes.
 * GDrive browser/search
-* Google Translate
 * Google Analytics
 * Inline Activity Monitor w/ kill process + system stats (temperature, load, etc.)
 * Smarter image tools: resizing, scaling, converting, etc.
