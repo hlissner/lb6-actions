@@ -6,11 +6,11 @@ var SITE_URL = "http://learnxinyminutes.com";
 var CACHE_ID = "links";
 
 function runWithString(string) {
-    var data = Cache.get(CACHE_ID, true);
+    var data = Lib.Cache.get(CACHE_ID, true);
     if (!data || LaunchBar.options.controlKey) {
         data = parse(Request.get(SITE_URL));
 
-        Cache.set(CACHE_ID, data, 86400*7);
+        Lib.Cache.set(CACHE_ID, data, 86400*7);
     }
 
     return string.trim() === "" ? data : data.filter(function(item) {
