@@ -14,7 +14,7 @@ var Data = {
     get: function() {
         var ts = Date.now() / 1000;
 
-        var list = Cache.get("list", true);
+        var list = Lib.Cache.get("list", true);
         if (!list || Action.debugLogEnabled || LaunchBar.options.controlKey) {
             var data = JSON.parse(LaunchBar.execute(
                 "/usr/bin/php",
@@ -31,7 +31,7 @@ var Data = {
                 };
             });
 
-            Cache.set("list", list, 86400*7);
+            Lib.Cache.set("list", list, 86400*7);
         }
 
         return list;

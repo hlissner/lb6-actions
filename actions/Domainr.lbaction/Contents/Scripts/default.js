@@ -16,7 +16,7 @@ function runWithString(string) {
         if (string.length === 0)
             return;
 
-        var data = Cache.get(string, true);
+        var data = Lib.Cache.get(string, true);
         if (!data) {
             data = api_call(string).map(function(item) {
                 return {
@@ -26,17 +26,17 @@ function runWithString(string) {
                     actionArgument: item.domain
                 };
             });
-            Cache.set(string, data, 20);
+            Lib.Cache.set(string, data, 20);
         }
 
         return data;
     } catch (err) {
-        Notify.error(err);
+        Lib.Notify.error(err);
     }
 }
 
 function api_call(term) {
-    var resp = Request.getJSON(API_URL, {client_id: "lb6_action", q: encodeURIComponent(term)});
+    var resp = Lib.Request.getJSON(API_URL, {client_id: "lb6_action", q: encodeURIComponent(term)});
     if (resp.error !== undefined)
         throw "Domainr error ("+resp.error.status+"): "+resp.error.message;
 

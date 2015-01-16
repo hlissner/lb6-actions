@@ -1,4 +1,3 @@
-include("shared/cache.js");
 include("shared/request.js");
 
 var API = {
@@ -20,7 +19,7 @@ var API = {
             APPID: this.key()
         };
 
-        var resp = Request.getJSON(this.URL_PREFIX, argv);
+        var resp = Lib.Request.getJSON(this.URL_PREFIX, argv);
         if (resp.cod !== "200")
             throw "API Error ("+resp.cod+")";
 

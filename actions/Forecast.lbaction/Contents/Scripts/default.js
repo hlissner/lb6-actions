@@ -29,7 +29,7 @@ function runWithString(address) {
     LaunchBar.debugLog("Searching for "+address);
 
     try {
-        var results = Cache.get(address, true);
+        var results = Lib.Cache.get(address, true);
         if (!results || LaunchBar.options.shiftKey) {
             var resp = API.request(address);
             var today = new Date().getDay();
@@ -46,13 +46,13 @@ function runWithString(address) {
                 };
             });
 
-            History.add(address);
-            Cache.set(address, results, 3600);
+            Lib.History.add(address);
+            Lib.Cache.set(address, results, 3600);
         }
 
         return results;
     } catch (err) {
-        Notify.error(err);
+        Lib.Notify.error(err);
     }
 }
 

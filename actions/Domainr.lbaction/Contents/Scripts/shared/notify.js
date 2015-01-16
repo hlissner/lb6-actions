@@ -5,7 +5,9 @@
  * propogate changes.
  */
 
-var Notify = {
+var Lib = Lib || {};
+
+Lib.Notify = {
     error: function(msg, data) {
         msg = msg || "There was an unexpected error.";
 

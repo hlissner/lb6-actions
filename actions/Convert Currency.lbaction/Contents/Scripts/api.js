@@ -9,7 +9,7 @@ var Data = {
     get: function() {
         // We download the list of currencies once and forget about it.
         if (!File.exists(this.FILE) || LaunchBar.options.controlKey) {
-            var data = Request.getJSON(this.URL).results;
+            var data = Lib.Request.getJSON(this.URL).results;
             var results = Object.keys(data).map(function(currency) {
                 return data[currency];
             });
@@ -60,14 +60,14 @@ var API = {
         to = to.toUpperCase();
 
         var key = from + "-" + to;
-        var rate = Cache.get(key, true);
+        var rate = Lib.Cache.get(key, true);
         if (!rate || LaunchBar.options.controlKey){
-            rate = parseFloat(Request.getJSON(this.URL, {q: key, compact: "y"})[key].val);
+            rate = parseFloat(Lib.Request.getJSON(this.URL, {q: key, compact: "y"})[key].val);
 
             // Freecurrencyconverterapi updates rates every 30 minutes, so we cache
             // them, and cache them both ways for posterity.
-            Cache.set(key, rate, 1800);
-            Cache.set(to + "-" + from, 1/rate, 1800);
+            Lib.Cache.set(key, rate, 1800);
+            Lib.Cache.set(to + "-" + from, 1/rate, 1800);
         }
 
         return rate;

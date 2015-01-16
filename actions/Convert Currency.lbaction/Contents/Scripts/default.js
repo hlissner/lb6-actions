@@ -15,7 +15,7 @@ function runWithString(string) {
         var to = match[4].toUpperCase();
 
         var rate = API.get_rate(from, to);
-        History.add(string);
+        Lib.History.add(string);
         if (LaunchBar.options.controlKey)
             History.clear();
 
@@ -40,6 +40,6 @@ function runWithString(string) {
             }
         ];
     } catch (err) {
-        Notify.error(err);
+        Lib.Notify.error(err);
     }
 }

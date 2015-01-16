@@ -10,9 +10,9 @@ function runWithString(url) {
     if (!api_key) return;
 
     try {
-        var data = Request.getJSON(API_URL + "/v3/shorten", {
+        var data = Lib.Request.getJSON(API_URL + "/v3/shorten", {
             access_token: api_key,
-            longUrl: URL.fqn(url)
+            longUrl: Lib.URL.fqn(url)
         });
 
         return [{
@@ -21,7 +21,7 @@ function runWithString(url) {
             url: data.data.long_url
         }];
     } catch (err) {
-        Notify.error(err);
+        Lib.Notify.error(err);
     }
 }
 
@@ -31,7 +31,7 @@ function getApiKey() {
     if (Action.preferences.api_key === undefined || LaunchBar.options.controlKey) {
         var input = prompt('Please enter your Bit.ly access token');
         if (!input) {
-            Notify.error("You left the API string blank. Try again.");
+            Lib.Notify.error("You left the API string blank. Try again.");
             return false;
         }
 

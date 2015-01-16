@@ -5,14 +5,18 @@
  * propogate changes.
  */
 
-var Path = {
+var Lib = Lib || {};
+
+Lib.Path = {
     scripts: Action.path + "/Contents/Scripts",
 
     basename: function(path) {
+        if (!path) return "";
         return this._strip_slash(path.replace(/\\/g,'/')).replace(/.*\//, '');
     },
 
     dirname: function(path) {
+        if (!path) return "";
         return this._strip_slash(path.replace(/\\/g,'/')).replace(/\/[^\/]+$/, '');
     },
 

@@ -8,9 +8,9 @@ function runWithString(string) { get(string); }
 
 function get(cmd) {
     try {
-        var text = Request.getJSON(API_URL + "/" + cmd + "?json").text.wrap(50);
+        var text = Lib.Request.getJSON(API_URL + "/" + cmd + "?json").text.wrap(50);
         LaunchBar.displayInLargeType({title: "Number Trivia", string: text});
     } catch (err) {
-        Notify.error(err);
+        Lib.Notify.error(err);
     }
 }

@@ -5,20 +5,24 @@
  * propogate changes.
  */
 
-var Cache = {
+var Lib = Lib || {};
+
+Lib.Cache = {
     /**
      * Path to the cache path.
+     *
+     * @type {String}
      */
     PATH: Action.cachePath,
 
     /**
      * Retrieves the cache entry, if it isn't stale.
      *
-     * @param key string The id of the entry
-     * @param bool has_ttl Whether the entry's ttl should be checked
-     * @returns mixed/bool The entry value, or false if it has outlived its ttl
+     * @param {String} key string The id of the entry
+     * @param {bool} has_ttl Whether the entry's ttl should be checked
+     * @returns {mixed|bool} The entry value, or false if it has outlived its ttl
      */
-    get: function(key, has_ttl) {
+    get: function (key, has_ttl) {
         if (Action.debugLogEnabled)
             return false;
 
@@ -43,9 +47,9 @@ var Cache = {
     /**
      * Sets a time-limited cache entry.
      *
-     * @param key string The id of the entry
-     * @param value mixed The data to be saved
-     * @param ttl int How long, in seconds, this entry stays fresh
+     * @param {String} key string The id of the entry
+     * @param {mixed} value mixed The data to be saved
+     * @param {int} ttl int How long, in seconds, this entry stays fresh
      */
     set: function(key, value, ttl) {
         key = key.replace(/[^a-z0-9]/gi, '_').toLowerCase();
@@ -62,7 +66,7 @@ var Cache = {
     /**
      * Deletes a cache entry file.
      *
-     * @param key string The id of the entry
+     * @param {String} key string The id of the entry
      */
     clear: function(key) {
         LaunchBar.execute("/bin/rm", this.PATH + "/" + key + ".json");

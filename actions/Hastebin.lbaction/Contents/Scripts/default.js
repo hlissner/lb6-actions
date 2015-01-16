@@ -5,11 +5,11 @@ include("shared/request.js");
 
 var API_URL = "http://hastebin.com";
 
-History.MAX_ITEMS = 50;
+Lib.History.MAX_ITEMS = 50;
 
 function run() {
     try {
-        var history = History.get();
+        var history = Lib.History.get();
         if (history.length === 0)
             return [{title: "No hastebins in history"}];
 
@@ -21,17 +21,17 @@ function run() {
             };
         });
     } catch (err) {
-        Notify.error(err);
+        Lib.Notify.error(err);
     }
 }
 
 function runWithString(string) {
     try {
         var url = API_URL + "/" + post(string);
-        History.add([url, string]);
+        Lib.History.add([url, string]);
         return [{title: url, subtitle: string, url: url}];
     } catch (err) {
-        Notify.error(err);
+        Lib.Notify.error(err);
     }
 }
 
@@ -44,20 +44,20 @@ function runWithPaths(paths) {
             var text = File.readText(path);
             var key = post(text);
 
-            History.add([url, text.substr(0, 30)]);
+            Lib.History.add([url, text.substr(0, 30)]);
             return {
                 title: API_URL + "/" + key,
-                subtitle: Path.basename(path),
+                subtitle: Lib.Path.basename(path),
                 url: API_URL + "/" + key
             };
         } catch (err) {
-            Notify.error(err);
+            Lib.Notify.error(err);
         }
     });
 }
 
 function post(string) {
-    var resp = Request.postJSON(API_URL+"/documents", {"-d": string});
+    var resp = Lib.Request.postJSON(API_URL+"/documents", {"-d": string});
     if (resp.key === undefined) 
         throw "Malformed response from hastebin";
 

@@ -1,3 +1,3 @@
 #!/bin/sh
 
-ls -lrt "$1" | awk '{print $5}'
+ls -nl "$1" | awk '{print $5}'

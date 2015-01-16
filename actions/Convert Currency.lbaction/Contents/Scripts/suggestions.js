@@ -12,7 +12,7 @@ function parse(input) {
         // A history is kept of all the successful conversions done in the past (up to
         // 25 by default). While the user is typing the amount, past queries are offered
         // as suggestions.
-        return History.suggestions(input).map(function(item) {
+        return Lib.History.suggestions(input).map(function(item) {
             return {title: item, icon: "at.obdev.LaunchBar:Text"};
         });
     }

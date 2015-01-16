@@ -5,29 +5,31 @@
  * propogate changes.
  */
 
-include("shared/url.js");
 include("shared/lib.js");
+include("shared/url.js");
 
-var Request = {
+var Lib = Lib || {};
+
+Lib.Request = {
     TMP_DIR: "/tmp",
 
     get: function(url, argv, ttl) {
-        var _url = url + URL.dict2qs(argv);
+        var _url = url + Lib.URL.dict2qs(argv);
         var resp = HTTP.get(_url, ttl || 5);
-        
-        LaunchBar.debugLog("URL="+_url);
-        LaunchBar.debugLog("RESP="+JSON.stringify(resp));
+
+        LaunchBar.debugLog("URL: " + _url);
+        LaunchBar.debugLog("RESP=" + JSON.stringify(resp));
         this._get_check(resp);
 
         return resp.data || "";
     },
 
     getJSON: function(url, argv, ttl) {
-        var _url = url + URL.dict2qs(argv);
+        var _url = url + Lib.URL.dict2qs(argv);
         var resp = HTTP.getJSON(_url, ttl || 5);
 
-        LaunchBar.debugLog("URL="+_url);
-        LaunchBar.debugLog("RESP="+JSON.stringify(resp));
+        LaunchBar.debugLog("URL: " + _url);
+        LaunchBar.debugLog("RESP=" + JSON.stringify(resp));
         this._get_check(resp);
 
         return resp.data || [];
@@ -37,7 +39,7 @@ var Request = {
         ttl = ttl || 5;
         if (!url) throw "Request.post: Improper URL provided";
 
-        var tmpfile = this.TMP_DIR + "/" + genUID(5);
+        var tmpfile = this.TMP_DIR + "/" + Lib.genUID(5);
 
         var args = ['/usr/bin/curl', '-D', tmpfile, '-L', '-X', 'POST', '--connect-timeout', ttl.toString()];
         for (var key in argv) {
