@@ -31,11 +31,15 @@ available in their respective folders.
 * Get Image in Clipboard
 * Hastebin (For sharing text; complete with syntax highlighting)
 * Is Site Up (Checks if a website is up using downforeveryoneorjustme.com)
+* Learn X in Y minutes (look up summaries for different programming languages--great for
+  us polyglot programmers)
 * Number Trivia (gives you random trivia for a number you specify. Leave it blank for a random number)
 * Optimize Image (Reduces the size of images with ImageAlpha--and ImageOptim if you hold shift)
 * Rate Current Song
 * Screenshot (Takes a screenshot, optimizes the result and selects it in LaunchBar)
 * Search CDNJS (Search cdnjs.com for js/css libraries)
+* Search Dash.app (slightly modified from official Dash.app plugin, using space as
+  a delimiter alternative to colon -- e.g. `python os.path` instead of `python:os.path`)
 * Send to Cubeupload
 * Send to Gfycat
 * Set Status (Set your availability in Skype and/or Adium)
