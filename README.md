@@ -53,7 +53,7 @@ available in their respective folders.
 
 Also see my other lb6 actions (in other repos, for some reason):
 
-* [lb6-rdio](//hlissner/lb6-rdio): Control rdio.app or search their music library
+* [lb6-rdio](https://github.com/hlissner/lb6-rdio): Control rdio.app or search their music library
 
 Planned actions
 ---------------
