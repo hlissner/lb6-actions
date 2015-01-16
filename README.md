@@ -51,6 +51,10 @@ available in their respective folders.
 * TimeBar
 * Toggle Skype Mic (Toggles your mic in a skype call)
 
+Also see my other lb6 actions (in other repos, for some reason):
+
+* [lb6-rdio](//hlissner/lb6-rdio): Control rdio.app or search their music library
+
 Planned actions
 ---------------
 
