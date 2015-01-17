@@ -1,6 +1,12 @@
-# Shorten URL (Bit.ly)
+# Shorten URL (YourLS)
 
-Shortens a link!
+Shortens a link using [YourLS](http://yourls.org)!
 
-Note: it will request your Bit.ly API key on first use. Hold down CTRL to force it to
-request it.
+## Setup
+
+1. Hold down control when you run the action and LaunchBar will select its
+   Preferences.plist file
+2. Open it and enter your YourLS signature token and URL to yourls-api.php file into the
+   two fields under "api"
+3. ???
+4. http://v0.io/profit
