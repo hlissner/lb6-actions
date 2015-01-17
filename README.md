@@ -43,7 +43,8 @@ available in their respective folders.
 * Send to Cubeupload
 * Send to Gfycat
 * Set Status (Set your availability in Skype and/or Adium)
-* Shorten URL (actions/Shorten%20URL%20(Bit.ly).lbaction)
+* Shorten URL ([Bit.ly](http://bit.ly))
+* Shorten URL ([YourLS](http://yourls.org))
 * Sleep Displays
 * Strip Tags
 * Temperature In... (Like "Time in...", but for temperatures)
