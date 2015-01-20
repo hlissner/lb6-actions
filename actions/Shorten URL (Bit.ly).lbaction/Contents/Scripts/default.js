@@ -18,7 +18,7 @@ function runWithString(url) {
         return [{
             title: data.data.url,
             subtitle: data.data.long_url,
-            url: data.data.long_url
+            url: data.data.url
         }];
     } catch (err) {
         Lib.Notify.error(err);
