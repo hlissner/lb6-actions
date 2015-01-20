@@ -29,7 +29,7 @@ function runWithString(url) {
 
 function getApiKey() {
     if (Action.preferences.api_key === undefined || LaunchBar.options.controlKey) {
-        var input = prompt('Please enter your Bit.ly access token');
+        var input = Lib.prompt('Please enter your Bit.ly access token');
         if (!input) {
             Lib.Notify.error("You left the API string blank. Try again.");
             return false;
