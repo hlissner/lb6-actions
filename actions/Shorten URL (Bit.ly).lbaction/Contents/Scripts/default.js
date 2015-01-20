@@ -15,6 +15,7 @@ function runWithString(url) {
             longUrl: Lib.URL.fqn(url)
         });
 
+        Lib.copy(data.data.url);
         return [{
             title: data.data.url,
             subtitle: data.data.long_url,

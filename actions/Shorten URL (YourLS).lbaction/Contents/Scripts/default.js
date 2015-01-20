@@ -17,10 +17,11 @@ function runWithString(url) {
         if (shorturl === "")
             return false;
 
+        Lib.copy(shorturl);
         return {
             title: shorturl,
             subtitle: url,
-            url: url
+            url: shorturl
         };
     } catch (err) {
         Lib.Notify.error(err);
