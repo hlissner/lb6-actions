@@ -15,13 +15,37 @@ function runWithString(url) {
             longUrl: Lib.URL.fqn(url)
         });
 
-        Lib.copy(data.data.url);
+        var title, subtitle, url;
+
+        switch (data.status_txt) {
+            case "ALREADY_A_BITLY_LINK":
+                title = url;
+                subtitle = "";
+                break;
+            case "INVALID_ARG_ACCESS_TOKEN":
+                LaunchBar.log("API_KEY=" + api_key);
+                throw "Your API key is invalid";
+            case "RATE_LIMIT_EXCEEDED":
+                throw "You've exceeded the limit on API requests, try again later";
+            case "OK":
+                title = data.data.url;
+                subtitle = data.data.long_url;
+                break;
+            default:
+                throw "An error occurred: " + data.status_txt;
+        }
+
+        url = title;
+
+        Lib.copy(url);
         return [{
-            title: data.data.url,
-            subtitle: data.data.long_url,
-            url: data.data.url
+            title: title,
+            subtitle: subtitle,
+            url: url
         }];
     } catch (err) {
+        if (data !== undefined)
+            LaunchBar.log(JSON.stringify(data));
         Lib.Notify.error(err);
     }
 }
