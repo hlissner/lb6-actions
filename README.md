@@ -64,7 +64,6 @@ World domination isn't easy. Let me know if you take a stab at any of these.
 
 * Search AniDB (with suggestions)
 * Send to Dropbox
-* Send to Imgur
 * Transmission-remote: list/remove/add torrents
 * Linode: overview of your Linodes.
 * GDrive browser/search
