@@ -42,6 +42,7 @@ available in their respective folders.
   a delimiter alternative to colon -- e.g. `python os.path` instead of `python:os.path`)
 * Send to Cubeupload
 * Send to Gfycat
+* Send to Imgur (credit to [aristdesfl][aristdesfl])
 * Set Status (Set your availability in Skype and/or Adium)
 * Shorten URL ([Bit.ly](http://bit.ly))
 * Shorten URL ([YourLS](http://yourls.org))
@@ -89,3 +90,6 @@ Other fantastic actions I use
     * [Youtube Predictions](https://github.com/Nosrac/LBYoutubePredictions)
     * [Define](https://github.com/Nosrac/LBDefine)
 * [Unicode Symbols](https://github.com/nbjahan/launchbar-unisym) By [nbjahan](https://github.com/nbjahan)
+* [aristdesfl][aristdesfl]'s [Launchbar scripts](https://github.com/aristidesfl/launchbar-scripts)
+
+[aristdesfl]: https://github.com/aristidesfl "Aristdesf's github page"
