@@ -2,7 +2,7 @@ include("shared/request.js");
 include("shared/notify.js");
 include("shared/cache.js");
 
-var API_URL = "https://domainr.com/api/json/search";
+var API_URL = "https://api.domainr.com/v1/search";
 
 function runWithString(string) {
     try {
