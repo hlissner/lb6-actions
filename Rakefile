@@ -1,6 +1,6 @@
 # TODO: Implement support for php/python dependencies
 
-@dest = "actions/{*.lbaction,*.lbext/Contents/Resources/Actions/*.lbaction}/Contents/Scripts"
+@dest = "{actions/*.lbaction,extensions/*.lbext/Contents/Resources/Actions/*.lbaction}/Contents/Scripts"
 
 verbose(false)
 
@@ -31,7 +31,6 @@ desc "Deletes all the shared js libraries in the actions"
 task :clean do
     Dir.glob("#{@dest}/shared") do |dir|
         puts "==> Deleting #{dir.split("/")[1]}'s shared scripts"
-        
         rm_rf dir unless ENV['DEBUG']
     end
     puts ""

@@ -44,7 +44,7 @@ Lib.genUID = function(len) {
 };
 
 Lib.copy = function(string) {
-    LaunchBar.executeAppleScript("set the clipboard to \"" + string.replace(/"/g, '\"') + "\"");
+    LaunchBar.executeAppleScript('set the clipboard to "' + string.replace(/"/g, '\"') + "\"");
 };
 
 String.prototype.flatten = function() {
