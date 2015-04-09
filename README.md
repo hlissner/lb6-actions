@@ -16,16 +16,12 @@ To install any of these, [Download the Zip](https://github.com/hlissner/lb6-acti
 List of Actions
 ---------------
 
-Here's what you'll find in actions/* -- screenshots and details are
-available in their respective folders.
+Screenshots and details are available in their respective folders.
 
 * Can I Use (browser compatibility search engine)
 * Chrome/Chromium Tabs (like Safari Tabs, but for Chrome/Chromium)
 * Convert Currency
-* Decode Text
 * Domai.nr
-* Encode File as Data URI
-* Encode Text
 * Enter Path in Dialog (Sets the foremost open/save dialog window to the folder selected in LaunchBar)
 * Forecast (Get a 7-day forecast for any location, or a default location)
 * Get Image in Clipboard
@@ -53,6 +49,17 @@ available in their respective folders.
 * TimeBar
 * Toggle Skype Mic (Toggles your mic in a skype call)
 
+List of Extensions
+------------------
+
+* Encode-Decode (actions for encoding/decoding text and files)
+    * Encode HTML Entities
+    * Decode HTML Entities
+    * Encode File as Data URI
+
+Other Actions
+-------------
+
 Also see my other lb6 actions (in other repos, for some reason):
 
 * [lb6-rdio](https://github.com/hlissner/lb6-rdio): Control rdio.app or search their music library
@@ -60,7 +67,8 @@ Also see my other lb6 actions (in other repos, for some reason):
 Planned actions
 ---------------
 
-World domination isn't easy. Let me know if you take a stab at any of these.
+World domination isn't easy. I'll do them whenever I get around to them. Let me know if
+you take a stab at any of these.
 
 * Search AniDB (with suggestions)
 * Send to Dropbox
