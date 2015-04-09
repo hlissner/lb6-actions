@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleName</key>
+	<string>Encode-Decode for LaunchBar</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.0</string>
+	<key>LBDescription</key>
+	<dict>
+        <key>LBAuthor</key>
+        <string>Henrik Lissner</string>
+
+        <key>LBWebsite</key>
+        <string>http://henrik.io</string>
+
+        <key>LBEmail</key>
+        <string>henrik@lissner.net</string>
+
+        <key>LBTwitter</key>
+        <string>@HenrikLissner</string>
+	</dict>
+</dict>
+</plist>

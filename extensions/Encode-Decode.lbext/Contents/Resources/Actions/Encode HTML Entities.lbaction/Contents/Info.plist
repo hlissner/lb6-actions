@@ -4,10 +4,10 @@
 <dict>
 
     <key>CFBundleIdentifier</key>
-    <string>io.henrik.launchbar.DecodeText</string>
+    <string>io.henrik.launchbar.EncodeHTML</string>
 
     <key>CFBundleName</key>
-    <string>Decode Text</string>
+    <string>Encode HTML Entities</string>
 
     <!-- <key>CFBundleShortVersionString</key> -->
     <!-- <value>1.0</value> -->
@@ -16,7 +16,7 @@
     <string>1.1</string>
 
     <key>CFBundleIconFile</key>
-    <string>icon</string>
+    <string>html</string>
 
     <key>LBDebugLogEnabled</key>
     <false />
@@ -24,17 +24,17 @@
     <!-- LB stuff -->
     <!-- <key>LSMinimumSystemVersion</key> -->
     <!-- <string>10.9.1</string> -->
-    
+
     <!-- Per-action keys -->
-    <!-- <key>LBTextInputTitle</key> -->
-    <!-- <string>Rate</string> -->
+    <key>LBTextInputTitle</key>
+    <string>Encode</string>
 
     <key>LBScripts</key>
     <dict>
         <key>LBDefaultScript</key>
         <dict>
             <key>LBScriptName</key>
-            <string>default.js</string>
+            <string>default.php</string>
 
             <key>LBRunInBackground</key>
             <false />
@@ -49,9 +49,15 @@
 
             <key>LBReturnsResult</key>
             <true />
+        </dict>
 
-            <key>LBReturnType</key>
-            <string>string</string>
+        <key>LBSuggestionsScript</key>
+        <dict>
+            <key>LBScriptName</key>
+            <string>default.php</string>
+
+            <key>LBBackgroundKillEnabled</key>
+            <true />
         </dict>
     </dict>
 
@@ -71,21 +77,21 @@
 
         <!-- A short summary about what the action does and how it’s used. -->
         <key>LBSummary</key>
-        <string>HTML, Base64, URL and UTF-8 decodes the string</string>
+        <string>HTML, Base64, URL and UTF-8 encodes the string</string>
 
         <!-- Describe the arguments that should be passed to the action. For example, if
              your action’s default script specifies that it accepts paths via
              LBAcceptedArgumentTypes, but then the script itself checks that the user
              passed in a PDF file, this would be the right place to document that. -->
         <key>LBArgument</key>
-        <string>The string to be decoded</string>
+        <string>The string to be encoded</string>
 
         <!-- Describe the action’s result. For example, an action fetching news via RSS
              that then shows a list of items representing the single stories in the RSS
              feed could document here that the resulting items represent the news
              articles. -->
         <key>LBResult</key>
-        <string>The decoded strings</string>
+        <string>The encoded strings</string>
 
         <!-- Describe any further requirements for your action to work, e.g. if it
              requires an active internet connection, iTunes to be playing a song, or
@@ -96,4 +102,3 @@
 
 </dict>
 </plist>
-
