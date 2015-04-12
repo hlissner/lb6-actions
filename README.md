@@ -80,8 +80,8 @@ you take a stab at any of these.
 * Smarter image tools: resizing, scaling, converting, etc.
 * Gist: create/search/paste
 
-Other fantastic actions I use
------------------------------
+Other actions I use
+-------------------
 
 * By [heikowitte](https://github.com/heikowitte)
     * [Get Local IP](https://github.com/heikowitte/LaunchBarActions/tree/master/get-local-ip.lbaction) / [Get Public IP](https://github.com/heikowitte/LaunchBarActions/tree/master/get-public-ip.lbaction)
@@ -96,7 +96,12 @@ Other fantastic actions I use
 * By [Nosrac](https://github.com/Nosrac)
     * [Youtube Predictions](https://github.com/Nosrac/LBYoutubePredictions)
     * [Define](https://github.com/Nosrac/LBDefine)
-* [Unicode Symbols](https://github.com/nbjahan/launchbar-unisym) By [nbjahan](https://github.com/nbjahan)
+* [Unicode Symbols](https://github.com/nbjahan/launchbar-unisym) by [nbjahan]
 * [aristdesfl][aristdesfl]'s [Launchbar scripts](https://github.com/aristidesfl/launchbar-scripts)
+* [UnixDate action](https://github.com/atika/LaunchBar-Actions#dateconvert) by [Atika]
+* [Github action](https://github.com/Duhemm/launchbar-github) by [Duhemm]
 
 [aristdesfl]: https://github.com/aristidesfl "Aristdesf's github page"
+[atika]: https://github.com/atika "Atika's github page"
+[nbjahan]: https://github.com/nbjahan "nbjahan's github page"
+[Duhemm]: https://github.com/Duhemm "Duhemm's github page"
