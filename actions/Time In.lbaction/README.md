@@ -1,9 +1,9 @@
 # Time in...
 
 A quick wibbly wobbly, timey whimey way to look up what time it is anywhere in the
-world. Feed it an address, a country, a city--whatever.
+world. Feed it an address, postal code, country and/or city name--whatever.
 
-Keeps a history of locations you've looked up and suggests them as you type.
+It keeps a history of locations you've looked up and suggests them as you type.
 
 ![](img/01.png)
 ![](img/02.png)

@@ -21,9 +21,15 @@ function run() {
 
     return Action.preferences.locations.map(function(location) {
         var item = runWithString(location);
-        item.subtitle = location + " | " + item.subtitle;
-
-        return item;
+        if (item) {
+            return {
+                title: item[0].title,
+                subtitle: location + " | " + item[1].title + " | " + item[2].title + " | " + item[3].title,
+                icon: item[0].icon,
+                action: "runwithstring",
+                actionargument: location
+            };
+        }
     });
 }
 
@@ -49,11 +55,29 @@ function runWithString(address) {
         var time = new Date(ts2);
         var offset = (tzdata.rawOffset+tzdata.dstOffset)/3600;
         var hr = time.getHours();
-        return {
-            title: Action.preferences.format_24hours ? Time.format24(time) : Time.format(time),
-            subtitle: tzdata.timezone + " (GMT " + (offset >= 0 ? "+"+offset : offset) + ") | " + diffline,
-            icon: (hr < 6 || hr > 21 ? "N" : "D") + "clockTemplate"
-        };
+        var dateString = time.toDateString();
+        return [
+            {
+                title: Action.preferences.format_24hours ? Time.format24(time) : Time.format(time),
+                subtitle: "Time",
+                icon: (hr < 6 || hr > 21 ? "N" : "D") + "clockTemplate"
+            },
+            {
+                title: dateString.substr(0, dateString.length - 5),
+                subtitle: "Date",
+                icon: "CopyActionTemplate.pdf"
+            },
+            {
+                title: "UTC " + (offset >= 0 ? "+"+offset : offset) + " ("+tzdata.timezone+")",
+                subtitle: "Timezone",
+                icon: "CopyActionTemplate.pdf"
+            },
+            {
+                title: diffline,
+                subtitle: "Difference",
+                icon: "CopyActionTemplate.pdf"
+            }
+        ];
     } catch (err) {
         Lib.Notify.error(err instanceof Object ? err.message : err);
     }
