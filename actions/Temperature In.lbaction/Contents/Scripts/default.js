@@ -22,15 +22,20 @@ function run() {
     }
 
     return Action.preferences.locations.map(function(location) {
-        var item = runWithString(location)[0];
+        var item = runWithString(location);
         if (item) {
-            item.subtitle = location + " | " + item.subtitle;
-            return item;
+            return {
+                title: item[0].title,
+                subtitle: location + " | " + item[1].title + " @ " + item[2].title,
+                icon: "iconTemplate",
+                action: "runWithString",
+                actionArgument: location
+            };
         }
     });
 }
 
-function runWithString(address) {
+function runWithString(address, compact) {
     init();
     LaunchBar.debugLog("Searching for "+address);
 
@@ -38,20 +43,31 @@ function runWithString(address) {
         var results = Lib.Cache.get(address, true);
         if (!results || LaunchBar.options.shiftKey) {
             var resp = API.request(address);
-
             var temp = Action.preferences.use_metric ? "C" : "F";
 
-            results = {
-                title: resp.main.temp + "°" + temp,
-                subtitle: resp.main.temp_min + "°"+temp+" - " + resp.main.temp_max + "°"+temp+" | Humidity: " + resp.main.humidity + "%",
-                icon: "iconTemplate"
-            };
+            results = [
+                {
+                    title: resp.main.temp + "°" + temp,
+                    subtitle: "Temperature",
+                    icon: "iconTemplate"
+                },
+                {
+                    title: resp.main.temp_min + "°"+temp+" - " + resp.main.temp_max + "°"+temp,
+                    subtitle: "Range",
+                    icon: "CopyActionTemplate.pdf"
+                },
+                {
+                    title: resp.main.humidity + "%",
+                    subtitle: "Humidity",
+                    icon: "CopyActionTemplate.pdf"
+                }
+            ];
 
             Lib.History.add(address);
             Lib.Cache.set(address, results, 600);
         }
 
-        return [results];
+        return results;
     } catch (err) {
         Lib.Notify.error(err);
     }
