@@ -1,3 +1,5 @@
+/*global Lib,API*/
+
 include("shared/request.js");
 include("shared/cache.js");
 include("shared/lib.js");
@@ -8,7 +10,7 @@ var CACHE_ID = "links";
 function runWithString(string) {
     var data = Lib.Cache.get(CACHE_ID, true);
     if (!data || LaunchBar.options.controlKey) {
-        data = parse(Request.get(SITE_URL));
+        data = parse(Lib.Request.get(SITE_URL));
 
         Lib.Cache.set(CACHE_ID, data, 86400*7);
     }
