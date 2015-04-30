@@ -66,11 +66,13 @@ function runWithString(address, compact) {
             Lib.History.add(address);
             Lib.Cache.set(address, results, 600);
         }
-
-        return results;
     } catch (err) {
+        Lib.Cache.clear(address);
         Lib.Notify.error(err);
+        results = false;
     }
+
+    return results;
 }
 
 

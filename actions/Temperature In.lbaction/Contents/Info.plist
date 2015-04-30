@@ -13,7 +13,7 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.1.0</string>
+    <string>1.1.1</string>
 
     <key>CFBundleIconFile</key>
     <string>iconTemplate</string>
@@ -24,7 +24,7 @@
     <!-- LB stuff -->
     <!-- <key>LSMinimumSystemVersion</key> -->
     <!-- <string>10.9.1</string> -->
-    
+
     <!-- Per-action keys -->
     <!-- <key>LBTextInputTitle</key> -->
     <!-- <string>Rate</string> -->
