@@ -1,8 +1,6 @@
 #!/usr/bin/env php
 <?php
 
-error_reporting(0);
-
 // Handles HTML characters and entities
 $html = @htmlspecialchars($argv[1], ENT_NOQUOTES | ENT_HTML5);
 // Handles unicode/foreign characters
