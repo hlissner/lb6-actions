@@ -1,6 +1,8 @@
 # TODO: Implement support for php/python dependencies
 
-@dest = "{actions/*.lbaction,extensions/*.lbext/Contents/Resources/Actions/*.lbaction}/Contents/Scripts"
+# @dest = "{*.lbaction,*.lbext/Contents/Resources/Actions/*.lbaction}"
+@scripts = "/Contents/Scripts"
+@dest = "{*.lbaction,*.lbext/Contents/Resources/Actions/*.lbaction}#{@scripts}"
 
 verbose(false)
 
@@ -9,21 +11,26 @@ task :default => :update
 desc "Copies shared js libraries to the actions that need them."
 task :update => :clean do
     Dir.glob(@dest).each do |dir|
-        puts "==> Checking #{dir.scan(/\/([^\/]+\.lbaction)\//).last.first}"
+      dirname = dir.split(".lbaction").first
+      next if ["shared", "extensions"].include? dirname
 
-        libs = []
-        grep("shared/.*\\.js", "'#{dir}'/*.js").each do |libfile|
-            libs.concat(grep("shared/.*\\.js", libfile)).push(libfile)
-        end
+      scripts = "#{dirname}.lbaction#{@scripts}"
 
-        libs.delete("")
-        libs.uniq!
-        if libs.any? and not ENV['DEBUG']
-            mkdir_p "#{dir}/shared"
-            libs.each { |lib| cp_r(lib, "#{dir}/#{lib}") }
-        end
+      puts "==> Checking #{dirname}.lbaction"
 
-        puts libs.map {|l| "  * #{l}"}
+      libs = []
+      grep("shared/.*\\.js", "'#{scripts}'/*.js").each do |libfile|
+        libs.concat(grep("shared/.*\\.js", libfile)).push(libfile)
+      end
+
+      libs.uniq!
+      libs.delete("")
+      if libs.any? and not ENV['DEBUG']
+        mkdir_p "#{scripts}/shared"
+        libs.each { |lib| cp_r(lib, "#{dir}/#{lib}") }
+      end
+
+      puts libs.map {|l| "  * #{l}"}
     end
 end
 
