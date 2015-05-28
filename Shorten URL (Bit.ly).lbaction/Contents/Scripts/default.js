@@ -7,15 +7,17 @@ var API_URL = "https://api-ssl.bitly.com";
 
 function runWithString(url) {
     var api_key = getApiKey();
-    if (!api_key) return;
+    if (!api_key) return [];
 
     try {
+        LaunchBar.log(Lib.URL.fqn(url));
+
         var data = Lib.Request.getJSON(API_URL + "/v3/shorten", {
             access_token: api_key,
-            longUrl: Lib.URL.fqn(url)
+            longUrl: encodeURIComponent(Lib.URL.fqn(url))
         });
 
-        var title, subtitle, url;
+        var title, subtitle;
 
         switch (data.status_txt) {
             case "ALREADY_A_BITLY_LINK":
@@ -48,6 +50,8 @@ function runWithString(url) {
             LaunchBar.log(JSON.stringify(data));
         Lib.Notify.error(err);
     }
+
+    return [];
 }
 
 // ----------------------
