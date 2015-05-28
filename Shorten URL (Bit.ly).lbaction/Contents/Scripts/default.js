@@ -10,8 +10,6 @@ function runWithString(url) {
     if (!api_key) return [];
 
     try {
-        LaunchBar.log(Lib.URL.fqn(url));
-
         var data = Lib.Request.getJSON(API_URL + "/v3/shorten", {
             access_token: api_key,
             longUrl: encodeURIComponent(Lib.URL.fqn(url))
