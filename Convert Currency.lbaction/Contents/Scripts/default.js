@@ -40,6 +40,16 @@ function runWithString(string) {
             }
         ];
     } catch (err) {
-        Lib.Notify.error(err);
+        Lib.Cache.clear(from + "-" + to);
+        Lib.Cache.clear(to + "-" + from);
+        // Lib.Notify.error(err + "\n\nReport issues to https://github.com/hlissner/lb6-actions");
+        switch (LaunchBar.alert("Launchbar Error", err, "Ok", "Report", "Preferences")) {
+            case 1:
+                LaunchBar.openURL("https://github.com/hlissner/lb6-actions/issues");
+                break;
+            case 2:
+                LaunchBar.openURL("file:///"+encodeURIComponent(Action.supportPath));
+                break;
+        }
     }
 }

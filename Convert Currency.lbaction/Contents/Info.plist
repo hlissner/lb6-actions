@@ -13,7 +13,7 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>2.1.1</string>
+    <string>2.2.0</string>
 
     <key>CFBundleIconFile</key>
     <string>money_silver</string>
@@ -27,7 +27,7 @@
 
     <!-- <key>LBMinimumLaunchBarVersion</key> -->
     <!-- <string>6011</string> -->
-    
+
     <!-- Per-action keys -->
     <key>LBTextInputTitle</key>
     <string>Convert</string>
@@ -73,11 +73,11 @@
         <string>henrik@lissner.net</string>
 
         <key>LBTwitter</key>
-        <string>@HenrikLissner</string>
+        <string>@vnought</string>
 
         <!-- A short summary about what the action does and how it’s used. -->
         <key>LBSummary</key>
-        <string>Converts currency using google finance</string>
+        <string>Converts currency using currencylayer.com</string>
 
         <!-- Describe the arguments that should be passed to the action. For example, if
              your action’s default script specifies that it accepts paths via
