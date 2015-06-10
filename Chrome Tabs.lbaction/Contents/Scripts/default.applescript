@@ -68,6 +68,7 @@ on switch_tab(argv)
 	using terms from application "Google Chrome"
 		tell application browserName
 			set (active tab index of (window win_id)) to tab_id
+			set index of window win_id to 1
 			activate
 		end tell
 	end using terms from
