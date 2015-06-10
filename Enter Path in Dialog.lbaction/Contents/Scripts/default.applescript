@@ -9,14 +9,18 @@ end run
 -- https://github.com/achabotl/Applescripts/blob/master/Launchbar/Enter%20Path.applescript
 on open theFile
 	set filePath to POSIX path of theFile
+	tell application "LaunchBar"
+		hide
+	end tell
 	try
 		tell application "System Events"
 			set theApplication to application processes whose frontmost is true
 			set target to item 1 of theApplication
 			set target to a reference to front window of target
 			set target to a reference to front sheet of target
-			delay 1
+			delay 0.25
 			tell target to keystroke "g" using {command down, shift down} -- Activate goto field
+			delay 0.5
 			if ((count target's sheets) > 0) then set target to front sheet of target -- Open panels use a sheet
 			tell target
 				try
