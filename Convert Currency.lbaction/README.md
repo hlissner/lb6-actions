@@ -9,6 +9,6 @@ It autocompletes your currencies too!
 ![](img/02.gif)
 
 Notes:
-* Rates are cached for 30 minutes, hold down <kbd>⌃</kbd> to clear your cache and history (might
+* Rates are cached for 30 minutes, hold down <kbd>⌃</kbd> (Control) to clear your cache and history (might
   be a little slow on first run).
-* To access your preferences, hold down <kbd>⌘</kbd>.
+* To access your preferences, hold down <kbd>⌘</kbd> (Command).
