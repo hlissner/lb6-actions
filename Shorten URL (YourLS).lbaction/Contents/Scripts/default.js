@@ -3,14 +3,16 @@ include("shared/request.js");
 include("shared/url.js");
 
 function runWithString(url) {
+    // Generate default preferences
     if (Action.preferences.api === undefined) {
         Action.preferences.api = {
             "url": "",
             "signature": ""
         };
     }
-    if (LaunchBar.options.controlKey)
-        return {path: Action.supportPath + "/Preferences.plist"};
+    if (LaunchBar.options.commandKey) {
+        return Lib.Notify.force_prompt();
+    }
 
     try {
         var shorturl = generateShortUrl(url);
@@ -32,9 +34,12 @@ function runWithString(url) {
 
 function generateShortUrl(url) {
     if (Action.preferences.api.url === "" || Action.preferences.api.signature === "")
-        throw "API settings aren't set. Hold control while running this action to select preferences file.";
+        throw "Your API Details are not filled in. Click Preferences " +
+            "and enter your security token and URL to yourls-api.php. " +
+            "You can find that information at http://YOUR-SHORT-URL/admin/tools" +
+            "\n\nSee README.md for details.";
 
-    var URL = Action.preferences.api.url + "?signature=" + 
+    var URL = Action.preferences.api.url + "?signature=" +
               Action.preferences.api.signature + "&format=simple&action=shorturl&url=" +
               encodeURIComponent(url);
 
