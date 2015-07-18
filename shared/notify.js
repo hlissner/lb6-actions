@@ -24,7 +24,7 @@ Lib.Notify = {
                 LaunchBar.openURL("https://github.com/hlissner/lb6-actions/issues");
                 break;
             case 2:
-                LaunchBar.openCommandURL("select?file="+encodeURIComponent(Action.supportPath)+"/Preferences.plist");
+                LaunchBar.openURL("file:///"+encodeURIComponent(Action.supportPath));
                 break;
         }
     },
