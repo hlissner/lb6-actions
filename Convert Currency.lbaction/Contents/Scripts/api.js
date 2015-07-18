@@ -48,7 +48,7 @@ var API = {
             Action.preferences.api_key === "---API KEY HERE---") {
                 Action.preferences.api_key = "---API KEY HERE---";
                 throw "You have not supplied a valid API Access Key. Please go into"
-                    + " your preferences and add an api_key field.\n\nAn api key can "
+                    + " your preferences and set your api_key.\n\nAn api key can "
                     + "be acquired from https://currencylayer.com/ (it's free).";
         }
 
