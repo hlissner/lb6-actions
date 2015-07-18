@@ -3,12 +3,15 @@ include("shared/history.js");
 include("api.js");
 
 function runWithString(string) {
-    string = string.trim();
+    if (LaunchBar.options.commandKey) {
+        return Lib.Notify.force_prompt();
+    }
 
+    string = string.trim();
     try {
         var match = string.match(/([\d\.]+)\s*([\w]{3})\s*(to|in|:)\s*([\w]{3})/);
         if (match === null || match.length != 5)
-            throw "Your input wasn't formatted correctly!\nProper example: 100 USD to JPY";
+            throw "Your input wasn't formatted correctly!\n\nProper example: 100 USD to JPY";
 
         var amt = parseFloat(match[1]).toFixed(2);
         var from = match[2].toUpperCase();
@@ -42,14 +45,6 @@ function runWithString(string) {
     } catch (err) {
         Lib.Cache.clear(from + "-" + to);
         Lib.Cache.clear(to + "-" + from);
-        // Lib.Notify.error(err + "\n\nReport issues to https://github.com/hlissner/lb6-actions");
-        switch (LaunchBar.alert("Launchbar Error", err, "Ok", "Report", "Preferences")) {
-            case 1:
-                LaunchBar.openURL("https://github.com/hlissner/lb6-actions/issues");
-                break;
-            case 2:
-                LaunchBar.openURL("file:///"+encodeURIComponent(Action.supportPath));
-                break;
-        }
+        Lib.Notify.error(err);
     }
 }

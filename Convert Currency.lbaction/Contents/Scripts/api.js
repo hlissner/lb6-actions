@@ -40,7 +40,7 @@ var API = {
      */
     get_rate: function(from, to) {
         if (from.length != 3 || to.length != 3) {
-            throw "Currencies are not properly formatted. Here is an example: 24 "
+            throw "The currencies are not properly formatted. Here is an example: 24 "
             + "USD to EUR";
         }
         if (Action.preferences.api_key === undefined ||
@@ -51,12 +51,6 @@ var API = {
                     + " your preferences and add an api_key field.\n\nAn api key can "
                     + "be acquired from https://currencylayer.com/ (it's free).";
         }
-        // if (Action.preferences.api_key === null || Action.preferences.api_key === "") {
-        //     Action.preferences.api_key = "";
-        //     throw "You have not supplied a valid API Access Key. Please go into"
-        //         + " your preferences and add an api_key field.\n\nAn api key can "
-        //         + "be acquired from https://currencylayer.com/ (it's free).";
-        // }
 
         // Normalize case, just in case
         from = from.toUpperCase();

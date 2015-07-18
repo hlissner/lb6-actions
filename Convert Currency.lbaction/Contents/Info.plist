@@ -13,7 +13,7 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>2.2.0</string>
+    <string>2.2.1</string>
 
     <key>CFBundleIconFile</key>
     <string>money_silver</string>
@@ -67,7 +67,7 @@
         <string>Henrik Lissner</string>
 
         <key>LBWebsite</key>
-        <string>http://henrik.io</string>
+        <string>http://vnought.io</string>
 
         <key>LBEmail</key>
         <string>henrik@lissner.net</string>
@@ -96,8 +96,8 @@
         <!-- Describe any further requirements for your action to work, e.g. if it
              requires an active internet connection, iTunes to be playing a song, or
              a certain version of an app to be installed. -->
-        <!-- <key>LBRequirements</key> -->
-        <!-- <string></string> -->
+        <key>LBRequirements</key>
+        <string>A currencylayer.com API key</string>
     </dict>
 
 </dict>
