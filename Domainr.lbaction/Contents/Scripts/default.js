@@ -36,7 +36,7 @@ function runWithString(string) {
 }
 
 function api_call(term) {
-    var resp = Lib.Request.getJSON(API_URL, {client_id: "lb6_action", q: encodeURIComponent(term)});
+    var resp = Lib.Request.getJSON(API_URL, {client_id: "{your-mashape-key}", q: encodeURIComponent(term)});
     if (resp.error !== undefined)
         throw "Domainr error ("+resp.error.status+"): "+resp.error.message;
 
