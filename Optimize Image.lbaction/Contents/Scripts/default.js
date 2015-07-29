@@ -1,9 +1,16 @@
-include("shared/lib.js");
-include("shared/path.js");
-include("shared/notify.js");
+include("shared/lib/lib.js");
+include("shared/lib/path.js");
+include("shared/lib/notify.js");
 
 function runWithPaths(paths) {
     try {
+        if (paths.length > 1) {
+            // Only show a this message if more than 1 file
+            LaunchBar.displayNotification({
+                title: "LaunchBar 6",
+                string: "Optimizing " + paths.length + " file(s)"
+            });
+        }
         return paths.map(function(path) {
             var first_size = filesize(path) / 1000;
             if (!File.exists(path)) {
@@ -15,11 +22,13 @@ function runWithPaths(paths) {
             var new_path = path;
             if (LaunchBar.options.alternateKey) {
                 new_path = Lib.Path.dirname(path) + '/min-' + Lib.Path.basename(path);
+                LaunchBar.debugLog("CMD=/bin/cp -p " + path + " " + new_path);
                 LaunchBar.execute('/bin/cp', '-p', path, new_path);
 
                 if (!File.exists(new_path))
                     throw "File couldn't be moved!";
             }
+            LaunchBar.debugLog("STAGE=1");
 
             var after_size = optimize(new_path) / 1000;
             var dsize = Math.abs(first_size - after_size) / first_size;
@@ -27,22 +36,34 @@ function runWithPaths(paths) {
             var item = {};
             item.title = Lib.Path.basename(new_path);
 
+            LaunchBar.debugLog("STAGE=2");
+
             // We can't link to the filepath because of a bug in LB6.1+ where an
             // item.path causes all other fields of item to be hidden.
-            //item.path = new_path;
-            //item.quickLookURL = 'file://' + new_path.encodeURIPath();
-            //item.actionArgument = new_path;
+            // item.path = new_path;
+            item.quickLookURL = 'file://' + new_path.encodeURIPath();
+            item.url = 'file://' + new_path.encodeURIPath();
 
             if (dsize > 0.01) {
-                item.subtitle = 'Reduced by ' + (dsize * 100).toFixed(1) + '%: ' +
-                    first_size.toFixed(1) + 'KB' +
-                    ' to ' +
-                    after_size.toFixed(1) + 'KB';
+                var diff = (dsize * 100).toFixed(1);
+                if (paths.length == 1) {
+                    item.subtitle = 'Reduced by ' + diff + '%: ' +
+                        first_size.toFixed(1) + 'KB' +
+                        ' to ' +
+                        after_size.toFixed(1) + 'KB';
+                }
+                item.badge = '-' + diff + '%';
+                item.label = first_size.toFixed(1) + 'kb' + ' > ' + after_size.toFixed(1) + 'kb';
                 item.icon = 'y';
             } else {
-                item.subtitle = 'Could not be reduced further!';
+                if (paths.length == 1) {
+                    item.subtitle = "Can't be reduced further";
+                }
+                item.badge = "0%";
                 item.icon = 'n';
             }
+
+            LaunchBar.debugLog("STAGE=3");
 
             LaunchBar.debugLog(item.subtitle);
             return item;
@@ -64,8 +85,8 @@ function optimize(path) {
 
     if (ext === "png") {
         if (File.exists("/Applications/ImageAlpha.app")) {
-            LaunchBar.execute('/Applications/ImageAlpha.app/Contents/Resources/pngquant', '--force', '--ext', '.png', path);
-            LaunchBar.debugLog("ImageAlpha used");
+            LaunchBar.execute('/Applications/ImageAlpha.app/Contents/MacOS/pngquant', '--force', '--ext', '.png', path);
+            LaunchBar.debugLog("CALL=ImageAlpha");
         } else {
             Lib.Notify.error("ImageAlpha couldn't be found!");
         }
@@ -75,7 +96,7 @@ function optimize(path) {
         // ImageOptim: https://imageoptim.com
         if (File.exists("/Applications/ImageOptim.app")) {
             LaunchBar.execute('/Applications/ImageOptim.app/Contents/MacOS/ImageOptim', path);
-            LaunchBar.debugLog("ImageOptim used");
+            LaunchBar.debugLog("CALL=ImageOptim");
         } else {
             Lib.Notify.error("ImageOptim couldn't be found!");
         }
@@ -96,6 +117,7 @@ function filesize(file) {
         throw "Internal script couldn't be found.";
 
     var out = LaunchBar.execute(script_path, file);
+    LaunchBar.debugLog("CMD=" + script_path);
     if (out === undefined || out.trim() === "")
         throw "Filesize couldn't be ascertained for: " + Lib.Path.basename(file);
 
