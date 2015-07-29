@@ -13,7 +13,7 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.6.0</string>
+    <string>1.7.0</string>
 
     <key>CFBundleIconFile</key>
     <string>icon</string>
@@ -24,7 +24,7 @@
     <!-- LB stuff -->
     <!-- <key>LSMinimumSystemVersion</key> -->
     <!-- <string>10.9.1</string> -->
-    
+
     <!-- Per-action keys -->
     <key>LBTextInputTitle</key>
     <string>Search for</string>
@@ -37,10 +37,21 @@
             <string>default.js</string>
 
             <key>LBLiveFeedbackEnabled</key>
+            <false />
+
+            <key>LBRequiresArgument</key>
             <true />
 
-            <key>LBBackgroundKillEnabled</key>
+            <key>LBAcceptedArgumentTypes</key>
+            <array>
+                <string>string</string>
+            </array>
+
+            <key>LBReturnsResult</key>
             <true />
+
+            <!-- <key>LBBackgroundKillEnabled</key> -->
+            <!-- <true /> -->
         </dict>
     </dict>
 

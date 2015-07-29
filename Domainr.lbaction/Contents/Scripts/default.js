@@ -1,17 +1,11 @@
-include("shared/request.js");
-include("shared/notify.js");
-include("shared/cache.js");
+include("shared/lib/request.js");
+include("shared/lib/notify.js");
+include("shared/lib/cache.js");
 
 var API_URL = "https://api.domainr.com/v1/search";
 
 function runWithString(string) {
     try {
-        if (LaunchBar.options.commandKey) {
-            LaunchBar.openURL(
-                "https://domainr.com/"+encodeURIComponent(string)
-            );
-        }
-
         string = string.trim();
         if (string.length === 0)
             return;
@@ -22,11 +16,10 @@ function runWithString(string) {
                 return {
                     title: item.domain,
                     url: item.register_url,
-                    icon: item.availability,
-                    actionArgument: item.domain
+                    icon: item.availability
                 };
             });
-            Lib.Cache.set(string, data, 20);
+            Lib.Cache.set(string, data, 1800);
         }
 
         return data;
