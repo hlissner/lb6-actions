@@ -34,8 +34,6 @@ To install any of these, [Download the Zip](https://github.com/hlissner/lb6-acti
 * **Rate Current Song**
 * **Screenshot**: Takes a screenshot, optimizes the result and selects it in LaunchBar
 * **Search CDNJS**: Search cdnjs.com for js/css libraries
-* **Search Dash.app**: slightly modified from official Dash.app plugin, using space as
-  a delimiter alternative to colon -- e.g. `python os.path` instead of `python:os.path`
 * **Send to Cubeupload**
 * **Send to Gfycat**
 * **Send to Imgur**: credit to [aristdesfl][aristdesfl]
