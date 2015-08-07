@@ -1,18 +1,18 @@
 /*global Lib,API*/
 
-include("shared/request.js");
-include("shared/cache.js");
-include("shared/lib.js");
+include("shared/lib/request.js");
+include("shared/lib/cache.js");
+include("shared/lib/lib.js");
 
 var SITE_URL = "http://learnxinyminutes.com";
 var CACHE_ID = "links";
 
 function runWithString(string) {
     var data = Lib.Cache.get(CACHE_ID, true);
-    if (!data || LaunchBar.options.controlKey) {
+    if (!data || data.length == 0) {
         data = parse(Lib.Request.get(SITE_URL));
-
-        Lib.Cache.set(CACHE_ID, data, 86400*7);
+        if (data.length > 1)
+            Lib.Cache.set(CACHE_ID, data, 86400);
     }
 
     return string.trim() === "" ? data : data.filter(function(item) {
@@ -21,12 +21,12 @@ function runWithString(string) {
 }
 
 function parse(text) {
-    var re = /<a\s+href\s*=\s*["']\/docs\/([^'"\/]+)\/['"][^>]*>\s*([^<]+)\s*<\/a>/gi;
+    var re = /<a href=["']\/docs\/([^\/]+)\/['"]>/gi;
     var match, params = [];
 
     while (match = re.exec(text)) {
         params.push({
-            title: match[2].trim_nl(),
+            title: match[1].trim_nl(),
             icon: "iconTemplate"
         });
     }
