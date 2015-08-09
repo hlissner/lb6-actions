@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>com.xqz.LaunchBar.Action.VPN</string>
+	<key>CFBundleName</key>
+	<string>VPN</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>lordlycastle</string>
+		<key>LBEmail</key>
+		<string>lordlycastle@hotmail.com</string>
+		<key>LBRequirements</key>
+		<string>Tunnelblick, or Viscosity</string>
+		<key>LBResult</key>
+		<string>Imported VPN configurations</string>
+		<key>LBSummary</key>
+		<string>Connect, or Disconnect to VPNs imported in Tunnelblick, or Viscosity. </string>
+		<key>LBTwitter</key>
+		<string></string>
+		<key>LBWebsite</key>
+		<string></string>
+	</dict>
+	<key>LBMinimumLaunchBarVersion</key>
+	<integer>6</integer>
+	<key>LBRequirements</key>
+	<string>Tunnelblick, or Viscosity</string>
+	<key>LBResult</key>
+	<string>Imported VPN configurations</string>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBKeepWindowActive</key>
+			<true/>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>default.scpt</string>
+		</dict>
+	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>XQZ</string>
+</dict>
+</plist>

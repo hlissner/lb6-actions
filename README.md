@@ -46,6 +46,7 @@ To install any of these, [Download the Zip](https://github.com/hlissner/lb6-acti
 * **Time in...**: Get the time anywhere in the world; feed it a city, country, an address--whatever
 * **TimeBar**
 * **Toggle Skype Mic**: Toggles your mic in a skype call
+* **VPN**: Control Viscosity, or Tunnelblick VPNs.
 
 Check out the action's folder for more detail and screenshots.
 
