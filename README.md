@@ -2,7 +2,10 @@
 
 Brewed myself or juryrigged from old applescripts.
 
-Suggestions and requests are welcome! Leave a star to encourage me to make more.
+> Have a suggestion or request? [Create a new
+> issue](https://github.com/hlissner/lb6-actions/issues/new) for it!
+
+Leave a star to encourage me to make more.
 
 Requirements
 * [LaunchBar 6](http://obdev.at/products/launchbar)
@@ -46,7 +49,7 @@ To install any of these, [Download the Zip](https://github.com/hlissner/lb6-acti
 * **Time in...**: Get the time anywhere in the world; feed it a city, country, an address--whatever
 * **TimeBar**
 * **Toggle Skype Mic**: Toggles your mic in a skype call
-* **VPN**: Control Viscosity, or Tunnelblick VPNs.
+* **VPN**: Control Viscosity, or Tunnelblick VPNs (credit to [lordlycastle][lordlycastle])
 
 Check out the action's folder for more detail and screenshots.
 
@@ -95,3 +98,4 @@ Let me know if you've taken a stab at one of these.
 [atika]: https://github.com/atika "Atika's github page"
 [nbjahan]: https://github.com/nbjahan "nbjahan's github page"
 [Duhemm]: https://github.com/Duhemm "Duhemm's github page"
+[lordlycastle]: https://github.com/lordlycastle "lordlycastle's github page"
