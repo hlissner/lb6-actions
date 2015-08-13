@@ -20,6 +20,7 @@ To install any of these, [Download the Zip](https://github.com/hlissner/lb6-acti
 * **Can I Use**: browser compatibility search engine
 * **Chrome/Chromium Tabs**: like Safari Tabs, but for Chrome/Chromium
 * **Convert Currency**
+* **Create Disk Image**: Create a disk image (DMG) for passed files/folders.
 * **Domai.nr**
 * **Encode-Decode** (extension): actions for encoding/decoding text and files
     * **Encode HTML Entities**
@@ -28,6 +29,8 @@ To install any of these, [Download the Zip](https://github.com/hlissner/lb6-acti
 * **Enter Path in Dialog**: Sets the foremost open/save dialog window to the folder selected in LaunchBar
 * **Forecast**: Get a 7-day forecast for any location, or a default location
 * **Get Image in Clipboard**
+* **Google Chrome Incognito**: Open a URL in Chrome's Incognito window/tab.
+Or just open a new window if no URL is passed.
 * **Hastebin**: For sharing text; complete with syntax highlighting
 * **Is Site Up**: Checks if a website is up using downforeveryoneorjustme.com
 * **Learn X in Y minutes**: look up summaries for different programming languages--great for
@@ -48,6 +51,7 @@ To install any of these, [Download the Zip](https://github.com/hlissner/lb6-acti
 * **Temperature In...**: Like "Time in...", but for temperatures
 * **Time in...**: Get the time anywhere in the world; feed it a city, country, an address--whatever
 * **TimeBar**
+* **Toggle Desktop Icons**
 * **Toggle Skype Mic**: Toggles your mic in a skype call
 * **VPN**: Control Viscosity, or Tunnelblick VPNs (credit to [lordlycastle][lordlycastle])
 

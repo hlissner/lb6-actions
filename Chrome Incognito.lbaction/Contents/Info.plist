@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconFile</key>
+	<string>com.google.Chrome</string>
+	<key>CFBundleIdentifier</key>
+	<string>co.certainplace.launchbar.Incognito</string>
+	<key>CFBundleName</key>
+	<string>Google Chrome Incognito</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.1</string>
+	<key>LBArgument</key>
+	<string>URL to open</string>
+	<key>LBDebugLogEnabled</key>
+	<true/>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBArgument</key>
+		<string>URL to open</string>
+		<key>LBAuthor</key>
+		<string>Chris Smith</string>
+		<key>LBRequirements</key>
+		<string>Requires Google Chrome</string>
+		<key>LBSummary</key>
+		<string>Open URLs in Google Chrome's Incognito mode.</string>
+		<key>LBTwitter</key>
+		<string>@logicfault</string>
+		<key>LBWebsite</key>
+		<string>https://github.com/chrisfsmith/launchbar</string>
+	</dict>
+	<key>LBRequiredApplication</key>
+	<string>com.google.Chrome</string>
+	<key>LBRequirements</key>
+	<string>Requires Google Chrome</string>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>string</string>
+			</array>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBScriptName</key>
+			<string>default.scpt</string>
+		</dict>
+	</dict>
+	<key>LBTextInputTitle</key>
+	<string>URL</string>
+</dict>
+</plist>
