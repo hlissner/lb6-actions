@@ -22,7 +22,7 @@ then double click the *.lbaction file. Viola!
 * **Can I Use**: browser compatibility search engine
 * **Chrome/Chromium Tabs**: like Safari Tabs, but for Chrome/Chromium
 * **Convert Currency**
-* **Create Disk Image**: Creates DMG of the passed files/folders (by
+* **Create Disk Image**: Create a disk image (DMG) for passed files/folders (by
   [lordlycastle])
 * **Domai.nr**
 * **Encode-Decode** (extension): actions for encoding/decoding text and files
@@ -33,7 +33,8 @@ then double click the *.lbaction file. Viola!
   folder selected in LaunchBar
 * **Forecast**: Get a 7-day forecast for any location, or a default location
 * **Get Image in Clipboard**
-* **Google Chrome Incognito**: Open an URL in GC Incognito window/tab (by
+* **Google Chrome Incognito**: Open a URL in Chrome's Incognito window/tab.
+Or just open a new window if no URL is passed (by
   [lordlycastle])
 * **Hastebin**: For sharing text; complete with syntax highlighting
 * **Is Site Up**: Checks if a website is up using downforeveryoneorjustme.com

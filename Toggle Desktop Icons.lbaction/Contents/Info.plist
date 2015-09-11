@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconFile</key>
+	<string>/System/Library/PreferencePanes/DesktopScreenEffectsPref.prefPane/Contents/Resources/DesktopScreenEffectsPref.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.xqz.LaunchBar.action.ToggleDesktopIcons</string>
+	<key>CFBundleName</key>
+	<string>Toggle Desktop Icons</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>LBAbbreviation</key>
+	<string>TGD</string>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>lordy</string>
+		<key>LBEmail</key>
+		<string>lordlycastle@hotmail.com</string>
+		<key>LBSummary</key>
+		<string>Shows or hides the icons on the Desktop, depending on the current state.</string>
+		<key>LBTwitter</key>
+		<string></string>
+		<key>LBWebsite</key>
+		<string></string>
+	</dict>
+	<key>LBMinimumLaunchBarVersion</key>
+	<integer>6</integer>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBRunInBackground</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>default.sh</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

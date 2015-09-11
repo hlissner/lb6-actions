@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>com.xqz.LaunchBar.Action.CreateDMG</string>
+	<key>CFBundleName</key>
+	<string>Create Disk Image</string>
+	<key>LBAbbreviation</key>
+	<string>CDI</string>
+	<key>LBDebugLogEnabled</key>
+	<true/>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string></string>
+		<key>LBEmail</key>
+		<string></string>
+		<key>LBTwitter</key>
+		<string></string>
+		<key>LBWebsite</key>
+		<string></string>
+	</dict>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>path</string>
+			</array>
+			<key>LBKeepWindowActive</key>
+			<true/>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>default.sh</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
