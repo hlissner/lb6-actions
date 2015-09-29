@@ -1,4 +1,4 @@
-include("shared/notify.js");
+include("shared/lib/notify.js");
 
 function run() {
     var d = new Date();
@@ -10,18 +10,23 @@ function run() {
     var dest_path  = LaunchBar.homeDirectory + '/Downloads/sc_' + ds + '.png';
     try {
         // If shift key is down, capture the screen
-        LaunchBar.execute('/usr/sbin/screencapture', '-i', tmp_path);
-        if (!File.exists(tmp_path)) throw "File doesn't exist!";
+        var out = LaunchBar.execute(Action.path + '/Contents/Scripts/ss.sh', tmp_path);
+        if (out === "1\n") {
+            if (!File.exists(tmp_path)) throw "File doesn't exist!";
 
-        LaunchBar.execute('/bin/cp', '-p', tmp_path, dest_path);
-        if (!File.exists(dest_path)) throw "File couldn't be moved!";
+            LaunchBar.execute('/bin/cp', '-p', tmp_path, dest_path);
+            if (!File.exists(dest_path)) throw "File couldn't be moved!";
 
-        if (optimize(dest_path) === 0)
-            LaunchBar.debugLog("File was not optimized. No optimizer found!");
+            if (optimize(dest_path) === 0)
+                LaunchBar.debugLog("File was not optimized. No optimizer found!");
 
-        // This action runs in the background, but this allows it to resurface when the
-        // image file is ready.
-        LaunchBar.openCommandURL('select?file=' + encodeURIComponent(dest_path));
+            // This action runs in the background, but this allows it to resurface when the
+            // image file is ready.
+            LaunchBar.openCommandURL('select?file=' + encodeURIComponent(dest_path));
+        } else if (out.length != 0) {
+            throw "There was an error running screencapture!";
+        }
+        // else: the screencapture was aborted
     } catch (err) {
         Lib.Notify.error(err);
     }
