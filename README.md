@@ -75,7 +75,6 @@ Other lb6 actions I've done and put in a separate repo for some reason or anothe
 
 ## Planned actions
 
-* LB6 Package Manager: search, install, manage & backup LB6 actions within LB6
 * Transmission-remote: list/remove/add torrents
 * Linode: overview of your Linodes.
 * GDrive browser/search
@@ -83,6 +82,7 @@ Other lb6 actions I've done and put in a separate repo for some reason or anothe
 * Inline Activity Monitor w/ kill process + system stats (temperature, load, etc.)
 * Smarter image tools: resizing, scaling, converting, etc.
 * Gist: create/search/paste
+* Trello: Search, add, send to...
 
 Let me know if you've taken a stab at one of these.
 
