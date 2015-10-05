@@ -69,6 +69,11 @@ Lib.Cache = {
      * @param {String} key string The id of the entry
      */
     clear: function(key) {
-        LaunchBar.execute("/bin/rm", this.PATH + "/" + key + ".json");
+        key = key.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+        LaunchBar.execute("/bin/rm", this.PATH + "/cache-" + key + ".json");
+    },
+
+    clearAll: function() {
+        LaunchBar.execute("/bin/rm", this.PATH + "/cache-*.json");
     }
 };

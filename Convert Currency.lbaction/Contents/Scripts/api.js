@@ -1,5 +1,5 @@
-include("shared/request.js");
-include("shared/cache.js");
+include("shared/lib/request.js");
+include("shared/lib/cache.js");
 
 var Data = {
     PATH: Action.path + "/Contents/Resources/currencies.json",
