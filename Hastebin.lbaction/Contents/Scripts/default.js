@@ -1,7 +1,7 @@
-include("shared/history.js");
-include("shared/notify.js");
-include("shared/path.js");
-include("shared/request.js");
+include("shared/lib/history.js");
+include("shared/lib/notify.js");
+include("shared/lib/path.js");
+include("shared/lib/request.js");
 
 var API_URL = "http://hastebin.com";
 
@@ -58,7 +58,7 @@ function runWithPaths(paths) {
 
 function post(string) {
     var resp = Lib.Request.postJSON(API_URL+"/documents", {"-d": string});
-    if (resp.key === undefined) 
+    if (resp.key === undefined)
         throw "Malformed response from hastebin";
 
     return resp.key;
