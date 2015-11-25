@@ -61,7 +61,7 @@
         <string>Henrik Lissner</string>
 
         <key>LBWebsite</key>
-        <string>http://vnought.io</string>
+        <string>http://v0.io/launchbar</string>
 
         <key>LBEmail</key>
         <string>henrik@lissner.net</string>
@@ -92,6 +92,12 @@
              a certain version of an app to be installed. -->
         <key>LBRequirements</key>
         <string>A website with YourLS set up on it</string>
+
+        <key>LBUpdate</key>
+        <string>https://github.com/hlissner/lb6-actions/blob/master/Shorten URL (YourLS).lbaction/Contents/Info.plist</string>
+
+        <key>LBDownload</key>
+        <string>https://v0.io/dl/launchbar/Shorten URL (YourLS).lbaction.zip</string>
     </dict>
 
 </dict>

@@ -33,7 +33,7 @@
         <key>LBUpdateURL</key>
         <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Chrome Incognito.lbaction/Contents/Info.plist</string>
         <key>LBDownloadURL</key>
-        <string>https://dl.v0.io/launchbar/Chrome Incognito.lbaction</string>
+        <string>https://v0.io/dl/launchbar/Chrome Incognito.lbaction.zip</string>
 	</dict>
 	<key>LBRequiredApplication</key>
 	<string>com.google.Chrome</string>

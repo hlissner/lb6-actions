@@ -16,14 +16,24 @@
 	<dict>
 		<key>LBAuthor</key>
 		<string>lordy</string>
+
 		<key>LBEmail</key>
 		<string>lordlycastle@hotmail.com</string>
+
 		<key>LBSummary</key>
 		<string>Shows or hides the icons on the Desktop, depending on the current state.</string>
+
 		<key>LBTwitter</key>
 		<string></string>
+
 		<key>LBWebsite</key>
-		<string></string>
+		<string>http://v0.io/launchbar</string>
+
+        <key>LBUpdate</key>
+        <string>https://github.com/hlissner/lb6-actions/blob/master/Toggle Desktop Icons.lbaction/Contents/Info.plist</string>
+
+        <key>LBDownload</key>
+        <string>https://v0.io/dl/launchbar/Toggle Desktop Icons.lbaction.zip</string>
 	</dict>
 	<key>LBMinimumLaunchBarVersion</key>
 	<integer>6</integer>

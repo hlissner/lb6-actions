@@ -80,7 +80,7 @@
         <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Chrome Tabs.lbaction/Contents/Info.plist</string>
 
         <key>LBDownloadURL</key>
-        <string>https://dl.v0.io/launchbar/Chrome Tabs.lbaction</string>
+        <string>https://v0.io/dl/launchbar/Chrome Tabs.lbaction.zip</string>
     </dict>
 
 </dict>

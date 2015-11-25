@@ -67,7 +67,7 @@
         <string>Henrik Lissner</string>
 
         <key>LBWebsite</key>
-        <string>http://vnought.io</string>
+        <string>http://v0.io/launchbar</string>
 
         <key>LBEmail</key>
         <string>henrik@lissner.net</string>
@@ -98,6 +98,12 @@
              a certain version of an app to be installed. -->
         <key>LBRequirements</key>
         <string>You must have ImageAlpha and/or ImageOptim installed.</string>
+
+        <key>LBUpdate</key>
+        <string>https://github.com/hlissner/lb6-actions/blob/master/Optimize Image.lbaction/Contents/Info.plist</string>
+
+        <key>LBDownload</key>
+        <string>https://v0.io/dl/launchbar/Optimize Image.lbaction.zip</string>
     </dict>
 
 </dict>

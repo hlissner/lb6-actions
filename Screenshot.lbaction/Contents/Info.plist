@@ -24,7 +24,7 @@
     <!-- LB stuff -->
     <!-- <key>LSMinimumSystemVersion</key> -->
     <!-- <string>10.9.1</string> -->
-    
+
     <!-- Per-action keys -->
     <!-- <key>LBRequiredApplication</key> -->
     <!-- <string>com.apple.iTunes</string> -->
@@ -94,7 +94,7 @@
         <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Screenshot.lbaction/Contents/Info.plist</string>
 
         <key>LBDownloadURL</key>
-        <string>https://dl.v0.io/launchbar/Screenshot.lbaction</string>
+        <string>https://v0.io/dl/launchbar/Screenshot.lbaction.zip</string>
     </dict>
 
 </dict>

@@ -24,7 +24,7 @@
     <!-- LB stuff -->
     <!-- <key>LSMinimumSystemVersion</key> -->
     <!-- <string>10.9.1</string> -->
-    
+
     <!-- Per-action keys -->
     <key>LBRequiredApplication</key>
     <string>com.apple.iTunes</string>
@@ -64,13 +64,13 @@
         <string>Henrik Lissner</string>
 
         <key>LBWebsite</key>
-        <string>http://henrik.io</string>
+        <string>http://v0.io/launchbar</string>
 
         <key>LBEmail</key>
         <string>henrik@lissner.net</string>
 
         <key>LBTwitter</key>
-        <string>@HenrikLissner</string>
+        <string>@vnought</string>
 
         <!-- A short summary about what the action does and how it’s used. -->
         <key>LBSummary</key>
@@ -95,6 +95,12 @@
              a certain version of an app to be installed. -->
         <key>LBRequirements</key>
         <string>iTunes must be running and playing a song.</string>
+
+        <key>LBUpdate</key>
+        <string>https://github.com/hlissner/lb6-actions/blob/master/Rate Current Song.lbaction/Contents/Info.plist</string>
+
+        <key>LBDownload</key>
+        <string>https://v0.io/dl/launchbar/Rate Current Song.lbaction.zip</string>
     </dict>
 
 </dict>
