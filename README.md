@@ -30,7 +30,6 @@ then double click the *.lbaction file. Viola!
     * **Encode File as Data URI**
 * **Enter Path in Dialog**: Sets the foremost open/save dialog window to the
   folder selected in LaunchBar
-* **Forecast**: Get a 7-day forecast for any location, or a default location
 * **Get Image in Clipboard**
 * **Google Chrome Incognito**: Open a URL in Chrome's Incognito window/tab.
 Or just open a new window if no URL is passed (by
