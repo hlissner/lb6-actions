@@ -24,7 +24,6 @@ then double click the *.lbaction file. Viola!
 * **Convert Currency**
 * **Create Disk Image**: Create a disk image (DMG) for passed files/folders (by
   [lordlycastle])
-* **Domai.nr**
 * **Encode-Decode** (extension): actions for encoding/decoding text and files
     * **Encode HTML Entities**
     * **Decode HTML Entities**
