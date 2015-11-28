@@ -1,4 +1,4 @@
-include("shared/history.js");
+include("shared/lib/history.js");
 include("api.js");
 
 function runWithString(string) {

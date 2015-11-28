@@ -22,6 +22,8 @@ file. Add your locations to the "locations" key.
 
 ## Requirements
 
-«Temperature In» works out of the box **without** an API key, but if you're
-getting API query limit errors, set the api_key field in Preferences.plist to
-your openweathermap.org API key.
+«Temperature In» works out of the box by using a shared API key. If you're
+getting API query limit errors you'll need to get a (free) API key from
+openweathermap.org.
+
+Set the api_key field in Preferences.plist to your API key.

@@ -68,13 +68,13 @@
         <string>Henrik Lissner</string>
 
         <key>LBWebsite</key>
-        <string>http://henrik.io</string>
+        <string>http://v0.io/launchbar</string>
 
         <key>LBEmail</key>
         <string>henrik@lissner.net</string>
 
         <key>LBTwitter</key>
-        <string>@HenrikLissner</string>
+        <string>@vnought</string>
 
         <!-- A short summary about what the action does and how it’s used. -->
         <key>LBSummary</key>
@@ -99,6 +99,12 @@
              a certain version of an app to be installed. -->
         <!-- <key>LBRequirements</key> -->
         <!-- <string></string> -->
+
+        <key>LBUpdate</key>
+        <string>https://github.com/hlissner/lb6-actions/blob/master/Search CDNJS.lbaction/Contents/Info.plist</string>
+
+        <key>LBDownload</key>
+        <string>https://v0.io/dl/launchbar/Search CDNJS.lbaction.zip</string>
     </dict>
 
 </dict>

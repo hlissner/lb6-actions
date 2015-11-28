@@ -5,7 +5,7 @@
  * propogate changes.
  */
 
-include("shared/cache.js");
+include("shared/lib/cache.js");
 
 var Lib = Lib || {};
 

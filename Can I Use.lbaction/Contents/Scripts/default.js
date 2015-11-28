@@ -1,5 +1,5 @@
-include("shared/lib.js");
-include("shared/cache.js");
+include("shared/lib/lib.js");
+include("shared/lib/cache.js");
 
 function runWithString(string) {
     return Data.get().filter(function(item) {
@@ -35,7 +35,7 @@ var Data = {
         }
 
         return list;
-    },
+    }
 };
 
 function format_title(data) {

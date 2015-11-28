@@ -12,20 +12,32 @@
 	<dict>
 		<key>LBAuthor</key>
 		<string>lordlycastle</string>
+
 		<key>LBEmail</key>
 		<string>lordlycastle@hotmail.com</string>
+
 		<key>LBRequirements</key>
 		<string>Shimo, Tunnelblick, or Viscosity</string>
+
 		<key>LBResult</key>
 		<string>Imported VPN configurations</string>
+
 		<key>LBSummary</key>
 		<string>Connect, or Disconnect to VPNs imported in Shimo, Tunnelblick, or Viscosity. </string>
+
 		<key>LBTwitter</key>
 		<string></string>
+
 		<key>LBWebsite</key>
-		<string></string>
-	</dict>
-	<key>LBMinimumLaunchBarVersion</key>
+		<string>http://v0.io/launchbar</string>
+
+        <key>LBUpdate</key>
+        <string>https://github.com/hlissner/lb6-actions/blob/master/VPN.lbaction/Contents/Info.plist</string>
+
+        <key>LBDownload</key>
+        <string>https://v0.io/dl/launchbar/VPN.lbaction.zip</string>
+    </dict>
+    <key>LBMinimumLaunchBarVersion</key>
 	<integer>6</integer>
 	<key>LBRequirements</key>
 	<string>Shimo, Tunnelblick, or Viscosity</string>

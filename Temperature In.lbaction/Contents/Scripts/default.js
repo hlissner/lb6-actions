@@ -1,8 +1,8 @@
 /*global Lib,API*/
 
-include("shared/history.js");
-include("shared/cache.js");
-include("shared/notify.js");
+include("shared/lib/history.js");
+include("shared/lib/cache.js");
+include("shared/lib/notify.js");
 
 include("api.js");
 
@@ -13,7 +13,7 @@ function run() {
         API.key();
         return [{title: "Preferences", path: path}];
     }
-
+    
     if (Action.preferences.locations.length === 0) {
         return [
             {title: "You have no locations set"},

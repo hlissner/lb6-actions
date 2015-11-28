@@ -13,7 +13,7 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.0</string>
+    <string>1.0.1</string>
 
     <key>CFBundleIconFile</key>
     <string>iconTemplate</string>
@@ -61,37 +61,34 @@
         <string>Henrik Lissner</string>
 
         <key>LBWebsite</key>
-        <string>http://henrik.io</string>
+        <string>http://v0.io/launchbar</string>
 
         <key>LBEmail</key>
         <string>henrik@lissner.net</string>
 
         <key>LBTwitter</key>
-        <string>@HenrikLissner</string>
+        <string>@vnought</string>
 
-        <!-- A short summary about what the action does and how it’s used. -->
         <key>LBSummary</key>
         <string>Searches CanIUse.com for feature compatibility of browsers</string>
 
-        <!-- Describe the arguments that should be passed to the action. For example, if
-             your action’s default script specifies that it accepts paths via
-             LBAcceptedArgumentTypes, but then the script itself checks that the user
-             passed in a PDF file, this would be the right place to document that. -->
         <key>LBArgument</key>
-        <string>The search string</string>
+        <string>What feature to search for</string>
 
-        <!-- Describe the action’s result. For example, an action fetching news via RSS
-             that then shows a list of items representing the single stories in the RSS
-             feed could document here that the resulting items represent the news
-             articles. -->
         <key>LBResult</key>
         <string>Opens the relevant feature page in your default browser</string>
 
-        <!-- Describe any further requirements for your action to work, e.g. if it
-             requires an active internet connection, iTunes to be playing a song, or
-             a certain version of an app to be installed. -->
-        <!-- <key>LBRequirements</key> -->
-        <!-- <string></string> -->
+        <key>LBRequirements</key>
+        <string>An internet connection</string>
+
+        <key>LBChangelog</key>
+        <string>Added auto-update support</string>
+
+        <key>LBUpdateURL</key>
+        <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Can I Use.lbaction/Contents/Info.plist</string>
+
+        <key>LBDownloadURL</key>
+        <string>https://v0.io/dl/launchbar/Can I Use.lbaction.zip</string>
     </dict>
 
 </dict>

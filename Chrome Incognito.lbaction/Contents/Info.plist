@@ -9,7 +9,7 @@
 	<key>CFBundleName</key>
 	<string>Google Chrome Incognito</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.1</string>
+	<string>1.0.2</string>
 	<key>LBArgument</key>
 	<string>URL to open</string>
 	<key>LBDebugLogEnabled</key>
@@ -27,7 +27,13 @@
 		<key>LBTwitter</key>
 		<string>@logicfault</string>
 		<key>LBWebsite</key>
-		<string>https://github.com/chrisfsmith/launchbar</string>
+		<string>http://v0.io/launchbar</string>
+        <key>LBChangelog</key>
+        <string>Add auto-update support</string>
+        <key>LBUpdateURL</key>
+        <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Chrome Incognito.lbaction/Contents/Info.plist</string>
+        <key>LBDownloadURL</key>
+        <string>https://v0.io/dl/launchbar/Chrome Incognito.lbaction.zip</string>
 	</dict>
 	<key>LBRequiredApplication</key>
 	<string>com.google.Chrome</string>

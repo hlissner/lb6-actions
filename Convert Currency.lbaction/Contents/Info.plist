@@ -13,7 +13,7 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>2.2.1</string>
+    <string>2.2.3</string>
 
     <key>CFBundleIconFile</key>
     <string>money_silver</string>
@@ -67,7 +67,7 @@
         <string>Henrik Lissner</string>
 
         <key>LBWebsite</key>
-        <string>http://vnought.io</string>
+        <string>http://v0.io/launchbar</string>
 
         <key>LBEmail</key>
         <string>henrik@lissner.net</string>
@@ -75,29 +75,26 @@
         <key>LBTwitter</key>
         <string>@vnought</string>
 
-        <!-- A short summary about what the action does and how it’s used. -->
         <key>LBSummary</key>
         <string>Converts currency using currencylayer.com</string>
 
-        <!-- Describe the arguments that should be passed to the action. For example, if
-             your action’s default script specifies that it accepts paths via
-             LBAcceptedArgumentTypes, but then the script itself checks that the user
-             passed in a PDF file, this would be the right place to document that. -->
         <key>LBArgument</key>
-        <string>A string in this format: 84.55 USD to JPY</string>
+        <string>A string in this format: 84.55 USD to JPY (commas are fine)</string>
 
-        <!-- Describe the action’s result. For example, an action fetching news via RSS
-             that then shows a list of items representing the single stories in the RSS
-             feed could document here that the resulting items represent the news
-             articles. -->
         <key>LBResult</key>
         <string>The converting currency and amount</string>
 
-        <!-- Describe any further requirements for your action to work, e.g. if it
-             requires an active internet connection, iTunes to be playing a song, or
-             a certain version of an app to be installed. -->
         <key>LBRequirements</key>
-        <string>A currencylayer.com API key</string>
+        <string>An API key from currencylayer.com (free)</string>
+
+        <key>LBChangelog</key>
+        <string>Now accepts commas in currency amounts</string>
+
+        <key>LBUpdateURL</key>
+        <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Convert Currency.lbaction/Contents/Info.plist</string>
+
+        <key>LBDownloadURL</key>
+        <string>http://dl.v0.io/launchbar/Convert Currency.lbaction</string>
     </dict>
 
 </dict>

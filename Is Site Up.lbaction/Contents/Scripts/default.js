@@ -1,8 +1,8 @@
-include("shared/lib.js");
-include("shared/url.js");
-include("shared/history.js");
-include("shared/request.js");
-include("shared/notify.js");
+include("shared/lib/lib.js");
+include("shared/lib/url.js");
+include("shared/lib/history.js");
+include("shared/lib/request.js");
+include("shared/lib/notify.js");
 
 var API_URL = 'http://www.isup.me/';
 

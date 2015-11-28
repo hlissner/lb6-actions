@@ -29,7 +29,12 @@
 		<key>LBTwitter</key>
 		<string></string>
 		<key>LBWebsite</key>
-		<string></string>
+		<string>http://v0.io/launchbar</string>
+        <key>LBUpdate</key>
+        <string>https://github.com/hlissner/lb6-actions/blob/master/Create Disk Image.lbaction/Contents/Info.plist</string>
+
+        <key>LBDownload</key>
+        <string>https://v0.io/dl/launchbar/Create Disk Image.lbaction.zip</string>
 	</dict>
 	<key>LBMinimumLaunchBarVersion</key>
 	<integer>6</integer>
