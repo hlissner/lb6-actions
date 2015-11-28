@@ -7,7 +7,7 @@
 	<key>CFBundleName</key>
 	<string>VPN</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>1.1</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
@@ -15,11 +15,11 @@
 		<key>LBEmail</key>
 		<string>lordlycastle@hotmail.com</string>
 		<key>LBRequirements</key>
-		<string>Tunnelblick, or Viscosity</string>
+		<string>Shimo, Tunnelblick, or Viscosity</string>
 		<key>LBResult</key>
 		<string>Imported VPN configurations</string>
 		<key>LBSummary</key>
-		<string>Connect, or Disconnect to VPNs imported in Tunnelblick, or Viscosity. </string>
+		<string>Connect, or Disconnect to VPNs imported in Shimo, Tunnelblick, or Viscosity. </string>
 		<key>LBTwitter</key>
 		<string></string>
 		<key>LBWebsite</key>
@@ -28,7 +28,7 @@
 	<key>LBMinimumLaunchBarVersion</key>
 	<integer>6</integer>
 	<key>LBRequirements</key>
-	<string>Tunnelblick, or Viscosity</string>
+	<string>Shimo, Tunnelblick, or Viscosity</string>
 	<key>LBResult</key>
 	<string>Imported VPN configurations</string>
 	<key>LBScripts</key>
