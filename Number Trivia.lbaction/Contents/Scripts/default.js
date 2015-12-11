@@ -1,5 +1,5 @@
-include('shared/notify.js');
-include('shared/request.js');
+include('shared/lib/notify.js');
+include('shared/lib/request.js');
 
 var API_URL = "http://numbersapi.com";
 

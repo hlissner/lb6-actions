@@ -13,7 +13,7 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.0</string>
+    <string>1.1</string>
 
     <key>CFBundleIconFile</key>
     <string>iconTemplate</string>
@@ -85,7 +85,7 @@
         <!-- <string></string> -->
 
         <key>LBUpdate</key>
-        <string>https://github.com/hlissner/lb6-actions/blob/master/Number Trivia.lbaction/Contents/Info.plist</string>
+        <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Number%20Trivia.lbaction/Contents/Info.plist</string>
 
         <key>LBDownload</key>
         <string>https://v0.io/dl/launchbar/Number Trivia.lbaction.zip</string>
