@@ -2,20 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleIconFile</key>
+	<string>com.apple.DiskUtility</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.xqz.LaunchBar.Action.CreateDMG</string>
 	<key>CFBundleName</key>
 	<string>Create Disk Image</string>
+	<key>CFBundleVersion</key>
+	<string>1.03</string>
 	<key>LBAbbreviation</key>
 	<string>CDI</string>
-	<key>LBDebugLogEnabled</key>
-	<true/>
+	<key>LBArgument</key>
+	<string>File(s)/Folder(s)</string>
 	<key>LBDescription</key>
 	<dict>
+		<key>LBArgument</key>
+		<string>File(s)/Folder(s)</string>
 		<key>LBAuthor</key>
-		<string></string>
+		<string>lordlycastle</string>
 		<key>LBEmail</key>
-		<string></string>
+		<string>lordlycastle@hotmail.com</string>
+		<key>LBResult</key>
+		<string>Disk Image</string>
+		<key>LBSummary</key>
+		<string>Create Disk Imges (.dmg) by sending files/folders to it.</string>
 		<key>LBTwitter</key>
 		<string></string>
 		<key>LBWebsite</key>
@@ -26,6 +36,10 @@
         <key>LBDownload</key>
         <string>https://v0.io/dl/launchbar/Create Disk Image.lbaction.zip</string>
 	</dict>
+	<key>LBMinimumLaunchBarVersion</key>
+	<integer>6</integer>
+	<key>LBResult</key>
+	<string>Disk Image</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>

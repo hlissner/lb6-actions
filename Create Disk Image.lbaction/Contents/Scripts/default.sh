@@ -78,7 +78,8 @@ then
     value=${BASH_REMATCH[1]}
     unit="${BASH_REMATCH[2]}"
     
-    if [[ $(echo $value'>'1 | bc -l) && "$unit" =~ ([GTP]) ]]
+    # Can create dmg with files larger than 1 GB if CTRL key is down.
+    if [[ $(echo $value'>'1 | bc -l) && "$unit" =~ ([GTP]) && "$LB_OPTION_CONTROL_KEY" -ne 1 ]]
     then
         echo "{\"title\": \"File size is $value $unit.\", \"subtitle\": \"Cannot be larger than 1 GB\"}"
         exit 0
@@ -107,6 +108,9 @@ then
     do
         mv -f "$i" "$HOME/Desktop/" && echo "{\"path\": \"$HOME/Desktop/$(basename "$i")\"}"
     done
+    
+    # Remove the temperary folder created.
+    rm -dfr "$dmgDir"
     exit 0
 elif [ $# -eq 1 ]
 then
