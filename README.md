@@ -90,7 +90,7 @@ auto-updating actions.
 * [prenagha](https://github.com/prenagha/launchbar)
 * [Nosrac](https://github.com/Nosrac)
 * [nbjahan](https://github.com/nbjahan)
-* [aristdesfl][https://github.com/aristidesfl/launchbar-scripts]
+* [aristdesfl](https://github.com/aristidesfl/launchbar-scripts)
 * [Atika](https://github.com/atika/launchbar)
 * [Github action](https://github.com/Duhemm/launchbar-github) by [Duhemm](https://github.com/Duhemm)
 
