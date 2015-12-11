@@ -29,10 +29,10 @@
 		<key>LBWebsite</key>
 		<string>http://v0.io/launchbar</string>
 
-        <key>LBUpdate</key>
-        <string>https://github.com/hlissner/lb6-actions/blob/master/Toggle Desktop Icons.lbaction/Contents/Info.plist</string>
+        <key>LBUpdateURL</key>
+        <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Toggle Desktop Icons.lbaction/Contents/Info.plist</string>
 
-        <key>LBDownload</key>
+        <key>LBDownloadURL</key>
         <string>https://v0.io/dl/launchbar/Toggle Desktop Icons.lbaction.zip</string>
 	</dict>
 	<key>LBMinimumLaunchBarVersion</key>

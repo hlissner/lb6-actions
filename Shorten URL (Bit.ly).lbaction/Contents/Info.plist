@@ -93,10 +93,10 @@
         <!-- <key>LBRequirements</key> -->
         <!-- <string></string> -->
 
-        <key>LBUpdate</key>
-        <string>https://github.com/hlissner/lb6-actions/blob/master/Shorten URL (Bit.ly).lbaction/Contents/Info.plist</string>
+        <key>LBUpdateURL</key>
+        <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Shorten URL (Bit.ly).lbaction/Contents/Info.plist</string>
 
-        <key>LBDownload</key>
+        <key>LBDownloadURL</key>
         <string>https://v0.io/dl/launchbar/Shorten URL (Bit.ly).lbaction.zip</string>
     </dict>
 

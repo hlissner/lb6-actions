@@ -94,10 +94,10 @@
         <key>LBRequirements</key>
         <string>Skype must be running and in a call.</string>
 
-        <key>LBUpdate</key>
-        <string>https://github.com/hlissner/lb6-actions/blob/master/Toggle Skype Mic.lbaction/Contents/Info.plist</string>
+        <key>LBUpdateURL</key>
+        <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Toggle Skype Mic.lbaction/Contents/Info.plist</string>
 
-        <key>LBDownload</key>
+        <key>LBDownloadURL</key>
         <string>https://v0.io/dl/launchbar/Toggle Skype Mic.lbaction.zip</string>
     </dict>
 

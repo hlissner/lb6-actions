@@ -93,10 +93,10 @@
         <key>LBRequirements</key>
         <string>Requires PHP</string>
 
-        <key>LBUpdate</key>
-        <string>https://github.com/hlissner/lb6-actions/blob/master/Strip Tags.lbaction/Contents/Info.plist</string>
+        <key>LBUpdateURL</key>
+        <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Strip Tags.lbaction/Contents/Info.plist</string>
 
-        <key>LBDownload</key>
+        <key>LBDownloadURL</key>
         <string>https://v0.io/dl/launchbar/Strip Tags.lbaction.zip</string>
     </dict>
 

@@ -99,10 +99,10 @@
         <key>LBRequirements</key>
         <string>You must have ImageAlpha and/or ImageOptim installed.</string>
 
-        <key>LBUpdate</key>
-        <string>https://github.com/hlissner/lb6-actions/blob/master/Optimize Image.lbaction/Contents/Info.plist</string>
+        <key>LBUpdateURL</key>
+        <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Optimize Image.lbaction/Contents/Info.plist</string>
 
-        <key>LBDownload</key>
+        <key>LBDownloadURL</key>
         <string>https://v0.io/dl/launchbar/Optimize Image.lbaction.zip</string>
     </dict>
 

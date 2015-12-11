@@ -96,10 +96,10 @@
         <key>LBRequirements</key>
         <string>iTunes must be running and playing a song.</string>
 
-        <key>LBUpdate</key>
-        <string>https://github.com/hlissner/lb6-actions/blob/master/Rate Current Song.lbaction/Contents/Info.plist</string>
+        <key>LBUpdateURL</key>
+        <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Rate Current Song.lbaction/Contents/Info.plist</string>
 
-        <key>LBDownload</key>
+        <key>LBDownloadURL</key>
         <string>https://v0.io/dl/launchbar/Rate Current Song.lbaction.zip</string>
     </dict>
 

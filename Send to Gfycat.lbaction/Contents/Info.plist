@@ -92,10 +92,10 @@
         <!-- <key>LBRequirements</key> -->
         <!-- <string>You must have the haste gem installed</string> -->
 
-        <key>LBUpdate</key>
-        <string>https://github.com/hlissner/lb6-actions/blob/master/Send to Gfycat.lbaction/Contents/Info.plist</string>
+        <key>LBUpdateURL</key>
+        <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Send to Gfycat.lbaction/Contents/Info.plist</string>
 
-        <key>LBDownload</key>
+        <key>LBDownloadURL</key>
         <string>https://v0.io/dl/launchbar/Send to Gfycat.lbaction.zip</string>
     </dict>
 

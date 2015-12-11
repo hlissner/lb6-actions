@@ -90,10 +90,10 @@
         <key>LBRequirements</key>
         <string>An internet connection</string>
 
-        <key>LBUpdate</key>
-        <string>https://github.com/hlissner/lb6-actions/blob/master/Temperature In.lbaction/Contents/Info.plist</string>
+        <key>LBUpdateURL</key>
+        <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Temperature In.lbaction/Contents/Info.plist</string>
 
-        <key>LBDownload</key>
+        <key>LBDownloadURL</key>
         <string>http://dl.v0.io/launchbar/Temperature In.lbaction</string>
     </dict>
 

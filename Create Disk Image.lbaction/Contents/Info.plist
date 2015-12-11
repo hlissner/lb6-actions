@@ -20,10 +20,10 @@
 		<string></string>
 		<key>LBWebsite</key>
 		<string>http://v0.io/launchbar</string>
-        <key>LBUpdate</key>
-        <string>https://github.com/hlissner/lb6-actions/blob/master/Create Disk Image.lbaction/Contents/Info.plist</string>
+        <key>LBUpdateURL</key>
+        <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Create Disk Image.lbaction/Contents/Info.plist</string>
 
-        <key>LBDownload</key>
+        <key>LBDownloadURL</key>
         <string>https://v0.io/dl/launchbar/Create Disk Image.lbaction.zip</string>
 	</dict>
 	<key>LBScripts</key>

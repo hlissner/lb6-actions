@@ -67,13 +67,13 @@
         <string>Henrik Lissner</string>
 
         <key>LBWebsite</key>
-        <string>http://henrik.io</string>
+        <string>http://v0.io/launchbar</string>
 
         <key>LBEmail</key>
         <string>henrik@lissner.net</string>
 
         <key>LBTwitter</key>
-        <string>@HenrikLissner</string>
+        <string>@vnought</string>
 
         <!-- A short summary about what the action does and how it’s used. -->
         <key>LBSummary</key>
