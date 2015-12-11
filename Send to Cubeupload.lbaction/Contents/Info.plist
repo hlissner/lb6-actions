@@ -93,7 +93,7 @@
         <!-- <string>You must have the haste gem installed</string> -->
 
         <key>LBUpdateURL</key>
-        <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Send to CubeUpload.lbaction/Contents/Info.plist</string>
+        <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Send to Cubeupload.lbaction/Contents/Info.plist</string>
 
         <key>LBDownloadURL</key>
         <string>https://v0.io/dl/launchbar/Send to CubeUpload.lbaction.zip</string>
