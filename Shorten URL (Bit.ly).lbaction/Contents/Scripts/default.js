@@ -1,7 +1,7 @@
-include("shared/lib.js");
-include("shared/notify.js");
-include("shared/request.js");
-include("shared/url.js");
+include("shared/lib/lib.js");
+include("shared/lib/notify.js");
+include("shared/lib/request.js");
+include("shared/lib/url.js");
 
 var API_URL = "https://api-ssl.bitly.com";
 

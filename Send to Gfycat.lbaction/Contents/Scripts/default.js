@@ -1,6 +1,6 @@
-include("shared/lib.js");
-include("shared/path.js");
-include("shared/notify.js");
+include("shared/lib/lib.js");
+include("shared/lib/path.js");
+include("shared/lib/notify.js");
 
 var URL_PREFIX = 'http://gfycat.com/';
 

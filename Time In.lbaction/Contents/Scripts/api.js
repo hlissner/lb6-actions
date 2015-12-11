@@ -1,7 +1,7 @@
-include("shared/lib.js");
-include("shared/request.js");
-include("shared/cache.js");
-include("shared/history.js");
+include("shared/lib/lib.js");
+include("shared/lib/request.js");
+include("shared/lib/cache.js");
+include("shared/lib/history.js");
 
 var API = {
     URL_PREFIX: "https://maps.googleapis.com/maps/api",

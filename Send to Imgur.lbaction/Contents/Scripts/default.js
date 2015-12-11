@@ -1,8 +1,8 @@
 /*global Lib*/
 
-include("shared/lib.js");
-include("shared/notify.js");
-include("shared/url.js");
+include("shared/lib/lib.js");
+include("shared/lib/notify.js");
+include("shared/lib/url.js");
 
 var API_URL = "http://api.imgur.com/2/upload";
 var SS_PATH = "/tmp/send2imgur.png";

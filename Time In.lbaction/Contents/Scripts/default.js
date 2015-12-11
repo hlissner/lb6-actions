@@ -1,6 +1,6 @@
 /*global Lib,API*/
 
-include("shared/notify.js");
+include("shared/lib/notify.js");
 
 include("api.js");
 

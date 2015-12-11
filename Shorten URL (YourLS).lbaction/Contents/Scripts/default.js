@@ -1,6 +1,6 @@
-include("shared/notify.js");
-include("shared/request.js");
-include("shared/url.js");
+include("shared/lib/notify.js");
+include("shared/lib/request.js");
+include("shared/lib/url.js");
 
 function runWithString(url) {
     // Generate default preferences

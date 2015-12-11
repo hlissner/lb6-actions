@@ -1,6 +1,6 @@
-include("shared/lib.js");
-include("shared/cache.js");
-include("shared/notify.js");
+include("shared/lib/lib.js");
+include("shared/lib/cache.js");
+include("shared/lib/notify.js");
 
 var API = {
     URL: 'http://api.cdnjs.com/libraries',

@@ -1,4 +1,4 @@
-include("shared/history.js");
+include("shared/lib/history.js");
 
 function runWithString(address) {
     return Lib.History.suggestions(address).map(function(loc) {

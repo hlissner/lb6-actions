@@ -3,6 +3,16 @@ include("shared/lib/path.js");
 include("shared/lib/notify.js");
 
 function runWithPaths(paths) {
+    if (Action.preferences.ImageOptim_path === undefined) {
+        Action.preferences.ImageOptim_path = "/Applications/ImageOptim.app";
+    }
+    if (Action.preferences.ImageAlpha_path === undefined) {
+        Action.preferences.ImageAlpha_path = "/Applications/ImageAlpha.app";
+    }
+    if (LaunchBar.options.commandKey) {
+        return Lib.Notify.force_prompt();
+    }
+
     try {
         if (paths.length > 1) {
             // Only show a this message if more than 1 file
@@ -84,8 +94,8 @@ function optimize(path) {
     var ext = path.split('.').pop();
 
     if (ext === "png") {
-        if (File.exists("/Applications/ImageAlpha.app")) {
-            LaunchBar.execute('/Applications/ImageAlpha.app/Contents/MacOS/pngquant', '--force', '--ext', '.png', path);
+        if (File.exists(Action.preferences.ImageAlpha_path)) {
+            LaunchBar.execute(Action.preferences.ImageAlpha_path + '/Contents/Resources/pngquant', '--force', '--ext', '.png', path);
             LaunchBar.debugLog("CALL=ImageAlpha");
         } else {
             Lib.Notify.error("ImageAlpha couldn't be found!");
@@ -94,8 +104,8 @@ function optimize(path) {
 
     if (LaunchBar.options.shiftKey) {
         // ImageOptim: https://imageoptim.com
-        if (File.exists("/Applications/ImageOptim.app")) {
-            LaunchBar.execute('/Applications/ImageOptim.app/Contents/MacOS/ImageOptim', path);
+        if (File.exists(Action.preferences.ImageOptim_path)) {
+            LaunchBar.execute(Action.preferences.ImageOptim_path + '/Contents/MacOS/ImageOptim', path);
             LaunchBar.debugLog("CALL=ImageOptim");
         } else {
             Lib.Notify.error("ImageOptim couldn't be found!");

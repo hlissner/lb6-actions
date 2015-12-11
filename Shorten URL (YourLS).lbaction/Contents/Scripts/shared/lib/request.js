@@ -5,8 +5,8 @@
  * propogate changes.
  */
 
-include("shared/lib.js");
-include("shared/url.js");
+include("shared/lib/lib.js");
+include("shared/lib/url.js");
 
 var Lib = Lib || {};
 
