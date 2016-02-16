@@ -1,3 +1,4 @@
+include("shared/lib/lib.js");
 include("shared/lib/notify.js");
 
 function runWithString(string) {
@@ -48,8 +49,8 @@ function runWithString(string) {
  * @return {string} - The formatted number
  */
 function format(nstr, base, from) {
-    assert(typeof nstr == "string", "format(" + nstr + ", ...): not a string!");
-    assert(isNumeric(base), "format(..., " + base + "): not a number!");
+    Lib.assert(typeof nstr == "string", "format(" + nstr + ", ...): not a string!");
+    Lib.assert(isNumeric(base), "format(..., " + base + "): not a number!");
 
     if (base == 2 && from != 2) {
         var log = Math.log2(from);
@@ -73,9 +74,9 @@ function format(nstr, base, from) {
  * @return {bool}   data.guessed - Whether or not data.from was guessed from data.num
  */
 function parse(string) {
-    assert(typeof string == "string", "parse(string): not an string!");
-    assert(string.trim() != "", "parse(string): string is empty!");
-    assert(string.search(/[^0-9a-zA-Z,._ ]+/) == -1, "Invalid input!");
+    Lib.assert(typeof string == "string", "parse(string): not an string!");
+    Lib.assert(string.trim() != "", "parse(string): string is empty!");
+    Lib.assert(string.search(/[^0-9a-zA-Z,._ ]+/) == -1, "Invalid input!");
 
     parts = string.split(" ");
     if (parts.length == 1) {
@@ -114,8 +115,8 @@ function parse(string) {
  * @return {float} - The converted number in decimal
  */
 function to10(num, from) {
-    assert(typeof num == "string", "to10(" + num + ", ...): not a string!");
-    assert(isNumeric(from), "to10(..., " + from + "): not a number!");
+    Lib.assert(typeof num == "string", "to10(" + num + ", ...): not a string!");
+    Lib.assert(isNumeric(from), "to10(..., " + from + "): not a number!");
 
     if (from == 10) {
         return parseFloat(num);
@@ -149,8 +150,8 @@ function to10(num, from) {
  * @return {Number} - Converted amount in new base
  */
 function from10(num, to) {
-    assert(isNumeric(num), "from10(" + num + ", ...): not a number!");
-    assert(isNumeric(to),  "from10(..., " + to + "): not a number!");
+    Lib.assert(isNumeric(num), "from10(" + num + ", ...): not a number!");
+    Lib.assert(isNumeric(to),  "from10(..., " + to + "): not a number!");
 
     return num.toString(to);
 }
@@ -163,7 +164,7 @@ function from10(num, to) {
  * @return {int} - The guessed radix
  */
 function guessBase(nstr) {
-    assert(typeof nstr == "string", "guessBase(nstr): not an string!");
+    Lib.assert(typeof nstr == "string", "guessBase(nstr): not an string!");
 
     if (!LaunchBar.options.shiftKey) {
         if (nstr.search(/[g-z]+/) != -1) {
