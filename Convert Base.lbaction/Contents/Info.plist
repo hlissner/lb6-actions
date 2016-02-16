@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+
+    <key>CFBundleIdentifier</key>
+    <string>io.henrik.launchbar.ConvertBase</string>
+
+    <key>CFBundleName</key>
+    <string>Convert Base</string>
+
+    <!-- <key>CFBundleShortVersionString</key> -->
+    <!-- <value>1.0</value> -->
+
+    <key>CFBundleVersion</key>
+    <string>1.0.0</string>
+
+    <key>CFBundleIconFile</key>
+    <string>icon</string>
+
+    <key>LBDebugLogEnabled</key>
+    <false />
+
+    <!-- LB stuff -->
+    <!-- <key>LSMinimumSystemVersion</key> -->
+    <!-- <string>10.9.1</string> -->
+
+    <!-- <key>LBMinimumLaunchBarVersion</key> -->
+    <!-- <string>6011</string> -->
+
+    <!-- Per-action keys -->
+    <key>LBTextInputTitle</key>
+    <string>Convert</string>
+
+    <key>LBScripts</key>
+    <dict>
+        <key>LBDefaultScript</key>
+        <dict>
+            <key>LBScriptName</key>
+            <string>default.js</string>
+
+            <key>LBRequiresArgument</key>
+            <true />
+
+            <key>LBAcceptedArgumentTypes</key>
+            <array>
+                <string>string</string>
+            </array>
+
+            <key>LBReturnsResult</key>
+            <true />
+        </dict>
+
+        <key>LBSuggestionsScript</key>
+        <dict>
+            <key>LBScriptName</key>
+            <string>suggestions.js</string>
+
+            <key>LBBackgroundKillEnabled</key>
+            <true />
+        </dict>
+    </dict>
+
+    <key>LBDescription</key>
+    <dict>
+        <key>LBAuthor</key>
+        <string>Henrik Lissner</string>
+
+        <key>LBWebsite</key>
+        <string>http://v0.io/launchbar</string>
+
+        <key>LBEmail</key>
+        <string>henrik@lissner.net</string>
+
+        <key>LBTwitter</key>
+        <string>@vnought</string>
+
+        <key>LBSummary</key>
+        <string>Converts a number from any base (up to base-36) to any other base (up to base-36)</string>
+
+        <key>LBArgument</key>
+        <string>&lt;NUMBER&gt;[[ &lt;RADIX-FROM&gt;] &lt;RADIX-TO&gt;]</string>
+
+        <key>LBResult</key>
+        <string>The converted number</string>
+
+        <key>LBUpdateURL</key>
+        <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Convert Base.lbaction/Contents/Info.plist</string>
+
+        <key>LBDownloadURL</key>
+        <string>http://dl.v0.io/launchbar/Convert Base.lbaction</string>
+    </dict>
+
+</dict>
+</plist>
