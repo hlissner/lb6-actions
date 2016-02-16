@@ -20,18 +20,18 @@ function runWithString(string) {
         return [
             {
                 title: formatted_result,
-                subtitle: "Result",
-                label: "Base " + data.to
+                label: "Base " + data.to,
+                icon: "CalculatorResult",
+                children: [{
+                    title: result,
+                    subtitle: "Unformatted result",
+                    label: "Base " + data.to
+                }]
             },
-            formatted_result != result ? {
-                title: result,
-                subtitle: "Unformatted result",
-                label: "Base " + data.to
-            } : {},
             {
                 title: format(data.num, data.from),
-                subtitle: "From",
-                label: "Base " + data.from + (data.guessed ? " (guessed)" : "")
+                label: "Base " + data.from + (data.guessed ? " (guessed)" : ""),
+                icon: "CalculatorResultHistory"
             }
         ];
     } catch (err) {
