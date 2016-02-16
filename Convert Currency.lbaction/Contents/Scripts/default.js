@@ -19,8 +19,10 @@ function runWithString(string) {
 
         var rate = API.get_rate(from, to);
         Lib.History.add(string);
-        if (LaunchBar.options.controlKey)
-            History.clear();
+        if (LaunchBar.options.controlKey) {
+            Lib.History.clear();
+            clearCache(from, to);
+        }
 
         var new_amt = Math.round(((amt * rate) * 100).toFixed(0)) / 100;
 
@@ -43,8 +45,14 @@ function runWithString(string) {
             }
         ];
     } catch (err) {
-        Lib.Cache.clear(from + "-" + to);
-        Lib.Cache.clear(to + "-" + from);
+        if (from && to) {
+            clearCache(from, to);
+        }
         Lib.Notify.error(err);
     }
+}
+
+function clearCache(from, to) {
+    Lib.Cache.clear(from + "-" + to);
+    Lib.Cache.clear(to + "-" + from);
 }

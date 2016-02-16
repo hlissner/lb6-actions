@@ -50,6 +50,9 @@ var API = {
                 throw "You have not supplied a valid API Access Key. Please go into"
                     + " your preferences and set your api_key.\n\nAn api key can "
                     + "be acquired from https://currencylayer.com/ (it's free).";
+        } else if (Action.preferences.api_key.match(/[^a-zA-Z0-9]/g)) {
+            // filter out invalid characters from api key
+            Action.preferences.api_key = Action.preferences.api_key.match(/[a-zA-Z0-9]+/g)[0];
         }
 
         // Normalize case, just in case

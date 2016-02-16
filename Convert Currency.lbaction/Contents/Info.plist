@@ -13,7 +13,7 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>2.2.3</string>
+    <string>2.2.4</string>
 
     <key>CFBundleIconFile</key>
     <string>money_silver</string>
@@ -88,7 +88,10 @@
         <string>An API key from currencylayer.com (free)</string>
 
         <key>LBChangelog</key>
-        <string>Now accepts commas in currency amounts</string>
+        <string>
+            2.2.4: Better error handling and post-error clean-up; more forgiving of malformed API keys
+            2.2.3: Now accepts commas in currency amounts
+        </string>
 
         <key>LBUpdateURL</key>
         <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Convert Currency.lbaction/Contents/Info.plist</string>
