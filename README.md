@@ -1,6 +1,6 @@
 # LaunchBar 6 actions
 
-Custom actios for [LaunchBar 6](http://obdev.at/products/launchbar). Brewed myself,
+Custom actions for [LaunchBar 6](http://obdev.at/products/launchbar). Brewed myself,
 juryrigged from old applescripts, or contributed by contributors!
 
 > Have a suggestion or request? [Create a new
