@@ -13,7 +13,7 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.0.0</string>
+    <string>1.0.2</string>
 
     <key>CFBundleIconFile</key>
     <string>icon</string>
@@ -76,13 +76,20 @@
         <string>@vnought</string>
 
         <key>LBSummary</key>
-        <string>Converts a number from any base (up to base-36) to any other base (up to base-36)</string>
+        <string>Converts a number from any base N to any base M, where 2 &lt;= N/M &lt;= 36</string>
 
         <key>LBArgument</key>
         <string>&lt;NUMBER&gt;[[ &lt;RADIX-FROM&gt;] &lt;RADIX-TO&gt;]</string>
 
         <key>LBResult</key>
         <string>The converted number</string>
+
+        <key>LBChangelog</key>
+        <string>
+            1.0.2: Now converts live! + Converts to multiple bases if no destination is provided.
+            1.0.1: Added new icons for results
+            1.0.0: Brand spankin' new!
+        </string>
 
         <key>LBUpdateURL</key>
         <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Convert Base.lbaction/Contents/Info.plist</string>
