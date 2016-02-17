@@ -1,4 +1,2 @@
 .DS_Store
 .tern-port
-*.lbaction/Contents/Scripts/shared/
-*.lbext/Contents/Resources/Actions/*.lbaction/Contents/Scripts/shared/

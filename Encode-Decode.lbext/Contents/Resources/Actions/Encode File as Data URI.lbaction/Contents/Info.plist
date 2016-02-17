@@ -24,7 +24,7 @@
     <!-- LB stuff -->
     <!-- <key>LSMinimumSystemVersion</key> -->
     <!-- <string>10.9.1</string> -->
-    
+
     <!-- Per-action keys -->
     <!-- <key>LBTextInputTitle</key> -->
     <!-- <string>Rate</string> -->
@@ -64,7 +64,7 @@
         <string>http://v0.io/launchbar</string>
 
         <key>LBEmail</key>
-        <string>henrik@lissner.net</string>
+        <string>contact@henrik.io</string>
 
         <key>LBTwitter</key>
         <string>@vnought</string>
