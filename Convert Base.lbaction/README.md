@@ -3,6 +3,8 @@
 Converts a number in any base N to base M (where N and M are greater than 2 and less than
 36).
 
+![Base Convert Screenshot](img/01.gif)
+
 ## Installation
 
 [Download the action](https://v0.io/dl/launchbar/Base%20Convert.lbaction.zip), unzip it,
