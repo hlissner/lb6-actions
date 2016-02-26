@@ -1,7 +1,6 @@
 # Base Convert
 
-Converts a number in any base N to base M (where N and M are greater than 2 and less than
-36).
+Converts a number in any base N to base M (where N and M >= 2 and <= 36).
 
 ![Base Convert Screenshot](img/01.gif)
 
