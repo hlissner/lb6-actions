@@ -16,6 +16,12 @@ Download links are below.
 anyway, you need to run `rake` before any of the lbaction files are
 ready for installation.
 
+## Auto-updating
+
+I recommend you also install Pregnagha's
+[Action Updates action](http://prenagha.github.io/launchbar/updates.html),
+for auto-updating actions. All of mine are compatible with his updater.
+
 ## Actions
 
 Action                   | Version | Updated     | Links                        | Description
@@ -64,12 +70,6 @@ VPN                      |         |             | [Download](https://v0.io/dl/l
 * Trello: Search, add, send to, stats, etc.
 
 If you've taken a stab at one of these, let me know!
-
-## Auto-updating
-
-All these actions are compatible with Pregnagha's
-[Action Updates action](http://prenagha.github.io/launchbar/updates.html),
-for auto-updating actions.
 
 ## Other LB6 actions and developers
 
