@@ -18,7 +18,7 @@ ready for installation.
 
 ## Auto-updating
 
-I recommend you also install Pregnagha's
+I recommend you also install Prenagha's
 [Action Updates action](http://prenagha.github.io/launchbar/updates.html),
 for auto-updating actions. All of mine are compatible with his updater.
 
