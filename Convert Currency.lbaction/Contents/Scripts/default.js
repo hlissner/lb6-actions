@@ -7,17 +7,21 @@ function runWithString(string) {
         return Lib.Notify.force_prompt();
     }
 
-    string = string.trim();
     try {
-        var match = string.replace(",","").match(/([\d\.]+)\s*([\w]{3})\s*(to|in|:)\s*([\w]{3})/);
+        string = string.trim();
+        var match = string
+            .replace(",","")
+            .match(/([\d\.]+)\s*([\w]{3})\s*(to|in|:)\s*([\w]{3})/);
         if (match === null || match.length != 5)
             throw "Your input wasn't formatted correctly!\n\nProper example: 100 USD to JPY";
 
-        var amt = parseFloat(match[1]).toFixed(2);
+        // Parse 'n prepare input
+        var amt  = parseFloat(match[1]).toFixed(2);
         var from = match[2].toUpperCase();
-        var to = match[4].toUpperCase();
-
+        var to   = match[4].toUpperCase();
         var rate = API.get_rate(from, to);
+
+        // Cache rate
         Lib.History.add(string);
         if (LaunchBar.options.controlKey) {
             Lib.History.clear();
@@ -45,9 +49,7 @@ function runWithString(string) {
             }
         ];
     } catch (err) {
-        if (from && to) {
-            clearCache(from, to);
-        }
+        if (from && to) clearCache(from, to);
         Lib.Notify.error(err);
     }
 }

@@ -26,6 +26,37 @@ Lib.prompt = function(question) {
 };
 
 /**
+ *
+ */
+Lib.choosePrompt = function(question, choices, title,
+                            ok_label, cancel_label,
+                            default_value) {
+    if (!title || title.trim() == "") {
+        title = "Give a choice";
+    }
+    if (!ok_label) {
+        ok_label = "Ok";
+    }
+    if (!cancel_label) {
+        cancel_label = "Cancel";
+    }
+
+    var input = LaunchBar.executeAppleScript(
+        'choose from list {"' + choices.join(", ") + '"}' +
+            ' with title "' + title + '"' +
+            ' with prompt "' + question + '"' +
+            ' OK button name "' + ok_label + '"' +
+            ' cancel button name "' + ok_label + '"' +
+            ' default items {"' + default_value + '"}'
+    ).trim();
+
+    if (input.length === 0)
+        return false;
+
+    return input;
+};
+
+/**
  * Generate a unique ID of specified length.
  *
  * @param {int} len Length of the ID to generate
@@ -43,6 +74,11 @@ Lib.genUID = function(len) {
     return text;
 };
 
+/**
+ * Copy a string to the clipboard.
+ *
+ * @param {string} string The text to copy to the clipboard
+ */
 Lib.copy = function(string) {
     LaunchBar.executeAppleScript('set the clipboard to "' + string.replace(/"/g, '\"') + "\"");
 };
@@ -95,5 +131,21 @@ String.prototype.wrap = function(width) {
 Lib.assert = function(condition, message) {
     if (!condition) {
         throw message || "Assertion failed";
+    }
+};
+
+/**
+ * Asserts that a value is a certain datatype, otherwise throw an error.
+ *
+ * @param {mixed} value - The value to be tested
+ * @param {string} type - The expected datatype
+ * @param {bool} optional - Whether 'undefined' or 'null' are acceptable values
+ */
+Lib.assertType = function(value, type, optional) {
+    if (optional && (value == undefined || value == null)) {
+        return;
+    }
+    if (typeof value != type) {
+        throw "Expected " + type + ", got " + typeof value;
     }
 };

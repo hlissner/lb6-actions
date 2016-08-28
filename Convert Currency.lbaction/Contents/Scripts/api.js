@@ -41,7 +41,7 @@ var API = {
     get_rate: function(from, to) {
         if (from.length != 3 || to.length != 3) {
             throw "The currencies are not properly formatted. Here is an example: 24 "
-            + "USD to EUR";
+                + "USD to EUR";
         }
         if (Action.preferences.api_key === undefined ||
             Action.preferences.api_key === "" ||
@@ -57,27 +57,36 @@ var API = {
 
         // Normalize case, just in case
         from = from.toUpperCase();
-        to = to.toUpperCase();
+        to   = to.toUpperCase();
 
-        var key = from + "-" + to;
-        var rate = Lib.Cache.get(key, true);
-        if (!rate || LaunchBar.options.controlKey){
-            var data = Lib.Request.getJSON(
-                this.URL,
-                {access_key: Action.preferences.api_key, currencies: from + "," + to});
-            if (data.success === false) {
-                throw "API Error: " + data.error.info + ", key: " + Action.preferences.api_key;
-            }
-            from_rate = parseFloat(data.quotes["USD" + from]);
-            to_rate = parseFloat(data.quotes["USD" + to]);
-            rate = ((1 / from_rate) * to_rate);
-
-            // currencylayer (free) updates rates every hour, so we cache them,
-            // and cache them both ways for posterity.
-            Lib.Cache.set(key, rate, 3600);
-            Lib.Cache.set(to + "-" + from, 1/rate, 3600);
+        // Pull from cache, if available (check both ways)
+        var key  = from + "-" + to;
+        var data = Lib.Cache.get(key, true);
+        if (!data) {
+            data = Lib.Cache.get(to + "-" + from);
+            if (typeof data === "object")
+                data.rate = 1/data.rate;
         }
 
-        return rate;
+        // Request updated rates
+        if (!data || typeof data !== "object" || LaunchBar.options.controlKey) {
+            var req = Lib.Request.getJSON(
+                this.URL,
+                {access_key: Action.preferences.api_key, currencies: from + "," + to});
+            if (req.success === false) {
+                throw "API Error: " + req.error.info + ", key: " + Action.preferences.api_key;
+            }
+
+            data = {
+                from: parseFloat(req.quotes["USD" + from]),
+                to:   parseFloat(req.quotes["USD" + to])
+            };
+            data.rate = (1 / data.from) * data.to;
+
+            // currencylayer (free) updates rates every hour, so we cache them
+            Lib.Cache.set(key, data, 3600);
+        }
+
+        return data.rate;
     }
 };

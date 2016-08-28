@@ -13,7 +13,7 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>2.2.4</string>
+    <string>2.2.5</string>
 
     <key>CFBundleIconFile</key>
     <string>money_silver</string>
@@ -89,6 +89,7 @@
 
         <key>LBChangelog</key>
         <string>
+            2.2.5: Minor refactor
             2.2.4: Better error handling and post-error clean-up; more forgiving of malformed API keys
             2.2.3: Now accepts commas in currency amounts
         </string>

@@ -13,11 +13,15 @@ Lib.Notify = {
         msg = msg || "There was an unexpected error.";
         var args = [header, msg, "Ignore", "Report"];
 
+        if (typeof msg === "object")
+            msg += "\n\n" + e.stack;
+
         if (File.exists(Action.supportPath + "/Preferences.plist"))
             args.push("Preferences");
 
-        if (data)
+        if (data) {
             LaunchBar.debugLog("ERROR: DATA=" + (data instanceof Object ? JSON.stringify(data) : data));
+        }
 
         switch (LaunchBar.alert.apply(LaunchBar, args)) {
             case 1:
