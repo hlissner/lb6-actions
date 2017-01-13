@@ -1,6 +1,6 @@
 # Convert Currency
 
-Converts all the money you wish you had. Uses [currencylayer.com](currencylayer.com).
+Converts all the money you wish you had. Uses [currencylayer.com](https://currencylayer.com/).
 
 ![](img/01.png)
 
@@ -10,7 +10,7 @@ It autocompletes your currencies too!
 
 ## Installation
 
-You need an API key from [currencylayer.com](currencylayer.com) (it's free).
+You need an API key from [currencylayer.com](https://currencylayer.com/) (it's free).
 
 1. On first run, you will get this prompt:
 
