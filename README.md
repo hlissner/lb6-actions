@@ -3,10 +3,10 @@
 Custom actions for [LaunchBar 6](http://obdev.at/products/launchbar). Brewed myself,
 juryrigged from old applescripts, or contributed by contributors!
 
-> I no longer use LB6 (and am weening myself of MacOS in general), so I no
-> longer maintain these actions (with the exception of small updates). Sorry!
+> I no longer use LB6 so these actions will no longer be maintained, with the
+> exception of tiny updates. Sorry!
 >
-> For whomever is interested: I am porting most of these actions over to shell
+> For whoever is interested: I am porting many of these actions over to shell
 > scripts in my [dotfiles repo](https://github.com/hlissner/dotfiles).
 
 ## Installation
