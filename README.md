@@ -3,10 +3,11 @@
 Custom actions for [LaunchBar 6](http://obdev.at/products/launchbar). Brewed myself,
 juryrigged from old applescripts, or contributed by contributors!
 
-> Have a suggestion or request? [Create a new
-> issue](https://github.com/hlissner/lb6-actions/issues/new) for it!
-
-Leave a star to encourage me to make more!
+> I no longer use LB6 (and am weening myself of MacOS in general), so I no
+> longer maintain these actions (with the exception of small updates). Sorry!
+>
+> For whomever is interested: I am porting most of these actions over to shell
+> scripts in my [dotfiles repo](https://github.com/hlissner/dotfiles).
 
 ## Installation
 
@@ -39,7 +40,7 @@ Hastebin                 |         |             | [Download](https://v0.io/dl/l
 Is Site Up               |         |             | [Download](https://v0.io/dl/launchbar/Is%20Site%20Up.lbaction.zip),               [README](Is%20Site%20Up.lbaction               ) | Checks if a website is up using downforeveryoneorjustme.com
 Learn X in Y Minutes     |         |             | [Download](https://v0.io/dl/launchbar/Learn%20X%20in%20Y%20Minutes.lbaction.zip), [README](Learn%20X%20in%20Y%20Minutes.lbaction ) | look up summaries for different programming languages--great for us polyglot programmers
 Number Trivia            |         |             | [Download](https://v0.io/dl/launchbar/Number%20Trivia.lbaction.zip),              [README](Number%20Trivia.lbaction              ) | gives you random trivia for a number you specify. Leave it blank for a random number
-Optimize Image           |         |             | [Download](https://v0.io/dl/launchbar/Optimize%20Image.lbaction.zip),             [README](Optimize%20Image.lbaction             ) | Reduces the size of images with ImageAlpha--and ImageOptim if you hold shift
+Optimize Image           |  v1.4.3 | Jun 30, '17 | [Download](https://v0.io/dl/launchbar/Optimize%20Image.lbaction.zip),             [README](Optimize%20Image.lbaction             ) | Reduces the size of images with ImageAlpha--and ImageOptim if you hold shift
 Rate Current Song        |         |             | [Download](https://v0.io/dl/launchbar/Rate%20Current%20Song.lbaction.zip),        [README](Rate%20Current%20Song.lbaction        ) | Rate the currently playing song in iTunes
 Screenshot               |         |             | [Download](https://v0.io/dl/launchbar/Screenshot.lbaction.zip),                   [README](Screenshot.lbaction                   ) | Takes a screenshot, optimizes the result and selects it in LaunchBar
 Search CDNJS             |         |             | [Download](https://v0.io/dl/launchbar/Search%20CDNJS.lbaction.zip),               [README](Search%20CDNJS.lbaction               ) | Search cdnjs.com for js/css libraries
