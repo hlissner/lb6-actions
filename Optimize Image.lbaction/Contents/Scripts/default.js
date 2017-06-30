@@ -93,23 +93,23 @@ function runWithPaths(paths) {
 function optimize(path) {
     var ext = path.split('.').pop();
 
-    if (ext === "png") {
-        if (File.exists(Action.preferences.ImageAlpha_path)) {
-            LaunchBar.execute(Action.preferences.ImageAlpha_path + '/Contents/Resources/pngquant', '--force', '--ext', '.png', path);
+    if (ext.toLowerCase() === "png") {
+        var pngquant = Action.preferences.ImageAlpha_path + '/Contents/Resources/pngquant';
+        if (File.exists(bin)) {
+            LaunchBar.execute(bin, '--force', '--ext', '.png', path);
             LaunchBar.debugLog("CALL=ImageAlpha");
         } else {
             Lib.Notify.error("ImageAlpha couldn't be found!");
         }
     }
 
-    if (LaunchBar.options.shiftKey) {
-        // ImageOptim: https://imageoptim.com
-        if (File.exists(Action.preferences.ImageOptim_path)) {
-            LaunchBar.execute(Action.preferences.ImageOptim_path + '/Contents/MacOS/ImageOptim', path);
-            LaunchBar.debugLog("CALL=ImageOptim");
-        } else {
-            Lib.Notify.error("ImageOptim couldn't be found!");
-        }
+    // ImageOptim: https://imageoptim.com
+    var imgoptim = Action.preferences.ImageOptim_path + '/Contents/MacOS/ImageOptim';
+    if (File.exists(imgoptim)) {
+        LaunchBar.execute(imgoptim, path);
+        LaunchBar.debugLog("CALL=ImageOptim");
+    } else {
+        LaunchBar.log("ImageOptim not found!");
     }
 
     return filesize(path);

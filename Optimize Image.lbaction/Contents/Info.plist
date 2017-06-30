@@ -13,7 +13,7 @@
     <!-- <value>1.0</value> -->
 
     <key>CFBundleVersion</key>
-    <string>1.4.1</string>
+    <string>1.4.3</string>
 
     <key>CFBundleIconFile</key>
     <string>at.obdev.LaunchBar:Image_Compress</string>
