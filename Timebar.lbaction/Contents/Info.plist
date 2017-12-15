@@ -106,7 +106,7 @@
         <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Timebar.lbaction/Contents/Info.plist</string>
 
         <key>LBDownloadURL</key>
-        <string>https://v0.io/dl/launchbar/Timebar.lbaction.zip</string>
+        <string>https://dl.v0.io/lb6/Timebar.lbaction.zip</string>
     </dict>
 
 </dict>

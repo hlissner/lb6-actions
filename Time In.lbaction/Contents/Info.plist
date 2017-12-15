@@ -106,7 +106,7 @@
         <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Time In.lbaction/Contents/Info.plist</string>
 
         <key>LBDownloadURL</key>
-        <string>https://v0.io/dl/launchbar/Time In.lbaction.zip</string>
+        <string>https://dl.v0.io/lb6/Time In.lbaction.zip</string>
     </dict>
 
 </dict>

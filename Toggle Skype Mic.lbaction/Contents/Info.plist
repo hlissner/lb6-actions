@@ -98,7 +98,7 @@
         <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Toggle Skype Mic.lbaction/Contents/Info.plist</string>
 
         <key>LBDownloadURL</key>
-        <string>https://v0.io/dl/launchbar/Toggle Skype Mic.lbaction.zip</string>
+        <string>https://dl.v0.io/lb6/Toggle Skype Mic.lbaction.zip</string>
     </dict>
 
 </dict>

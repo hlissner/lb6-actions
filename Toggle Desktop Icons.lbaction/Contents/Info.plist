@@ -33,7 +33,7 @@
         <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Toggle Desktop Icons.lbaction/Contents/Info.plist</string>
 
         <key>LBDownloadURL</key>
-        <string>https://v0.io/dl/launchbar/Toggle Desktop Icons.lbaction.zip</string>
+        <string>https://dl.v0.io/lb6/Toggle Desktop Icons.lbaction.zip</string>
 	</dict>
 	<key>LBMinimumLaunchBarVersion</key>
 	<integer>6</integer>

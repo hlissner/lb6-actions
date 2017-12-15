@@ -92,7 +92,7 @@
         <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Set Status.lbaction/Contents/Info.plist</string>
 
         <key>LBDownloadURL</key>
-        <string>https://v0.io/dl/launchbar/Set Status.lbaction.zip</string>
+        <string>https://dl.v0.io/lb6/Set Status.lbaction.zip</string>
     </dict>
 
 </dict>

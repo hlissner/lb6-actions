@@ -97,7 +97,7 @@
         <string>https://raw.githubusercontent.com/hlissner/lb6-actions/master/Send to Imgur.lbaction/Contents/Info.plist</string>
 
         <key>LBDownloadURL</key>
-        <string>https://v0.io/dl/launchbar/Send to Imgur.lbaction.zip</string>
+        <string>https://dl.v0.io/lb6/Send to Imgur.lbaction.zip</string>
     </dict>
 
 </dict>
