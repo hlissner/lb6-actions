@@ -15,7 +15,7 @@ function run() {
 function runWithPaths(paths) {
     if (Action.preferences.clientID === undefined)
     // https://api.imgur.com/oauth2/addclient
-        Action.preferences.clientID = "CLIENTID";
+        Action.preferences.clientID = "1ef24b069493622";
 
     try {
         var results = paths.map(upload);
